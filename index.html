@@ -15,28 +15,28 @@
 }
 
 :root{
-    --wine:#4b0715;
-    --deep:#65091b;
-    --dark:#7d0d24;
-    --red:#a81735;
-    --cherry:#c5284b;
-    --pink:#e45b78;
-    --soft:#f49aaa;
-    --blush:#ffd5dc;
-    --cream:#fff4f3;
-    --paper:#fffaf8;
-    --ink:#4c1722;
+    --deep:#430716;
+    --wine:#650a20;
+    --burgundy:#7d1029;
+    --red:#a7193d;
+    --cherry:#c52b50;
+    --pink:#e75d7d;
+    --light:#ffb1c0;
+    --blush:#ffdce2;
+    --cream:#fff8f6;
+    --ink:#481522;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     min-height:100vh;
+    overflow-x:hidden;
     font-family:"DM Sans",sans-serif;
     color:var(--ink);
-    overflow-x:hidden;
-    background:
-        radial-gradient(circle at 10% 10%,rgba(255,255,255,.12) 0 2px,transparent 3px),
-        radial-gradient(circle at 80% 30%,rgba(255,255,255,.1) 0 2px,transparent 3px),
-        linear-gradient(135deg,#4b0715,#8d102b 45%,#c52b4c 100%);
+    background:#650a20;
 }
 
 button,input{
@@ -47,235 +47,130 @@ button{
     cursor:pointer;
 }
 
+/* ================= BACKGROUND ================= */
+
 .screen{
     position:fixed;
     inset:0;
     min-height:100vh;
     overflow-y:auto;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     padding:25px;
     opacity:0;
     visibility:hidden;
-    transform:translateY(18px);
-    transition:.55s ease;
+    transform:translateY(25px);
+    transition:opacity .5s ease,transform .5s ease;
 }
 
 .screen.active{
+    position:relative;
     opacity:1;
     visibility:visible;
     transform:translateY(0);
-    position:relative;
 }
 
-.hidden{
-    display:none!important;
+#passwordScreen{
+    background:
+    radial-gradient(circle at 15% 15%,rgba(255,255,255,.08) 0 3px,transparent 4px),
+    radial-gradient(circle at 85% 25%,rgba(255,180,195,.15) 0 4px,transparent 5px),
+    radial-gradient(circle at 30% 85%,rgba(255,255,255,.07) 0 3px,transparent 4px),
+    linear-gradient(145deg,#3e0614,#710b25 48%,#b52246);
 }
 
-/* ---------------- DECOR ---------------- */
+#entranceScreen{
+    background:
+    radial-gradient(circle at 20% 15%,rgba(255,200,210,.2),transparent 22%),
+    linear-gradient(145deg,#510719,#92122f,#c93255);
+}
 
-.decor{
+#mainScreen,
+#letterScreen,
+#songScreen,
+#thoughtScreen,
+#animationScreen,
+#finalScreen{
+    background:
+    radial-gradient(circle at 8% 15%,rgba(255,188,203,.22),transparent 22%),
+    radial-gradient(circle at 90% 85%,rgba(255,255,255,.09),transparent 20%),
+    linear-gradient(145deg,#59091d,#8c1230 48%,#c8395b);
+}
+
+/* ================= DECOR ================= */
+
+.floating-heart{
     position:fixed;
+    color:#ffb5c5;
+    font-size:25px;
+    z-index:1;
     pointer-events:none;
-    z-index:0;
+    animation:floatHeart 4s ease-in-out infinite;
 }
+
+.fh1{left:8%;top:25%}
+.fh2{right:9%;top:43%;animation-delay:1s}
+.fh3{left:15%;bottom:15%;animation-delay:2s}
+.fh4{right:18%;bottom:20%;animation-delay:1.5s}
+
+@keyframes floatHeart{
+    0%,100%{transform:translateY(0) rotate(-8deg)}
+    50%{transform:translateY(-15px) rotate(8deg)}
+}
+
+/* ================= FLOWER ================= */
 
 .flower{
-    width:42px;
-    height:42px;
+    width:70px;
+    height:70px;
     position:relative;
+    display:inline-block;
 }
 
-.flower span{
+.flower .petal{
     position:absolute;
-    width:17px;
-    height:27px;
-    border-radius:80% 20% 80% 20%;
-    background:#f27b96;
-    left:12px;
-    top:2px;
+    width:28px;
+    height:39px;
+    left:21px;
+    top:5px;
+    border-radius:70% 30% 70% 30%;
+    background:linear-gradient(145deg,#ff9bad,#bd2147);
+    border:2px solid #761126;
     transform-origin:bottom center;
 }
 
-.flower span:nth-child(1){transform:rotate(0deg)}
-.flower span:nth-child(2){transform:rotate(72deg)}
-.flower span:nth-child(3){transform:rotate(144deg)}
-.flower span:nth-child(4){transform:rotate(216deg)}
-.flower span:nth-child(5){transform:rotate(288deg)}
+.flower .petal:nth-child(1){transform:rotate(0)}
+.flower .petal:nth-child(2){transform:rotate(72deg)}
+.flower .petal:nth-child(3){transform:rotate(144deg)}
+.flower .petal:nth-child(4){transform:rotate(216deg)}
+.flower .petal:nth-child(5){transform:rotate(288deg)}
 
-.flower i{
+.flower .center{
     position:absolute;
-    width:11px;
-    height:11px;
-    background:#ffd36f;
+    width:17px;
+    height:17px;
     border-radius:50%;
-    left:16px;
-    top:16px;
-}
-
-.d1{top:8%;left:6%;transform:rotate(-18deg)}
-.d2{top:15%;right:7%;transform:rotate(20deg)}
-.d3{bottom:9%;left:8%;transform:rotate(12deg)}
-.d4{bottom:12%;right:6%;transform:rotate(-22deg)}
-
-.heart{
-    color:#ffb0c1;
-    font-size:28px;
-    position:fixed;
-    animation:float 4s ease-in-out infinite;
-    pointer-events:none;
-}
-
-.h1{left:14%;top:25%}
-.h2{right:13%;top:48%;animation-delay:1s}
-.h3{left:20%;bottom:17%;animation-delay:2s}
-
-@keyframes float{
-    0%,100%{transform:translateY(0) rotate(-8deg)}
-    50%{transform:translateY(-14px) rotate(8deg)}
-}
-
-/* ---------------- CAT SVG STYLE ---------------- */
-
-.cat{
-    position:relative;
-    width:180px;
-    height:190px;
-    margin:auto;
-}
-
-.cat .body{
-    position:absolute;
-    width:92px;
-    height:100px;
-    left:44px;
-    bottom:4px;
-    border-radius:48% 48% 35% 35%;
-    background:#fff0ed;
-    border:4px solid #5b1725;
-}
-
-.cat .head{
-    position:absolute;
-    width:112px;
-    height:100px;
-    left:34px;
-    top:22px;
-    background:#fff8f5;
-    border:4px solid #5b1725;
-    border-radius:48% 48% 44% 44%;
+    background:#ffd06a;
+    border:2px solid #76202d;
+    left:26px;
+    top:27px;
     z-index:3;
 }
 
-.cat .ear{
-    position:absolute;
-    width:43px;
-    height:48px;
-    background:#fff8f5;
-    border:4px solid #5b1725;
-    top:0;
-    z-index:2;
-}
-
-.cat .ear.left{
-    left:35px;
-    transform:rotate(-28deg);
-    border-radius:15px 45px 10px 40px;
-}
-
-.cat .ear.right{
-    right:35px;
-    transform:rotate(28deg);
-    border-radius:45px 15px 40px 10px;
-}
-
-.cat .inner-ear{
-    position:absolute;
-    width:22px;
-    height:25px;
-    background:#e98298;
-    border-radius:50%;
-    top:12px;
-}
-
-.cat .ear.left .inner-ear{left:9px}
-.cat .ear.right .inner-ear{right:9px}
-
-.cat .eye{
-    position:absolute;
-    width:10px;
-    height:14px;
-    background:#4c1722;
-    border-radius:50%;
-    top:56px;
-}
-
-.cat .eye.left{left:29px}
-.cat .eye.right{right:29px}
-
-.cat .nose{
-    position:absolute;
-    width:9px;
-    height:7px;
-    background:#d64c69;
-    border-radius:50%;
-    left:48px;
-    top:72px;
-}
-
-.cat .mouth{
-    position:absolute;
-    width:22px;
-    height:12px;
-    left:43px;
-    top:77px;
-    border-bottom:3px solid #4c1722;
-    border-radius:50%;
-}
-
-.cat .paw{
-    position:absolute;
-    width:33px;
-    height:42px;
-    background:#fff8f5;
-    border:4px solid #5b1725;
-    border-radius:45%;
-    bottom:-5px;
-    z-index:4;
-}
-
-.cat .paw.left{left:30px;transform:rotate(12deg)}
-.cat .paw.right{right:30px;transform:rotate(-12deg)}
-
-.cat .tail{
-    position:absolute;
-    width:70px;
-    height:80px;
-    border:10px solid #fff0ed;
-    border-left-color:transparent;
-    border-bottom-color:transparent;
-    border-radius:50%;
-    right:0;
-    bottom:18px;
-    transform:rotate(35deg);
-}
-
-/* ---------------- CARD ---------------- */
+/* ================= CARD ================= */
 
 .card{
+    width:min(520px,95vw);
+    padding:38px 28px;
+    background:rgba(255,248,246,.96);
+    border-radius:32px;
+    box-shadow:0 25px 70px rgba(35,0,10,.42);
     position:relative;
     z-index:5;
-    width:min(500px,95vw);
-    padding:42px 28px;
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:30px;
-    background:rgba(255,244,243,.94);
-    box-shadow:0 25px 80px rgba(40,0,10,.4);
     text-align:center;
 }
 
-.anime-title{
+.title{
     font-family:"Playfair Display",serif;
     color:var(--wine);
 }
@@ -284,71 +179,226 @@ button{
     font-family:"Caveat",cursive;
 }
 
-.small-note{
+.note{
     font-family:"Caveat",cursive;
-    font-size:20px;
-    color:#9e2a45;
+    font-size:21px;
+    color:#9c2945;
 }
 
-/* ---------------- PASSWORD ---------------- */
+/* ================= CAT ================= */
 
-#passwordScreen{
-    background:
-        radial-gradient(circle at 20% 20%,#bd294a 0 2%,transparent 2.5%),
-        radial-gradient(circle at 80% 70%,#a41635 0 2%,transparent 2.5%),
-        linear-gradient(145deg,#470512,#790c23,#b52345);
+.cat{
+    width:180px;
+    height:195px;
+    position:relative;
+    margin:auto;
 }
 
-.password-card h1{
-    font-size:42px;
+.cat .body{
+    position:absolute;
+    width:92px;
+    height:100px;
+    left:44px;
+    bottom:5px;
+    background:#fff6f1;
+    border:4px solid #521522;
+    border-radius:48% 48% 35% 35%;
+    z-index:1;
+}
+
+.cat .head{
+    position:absolute;
+    width:116px;
+    height:101px;
+    left:32px;
+    top:25px;
+    background:#fffaf7;
+    border:4px solid #521522;
+    border-radius:50%;
+    z-index:3;
+}
+
+.cat .ear{
+    position:absolute;
+    width:47px;
+    height:55px;
+    top:0;
+    background:#fffaf7;
+    border:4px solid #521522;
+    z-index:2;
+}
+
+.cat .ear.left{
+    left:33px;
+    transform:rotate(-28deg);
+    border-radius:15px 45px 10px 40px;
+}
+
+.cat .ear.right{
+    right:33px;
+    transform:rotate(28deg);
+    border-radius:45px 15px 40px 10px;
+}
+
+.cat .ear:after{
+    content:"";
+    position:absolute;
+    width:23px;
+    height:28px;
+    background:#ec91a5;
+    border-radius:50%;
+    top:12px;
+}
+
+.cat .ear.left:after{left:9px}
+.cat .ear.right:after{right:9px}
+
+.cat .eye{
+    position:absolute;
+    width:11px;
+    height:16px;
+    background:#42131e;
+    border-radius:50%;
+    top:57px;
+}
+
+.cat .eye.left{left:30px}
+.cat .eye.right{right:30px}
+
+.cat .eye:after{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    left:3px;
+    top:3px;
+}
+
+.cat .nose{
+    position:absolute;
+    width:10px;
+    height:8px;
+    background:#d94b6b;
+    border-radius:50%;
+    left:49px;
+    top:73px;
+}
+
+.cat .mouth{
+    position:absolute;
+    width:22px;
+    height:13px;
+    left:44px;
+    top:78px;
+    border-bottom:3px solid #521522;
+    border-radius:50%;
+}
+
+.cat .whisker{
+    position:absolute;
+    width:27px;
+    height:2px;
+    background:#8c5260;
+    top:77px;
+}
+
+.cat .w1{left:3px;transform:rotate(8deg)}
+.cat .w2{right:3px;transform:rotate(-8deg)}
+
+.cat .paw{
+    position:absolute;
+    width:34px;
+    height:43px;
+    background:#fffaf7;
+    border:4px solid #521522;
+    border-radius:45%;
+    bottom:-7px;
+    z-index:5;
+}
+
+.cat .paw.left{
+    left:28px;
+    transform:rotate(10deg);
+}
+
+.cat .paw.right{
+    right:28px;
+    transform:rotate(-10deg);
+}
+
+.cat .tail{
+    position:absolute;
+    width:74px;
+    height:84px;
+    right:-1px;
+    bottom:17px;
+    border:10px solid #fff6f1;
+    border-left-color:transparent;
+    border-bottom-color:transparent;
+    border-radius:50%;
+    transform:rotate(35deg);
+    z-index:0;
+}
+
+/* ================= BUTTON ================= */
+
+.primary{
+    border:0;
+    padding:14px 28px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#771029,#ce3a5b);
+    color:white;
+    font-weight:800;
+    box-shadow:0 9px 24px rgba(82,5,25,.3);
+    transition:.25s;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+}
+
+.back{
+    margin-top:22px;
+}
+
+.error{
+    height:23px;
+    color:#c01e42;
+    font-size:14px;
+    margin-top:7px;
+}
+
+/* ================= PASSWORD ================= */
+
+.password-cat{
+    margin-bottom:5px;
+}
+
+.password-title{
+    font-size:40px;
     margin-bottom:8px;
-}
-
-.password-card p{
-    margin-bottom:18px;
 }
 
 .password-input{
     width:100%;
+    margin-top:18px;
     padding:15px;
-    border:2px solid #d65b76;
+    border:2px solid #d45c78;
     border-radius:16px;
-    outline:none;
-    text-align:center;
-    font-size:20px;
-    letter-spacing:5px;
     background:white;
-    color:#671126;
+    text-align:center;
+    outline:none;
+    font-size:21px;
+    letter-spacing:6px;
+    color:#681025;
 }
 
-.primary-btn{
-    margin-top:15px;
-    padding:14px 27px;
-    border:0;
-    border-radius:999px;
-    background:linear-gradient(135deg,#8d102b,#d13d5e);
-    color:white;
-    font-weight:700;
-    letter-spacing:.5px;
-    box-shadow:0 8px 20px rgba(104,8,30,.25);
-    transition:.25s;
-}
-
-.primary-btn:hover{
-    transform:translateY(-3px) scale(1.02);
-}
-
-.error{
-    height:22px;
-    margin-top:8px;
-    color:#bd163c;
-    font-size:14px;
-}
-
-/* ---------------- ENTRANCE ---------------- */
+/* ================= ENTRANCE ================= */
 
 .entrance{
-    width:min(600px,95vw);
+    width:min(650px,95vw);
     text-align:center;
     color:white;
     position:relative;
@@ -357,170 +407,161 @@ button{
 
 .entrance h1{
     font-family:"Playfair Display",serif;
-    font-size:clamp(35px,8vw,62px);
+    font-size:clamp(38px,8vw,67px);
     line-height:1.05;
-    margin:25px 0 12px;
+    margin:15px 0 25px;
 }
 
-.entrance .cat{
-    transform:scale(.9);
+.delivery{
+    position:relative;
+    width:230px;
+    height:220px;
+    margin:auto;
 }
 
 .package{
     position:absolute;
-    width:85px;
-    height:65px;
-    background:#c83a55;
-    border:4px solid #581324;
-    border-radius:7px;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:5px;
-    z-index:6;
+    width:90px;
+    height:68px;
+    left:70px;
+    bottom:12px;
+    background:#c73958;
+    border:4px solid #551422;
+    border-radius:8px;
+    z-index:8;
 }
 
 .package:before{
     content:"";
     position:absolute;
-    width:14px;
+    width:15px;
     height:100%;
-    background:#f19aac;
-    left:32px;
+    background:#f49aaa;
+    left:34px;
 }
 
 .package:after{
     content:"";
     position:absolute;
-    height:12px;
     width:100%;
-    background:#ef94a8;
-    top:20px;
+    height:13px;
+    background:#f49aaa;
     left:0;
+    top:22px;
 }
 
-.come-btn{
-    padding:16px 34px;
-    border:2px solid #ffd3da;
+.come{
+    padding:16px 35px;
+    border:2px solid #ffd5dc;
     border-radius:999px;
-    background:#fff0f2;
-    color:#86112c;
+    background:#fff2f4;
+    color:#7c0d28;
     font-weight:800;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-/* ---------------- MAIN ---------------- */
+/* ================= MAIN ================= */
 
-#mainScreen{
-    background:
-        radial-gradient(circle at 15% 20%,rgba(255,195,205,.3),transparent 20%),
-        radial-gradient(circle at 90% 80%,rgba(255,255,255,.12),transparent 20%),
-        linear-gradient(145deg,#62091d,#9d1735 55%,#d34c68);
-}
-
-.main-wrap{
+.main{
     width:min(1050px,95vw);
+    padding:30px 0 60px;
     position:relative;
     z-index:4;
-    padding:30px 0 60px;
 }
 
 .main-header{
     color:white;
     text-align:center;
-    margin-bottom:25px;
 }
 
 .main-header h1{
     font-family:"Playfair Display",serif;
-    font-size:clamp(38px,7vw,70px);
+    font-size:clamp(38px,7vw,68px);
 }
 
 .main-header p{
     font-family:"Caveat",cursive;
-    font-size:24px;
-    margin-top:10px;
+    font-size:25px;
+    margin-top:8px;
 }
 
-.main-cat-box{
-    width:210px;
-    height:205px;
-    margin:0 auto 10px;
+.bouquet-wrap{
+    width:220px;
+    height:210px;
+    margin:auto;
     position:relative;
 }
 
 .bouquet{
     position:absolute;
-    bottom:0;
+    bottom:8px;
     left:50%;
     transform:translateX(-50%);
-    width:110px;
-    height:75px;
+    width:120px;
+    height:95px;
     z-index:8;
 }
 
-.bouquet .stem{
+.stem{
     position:absolute;
     width:4px;
-    height:58px;
-    background:#3e6e3e;
+    height:70px;
+    background:#467445;
+    left:57px;
     bottom:0;
-    left:50%;
     transform-origin:bottom;
 }
 
-.bouquet .stem:nth-child(1){transform:rotate(-25deg)}
-.bouquet .stem:nth-child(2){transform:rotate(-10deg)}
-.bouquet .stem:nth-child(3){transform:rotate(10deg)}
-.bouquet .stem:nth-child(4){transform:rotate(25deg)}
+.stem:nth-child(1){transform:rotate(-30deg)}
+.stem:nth-child(2){transform:rotate(-12deg)}
+.stem:nth-child(3){transform:rotate(12deg)}
+.stem:nth-child(4){transform:rotate(30deg)}
 
 .rose{
     position:absolute;
-    width:31px;
-    height:31px;
+    width:34px;
+    height:34px;
     border-radius:50%;
-    background:#d52d50;
-    box-shadow:
-        inset 5px 3px 0 #ef6b84,
-        inset -5px -3px 0 #a91435;
+    background:radial-gradient(circle at 30% 30%,#ff8fa4,#bf1f46 70%);
+    border:2px solid #741026;
 }
 
-.rose:nth-of-type(1){left:10px;top:4px}
-.rose:nth-of-type(2){left:38px;top:-7px}
-.rose:nth-of-type(3){left:65px;top:4px}
-.rose:nth-of-type(4){left:27px;top:18px}
-.rose:nth-of-type(5){left:57px;top:19px}
+.rose:nth-child(5){left:5px;top:12px}
+.rose:nth-child(6){left:34px;top:0}
+.rose:nth-child(7){left:66px;top:10px}
+.rose:nth-child(8){left:23px;top:32px}
+.rose:nth-child(9){left:57px;top:35px}
 
 .choices{
+    margin-top:28px;
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:16px;
-    margin-top:28px;
 }
 
 .choice{
     border:1px solid rgba(255,255,255,.3);
-    border-radius:23px;
-    padding:24px;
-    background:rgba(255,242,242,.93);
-    color:#681128;
+    border-radius:24px;
+    padding:25px;
     text-align:left;
+    background:rgba(255,247,246,.96);
+    color:#681025;
+    box-shadow:0 12px 30px rgba(45,0,12,.22);
     transition:.3s;
-    box-shadow:0 12px 30px rgba(56,0,12,.18);
 }
 
 .choice:hover{
     transform:translateY(-5px);
-    box-shadow:0 18px 35px rgba(56,0,12,.3);
+    box-shadow:0 20px 38px rgba(45,0,12,.3);
 }
 
-.choice h3{
+.choice h2{
     font-family:"Playfair Display",serif;
     font-size:22px;
 }
 
 .choice p{
     margin-top:7px;
-    opacity:.75;
+    opacity:.7;
     font-size:14px;
 }
 
@@ -530,128 +571,98 @@ button{
     }
 }
 
-/* ---------------- SUBPAGES ---------------- */
+/* ================= SUBPAGE ================= */
 
 .subpage{
-    width:min(850px,95vw);
+    width:min(880px,95vw);
+    padding:25px 0 50px;
     position:relative;
-    z-index:5;
-    padding:20px 0 50px;
+    z-index:4;
 }
 
-.sub-card{
-    background:#fff8f6;
-    border-radius:28px;
+.subcard{
+    background:#fff9f7;
+    border-radius:30px;
     padding:35px;
-    box-shadow:0 20px 60px rgba(45,0,10,.3);
+    box-shadow:0 22px 65px rgba(45,0,12,.35);
 }
 
 .sub-title{
-    text-align:center;
     font-family:"Playfair Display",serif;
-    color:#6a0b23;
+    color:#6a0c24;
+    text-align:center;
     font-size:40px;
     margin-bottom:20px;
 }
 
-.back{
-    margin-top:25px;
-    background:#7c1028;
-}
-
-/* ---------------- LETTER ---------------- */
+/* ================= LETTER ================= */
 
 .letter{
     position:relative;
     overflow:hidden;
-    border:5px solid #e6a0ad;
+    border:5px solid #e5a0ad;
     background:
-        linear-gradient(rgba(255,255,255,.92),rgba(255,248,246,.95)),
-        repeating-linear-gradient(0deg,transparent 0 30px,#f3c8ce 31px);
-}
-
-.letter:before,
-.letter:after{
-    content:"";
-    position:absolute;
-    width:55px;
-    height:55px;
-    border:3px solid #db5570;
-    border-radius:50%;
-    opacity:.25;
-}
-
-.letter:before{
-    top:-25px;
-    right:-20px;
-}
-
-.letter:after{
-    bottom:-25px;
-    left:-20px;
+        repeating-linear-gradient(
+            0deg,
+            #fffaf8 0,
+            #fffaf8 31px,
+            #f4d4d8 32px
+        );
 }
 
 .letter h2{
     text-align:center;
     font-family:"Caveat",cursive;
-    color:#8e1832;
-    font-size:42px;
-    margin-bottom:20px;
+    color:#8e1934;
+    font-size:45px;
+    margin-bottom:22px;
 }
 
 .letter p{
     font-family:"Caveat",cursive;
     font-size:21px;
-    line-height:1.45;
-    margin-bottom:15px;
+    line-height:1.42;
+    margin-bottom:16px;
 }
 
 .signature{
     text-align:right;
-    font-size:25px!important;
-    margin-top:25px;
+    font-size:27px!important;
 }
 
-.letter-flower{
-    position:absolute;
-    right:20px;
-    top:20px;
-    transform:scale(.65);
-}
+/* ================= SONG ================= */
 
-/* ---------------- SONG ---------------- */
-
-.song-card{
+.song{
     text-align:center;
 }
 
 .player{
+    max-width:520px;
     margin:30px auto;
-    max-width:500px;
-    padding:30px 25px;
-    border-radius:27px;
-    background:linear-gradient(145deg,#7b0c27,#c33252);
+    padding:32px;
+    border-radius:28px;
+    background:linear-gradient(145deg,#6b0b23,#c12e51);
     color:white;
-    box-shadow:0 20px 45px rgba(65,0,15,.3);
+    box-shadow:0 20px 50px rgba(60,0,15,.35);
 }
 
 .album{
-    width:110px;
-    height:110px;
+    width:120px;
+    height:120px;
     margin:auto;
-    border-radius:22px;
-    background:linear-gradient(135deg,#e76580,#761029);
-    border:4px solid #ffd1d9;
+    border-radius:24px;
+    background:linear-gradient(135deg,#f17891,#6c0a25);
+    border:4px solid #ffd2da;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     position:relative;
 }
 
 .album:before{
     content:"";
-    width:46px;
-    height:46px;
+    width:50px;
+    height:50px;
     border:7px solid white;
     border-radius:50%;
 }
@@ -667,29 +678,29 @@ button{
 
 .song-name{
     font-family:"Playfair Display",serif;
-    font-size:25px;
-    margin:18px 0 3px;
+    font-size:26px;
+    margin-top:18px;
 }
 
-.play-btn{
-    margin-top:20px;
-    padding:13px 32px;
+.play{
     border:0;
     border-radius:999px;
-    background:#fff1f3;
-    color:#7b1028;
+    padding:13px 30px;
+    background:#fff3f5;
+    color:#72102a;
     font-weight:800;
+    margin-top:20px;
 }
 
 .lyrics{
     max-height:0;
-    opacity:0;
     overflow:hidden;
+    opacity:0;
     transition:1s ease;
+    margin-top:22px;
     font-family:"Caveat",cursive;
-    font-size:27px;
-    line-height:1.3;
-    margin-top:20px;
+    font-size:28px;
+    line-height:1.35;
 }
 
 .lyrics.show{
@@ -697,7 +708,7 @@ button{
     opacity:1;
 }
 
-/* ---------------- RANDOM THOUGHTS ---------------- */
+/* ================= THOUGHTS ================= */
 
 .thoughts{
     display:grid;
@@ -705,262 +716,275 @@ button{
 }
 
 .thought{
-    padding:23px;
+    padding:24px;
+    background:#fff0f3;
+    border:2px dashed #d15b76;
     border-radius:22px;
-    background:#fff0f2;
-    border:2px dashed #dc6a82;
     font-family:"Caveat",cursive;
-    font-size:25px;
-    line-height:1.2;
-    transform:rotate(-1deg);
-    transition:.3s;
+    font-size:26px;
+    line-height:1.25;
+    box-shadow:4px 6px 0 #edb4c0;
 }
 
+.thought:nth-child(1){transform:rotate(-1deg)}
 .thought:nth-child(2){transform:rotate(1deg)}
 .thought:nth-child(3){transform:rotate(-.5deg)}
 
-.thought:hover{
-    transform:rotate(0) scale(1.02);
-}
-
-.thought-number{
-    color:#b42143;
+.number{
     font-family:"DM Sans",sans-serif;
-    font-size:13px;
+    font-size:12px;
+    color:#ae2042;
     font-weight:bold;
 }
 
-/* ---------------- ANIMATION ---------------- */
+/* ================= ANIMATION ================= */
 
-.party-scene{
-    min-height:500px;
+.party{
+    min-height:570px;
     border-radius:30px;
-    position:relative;
     overflow:hidden;
+    position:relative;
     background:
-        radial-gradient(circle at 10% 20%,#ff8ca2 0 3px,transparent 4px),
-        radial-gradient(circle at 80% 10%,#ffc0cb 0 4px,transparent 5px),
-        linear-gradient(180deg,#7a0c25,#bd294c);
+    radial-gradient(circle at 12% 20%,#ffb0bf 0 4px,transparent 5px),
+    radial-gradient(circle at 88% 18%,#ffd0d8 0 4px,transparent 5px),
+    linear-gradient(180deg,#710b25,#bd3152);
 }
 
-.party-message{
-    color:white;
+.party-title{
+    position:relative;
+    z-index:20;
     text-align:center;
+    color:white;
+    padding:28px 15px;
     font-family:"Caveat",cursive;
-    font-size:31px;
-    padding:30px 15px;
+    font-size:33px;
 }
 
 .party-cat{
     position:absolute;
-    width:150px;
-    animation:bounceCat 1.5s ease-in-out infinite;
+    width:180px;
+    z-index:10;
+    animation:catBounce 1.5s ease-in-out infinite;
 }
 
-.party-cat .cat{
-    transform:scale(.72);
-    transform-origin:top left;
+.party-cat:nth-of-type(1){
+    left:0;
+    bottom:5px;
 }
 
-.party-cat:nth-child(2){
-    left:5%;
-    bottom:10px;
-    animation-delay:.2s;
-}
-
-.party-cat:nth-child(3){
-    right:1%;
+.party-cat:nth-of-type(2){
+    right:-5px;
     bottom:0;
+    animation-delay:.3s;
+}
+
+.party-cat:nth-of-type(3){
+    left:32%;
+    bottom:-5px;
+    animation-delay:.7s;
+}
+
+.party-cat:nth-of-type(4){
+    right:25%;
+    top:125px;
+    transform:scale(.75);
     animation-delay:.5s;
 }
 
-.party-cat:nth-child(4){
-    left:35%;
-    bottom:0;
-    animation-delay:.8s;
-}
-
-.party-cat:nth-child(5){
-    right:28%;
-    top:125px;
-    animation-delay:.35s;
-}
-
-@keyframes bounceCat{
+@keyframes catBounce{
     0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-25px)}
+    50%{transform:translateY(-24px)}
 }
 
-.confetti{
+.party-cat:nth-of-type(4){
+    animation-name:smallBounce;
+}
+
+@keyframes smallBounce{
+    0%,100%{transform:scale(.75) translateY(0)}
+    50%{transform:scale(.75) translateY(-18px)}
+}
+
+/* CAKE */
+
+.cake{
     position:absolute;
-    width:8px;
-    height:18px;
-    background:#ffb5c4;
-    animation:fall 3s linear infinite;
-}
-
-.confetti:nth-child(6){left:12%;animation-delay:.1s}
-.confetti:nth-child(7){left:28%;animation-delay:.7s}
-.confetti:nth-child(8){left:47%;animation-delay:1.2s}
-.confetti:nth-child(9){left:65%;animation-delay:.3s}
-.confetti:nth-child(10){left:82%;animation-delay:1.5s}
-.confetti:nth-child(11){left:93%;animation-delay:.9s}
-
-@keyframes fall{
-    from{top:-30px;transform:rotate(0)}
-    to{top:110%;transform:rotate(360deg)}
-}
-
-.birthday-cake{
-    position:absolute;
+    width:165px;
+    height:90px;
     left:50%;
-    top:230px;
+    top:245px;
     transform:translateX(-50%);
-    width:150px;
-    height:85px;
-    background:#ffb2bf;
-    border:5px solid #591425;
-    border-radius:18px 18px 12px 12px;
-    z-index:3;
-    box-shadow:inset 0 -17px #df5a78;
+    background:linear-gradient(#ffb5c2 0 65%,#df4e70 65%);
+    border:5px solid #551323;
+    border-radius:18px;
+    z-index:8;
+    box-shadow:0 10px 0 rgba(70,0,15,.15);
 }
 
-.birthday-cake:before{
+.cake:before{
     content:"";
     position:absolute;
-    width:135px;
-    height:28px;
-    left:3px;
-    top:-23px;
-    background:#fff1f0;
-    border:5px solid #591425;
+    width:145px;
+    height:30px;
+    left:5px;
+    top:-25px;
+    background:#fff2f0;
+    border:5px solid #551323;
     border-radius:50%;
 }
 
 .candle{
     position:absolute;
-    width:9px;
+    width:10px;
     height:35px;
-    background:#ffd5dc;
-    border:2px solid #591425;
-    top:-53px;
+    top:-60px;
+    background:#ffd6dd;
+    border:2px solid #551323;
     border-radius:5px;
 }
 
 .candle:nth-child(1){left:35px}
-.candle:nth-child(2){left:68px}
+.candle:nth-child(2){left:75px}
 .candle:nth-child(3){right:35px}
 
 .flame{
     position:absolute;
-    width:13px;
-    height:18px;
-    background:#ffd15e;
-    border-radius:70% 30% 70% 30%;
+    width:14px;
+    height:20px;
     top:-20px;
     left:-4px;
-    animation:flicker .6s infinite alternate;
+    border-radius:70% 30% 70% 30%;
+    background:#ffd65c;
+    animation:flicker .5s infinite alternate;
 }
 
 @keyframes flicker{
-    from{transform:scale(.85) rotate(-5deg)}
+    from{transform:scale(.8) rotate(-5deg)}
     to{transform:scale(1.1) rotate(5deg)}
 }
 
-/* ---------------- FINAL ---------------- */
+/* CONFETTI */
 
-.final-card{
+.confetti{
+    position:absolute;
+    top:-20px;
+    width:8px;
+    height:20px;
+    background:#ffb5c5;
+    animation:fall 3s linear infinite;
+}
+
+.confetti:nth-child(1){left:10%;animation-delay:.2s}
+.confetti:nth-child(2){left:25%;animation-delay:1s}
+.confetti:nth-child(3){left:43%;animation-delay:.5s}
+.confetti:nth-child(4){left:61%;animation-delay:1.4s}
+.confetti:nth-child(5){left:78%;animation-delay:.7s}
+.confetti:nth-child(6){left:91%;animation-delay:1.8s}
+
+@keyframes fall{
+    to{
+        top:110%;
+        transform:rotate(360deg);
+    }
+}
+
+/* ================= FINAL GIFT ================= */
+
+.final{
     text-align:center;
 }
 
-.gift-box{
-    width:250px;
-    height:190px;
-    margin:35px auto;
+.gift{
+    width:270px;
+    height:210px;
     position:relative;
-    perspective:800px;
+    margin:35px auto;
 }
 
-.box-body{
+.gift-body{
     position:absolute;
-    left:20px;
-    right:20px;
+    width:230px;
+    height:155px;
     bottom:0;
-    height:145px;
-    border:5px solid #5b1425;
+    left:20px;
+    border:5px solid #541324;
     border-radius:10px;
     background:
-        linear-gradient(90deg,transparent 43%,#f29aad 43% 57%,transparent 57%),
-        #b92547;
+    linear-gradient(90deg,transparent 44%,#f39aac 44% 56%,transparent 56%),
+    #b72245;
 }
 
-.box-lid{
+.gift-lid{
     position:absolute;
-    width:250px;
-    height:45px;
+    width:270px;
+    height:50px;
+    top:18px;
     left:0;
-    top:20px;
-    border:5px solid #5b1425;
+    border:5px solid #541324;
     border-radius:10px;
     background:
-        linear-gradient(90deg,transparent 43%,#f29aad 43% 57%,transparent 57%),
-        #d74663;
+    linear-gradient(90deg,transparent 44%,#f39aac 44% 56%,transparent 56%),
+    #d33d5d;
     transform-origin:bottom;
-    transition:.8s ease;
+    transition:.9s ease;
     z-index:5;
 }
 
-.gift-box.open .box-lid{
-    transform:rotateX(-105deg) translateY(-25px);
+.gift.open .gift-lid{
+    transform:rotateX(-110deg) translateY(-30px);
 }
 
-.final-cats{
-    opacity:0;
-    transform:translateY(20px) scale(.7);
-    transition:.8s;
+.gift-cats{
     position:absolute;
+    z-index:4;
     left:50%;
     top:50px;
-    transform-origin:center;
-    z-index:4;
+    opacity:0;
+    transform:translateX(-50%) scale(.55);
+    transition:.8s ease;
 }
 
-.gift-box.open .final-cats{
+.gift.open .gift-cats{
     opacity:1;
-    transform:translate(-50%,0) scale(.75);
+    transform:translateX(-50%) scale(.65);
 }
 
 .final-message{
     display:none;
-    margin-top:20px;
     padding:25px;
-    background:#fff0f2;
-    border:2px dashed #d9607b;
-    border-radius:22px;
+    border-radius:23px;
+    background:#fff0f3;
+    border:2px dashed #d55b76;
     font-family:"Caveat",cursive;
-    font-size:24px;
+    font-size:25px;
     line-height:1.35;
 }
 
 .final-message.show{
     display:block;
-    animation:appear .7s ease;
+    animation:pop .7s ease;
 }
 
-@keyframes appear{
-    from{opacity:0;transform:translateY(15px)}
-    to{opacity:1;transform:translateY(0)}
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 }
 
 .labu-btn{
     display:none;
-    margin:18px auto 0;
-    padding:12px 25px;
+    margin:20px auto 0;
     border:0;
     border-radius:999px;
-    background:#7c0e28;
+    padding:13px 25px;
+    background:#761029;
     color:white;
-    font-weight:bold;
+    font-weight:800;
 }
 
 .labu-btn.show{
@@ -969,56 +993,68 @@ button{
 
 .labu{
     display:none;
-    margin-top:22px;
     font-family:"Caveat",cursive;
-    font-size:60px;
-    color:#9d1234;
-    animation:labuPop .8s cubic-bezier(.2,1.5,.5,1);
+    font-size:70px;
+    font-weight:700;
+    color:#a7193d;
+    margin-top:15px;
 }
 
 .labu.show{
     display:block;
+    animation:labu .8s cubic-bezier(.2,1.5,.5,1);
 }
 
-@keyframes labuPop{
-    from{opacity:0;transform:scale(.1) rotate(-20deg)}
-    to{opacity:1;transform:scale(1) rotate(0)}
+@keyframes labu{
+    from{
+        opacity:0;
+        transform:scale(.1) rotate(-20deg);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
 }
 
-/* ---------------- CAT MINI ---------------- */
-
-.mini-cat{
-    transform:scale(.55);
-    transform-origin:center;
-    width:180px;
-    height:190px;
-}
-
-/* ---------------- MOBILE ---------------- */
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
+
     .card{
         padding:30px 20px;
     }
 
-    .password-card h1{
-        font-size:34px;
-    }
-
-    .sub-card{
+    .subcard{
         padding:22px 17px;
-    }
-
-    .sub-title{
-        font-size:32px;
     }
 
     .letter p{
         font-size:19px;
     }
 
-    .party-scene{
-        min-height:550px;
+    .sub-title{
+        font-size:32px;
+    }
+
+    .party{
+        min-height:560px;
+    }
+
+    .party-cat{
+        transform:scale(.72);
+    }
+
+    .party-cat:nth-of-type(2){
+        transform:scale(.72);
+    }
+
+    .party-cat:nth-of-type(3){
+        left:28%;
+        transform:scale(.72);
+    }
+
+    .party-cat:nth-of-type(4){
+        right:17%;
     }
 }
 </style>
@@ -1026,49 +1062,52 @@ button{
 
 <body>
 
-<!-- DECOR -->
-<div class="decor d1 flower">
-    <span></span><span></span><span></span><span></span><span></span><i></i>
-</div>
-<div class="decor d2 flower">
-    <span></span><span></span><span></span><span></span><span></span><i></i>
-</div>
-<div class="decor d3 flower">
-    <span></span><span></span><span></span><span></span><span></span><i></i>
-</div>
-<div class="decor d4 flower">
-    <span></span><span></span><span></span><span></span><span></span><i></i>
-</div>
-
-<div class="heart h1">♡</div>
-<div class="heart h2">♡</div>
-<div class="heart h3">♡</div>
+<div class="floating-heart fh1">♡</div>
+<div class="floating-heart fh2">♡</div>
+<div class="floating-heart fh3">♡</div>
+<div class="floating-heart fh4">♡</div>
 
 
-<!-- ================= PASSWORD ================= -->
+<!-- ======================================================
+     PASSWORD
+====================================================== -->
 
 <section id="passwordScreen" class="screen active">
 
-    <div class="card password-card">
+    <div class="card">
 
-        <div class="cat">
-            <div class="ear left"><div class="inner-ear"></div></div>
-            <div class="ear right"><div class="inner-ear"></div></div>
-            <div class="head">
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="nose"></div>
-                <div class="mouth"></div>
+        <div class="password-cat">
+
+            <div class="cat">
+
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="head">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                    <div class="whisker w1"></div>
+                    <div class="whisker w2"></div>
+                </div>
+
+                <div class="body"></div>
+                <div class="paw left"></div>
+                <div class="paw right"></div>
+                <div class="tail"></div>
+
             </div>
-            <div class="body"></div>
-            <div class="paw left"></div>
-            <div class="paw right"></div>
-            <div class="tail"></div>
+
         </div>
 
-        <h1 class="anime-title">A Little Surprise ♡</h1>
+        <h1 class="title password-title">
+            A Little Birthday Gift ♡
+        </h1>
 
-        <p class="small-note">Someone left a birthday gift here...</p>
+        <p class="note">
+            A tiny surprise made just for you.
+        </p>
 
         <input
             id="password"
@@ -1078,43 +1117,54 @@ button{
             placeholder="••••••"
         >
 
-        <button class="primary-btn" onclick="checkPassword()">
+        <button class="primary" onclick="checkPassword()">
             OPEN THE GIFT
         </button>
 
         <div id="error" class="error"></div>
 
-        <p class="small-note">«It’s your special day.»</p>
+        <p class="note">
+            «It’s your special day.»
+        </p>
 
     </div>
+
 </section>
 
 
-<!-- ================= ENTRANCE ================= -->
+<!-- ======================================================
+     ENTRANCE
+====================================================== -->
 
 <section id="entranceScreen" class="screen">
 
     <div class="entrance">
 
-        <div class="cat">
-            <div class="ear left"><div class="inner-ear"></div></div>
-            <div class="ear right"><div class="inner-ear"></div></div>
+        <div class="delivery">
 
-            <div class="head">
-                <div class="eye left"></div>
-                <div class="eye right"></div>
-                <div class="nose"></div>
-                <div class="mouth"></div>
+            <div class="cat">
+
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="head">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                    <div class="whisker w1"></div>
+                    <div class="whisker w2"></div>
+                </div>
+
+                <div class="body"></div>
+                <div class="paw left"></div>
+                <div class="paw right"></div>
+                <div class="tail"></div>
+
+                <div class="package"></div>
+
             </div>
 
-            <div class="body"></div>
-
-            <div class="paw left"></div>
-            <div class="paw right"></div>
-
-            <div class="tail"></div>
-
-            <div class="package"></div>
         </div>
 
         <h1>
@@ -1123,44 +1173,48 @@ button{
             Happy Birthday, Allie! ♡
         </h1>
 
-        <button class="come-btn" onclick="showScreen('mainScreen')">
+        <button class="come" onclick="showScreen('mainScreen')">
             COME IN ♡
         </button>
 
     </div>
+
 </section>
 
 
-<!-- ================= MAIN ================= -->
+<!-- ======================================================
+     MAIN
+====================================================== -->
 
 <section id="mainScreen" class="screen">
 
-    <div class="main-wrap">
+    <div class="main">
 
         <div class="main-header">
 
-            <div class="main-cat-box">
+            <div class="bouquet-wrap">
 
                 <div class="cat">
 
-                    <div class="ear left"><div class="inner-ear"></div></div>
-                    <div class="ear right"><div class="inner-ear"></div></div>
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
 
                     <div class="head">
                         <div class="eye left"></div>
                         <div class="eye right"></div>
                         <div class="nose"></div>
                         <div class="mouth"></div>
+                        <div class="whisker w1"></div>
+                        <div class="whisker w2"></div>
                     </div>
 
                     <div class="body"></div>
-
                     <div class="paw left"></div>
                     <div class="paw right"></div>
-
                     <div class="tail"></div>
 
                     <div class="bouquet">
+
                         <div class="stem"></div>
                         <div class="stem"></div>
                         <div class="stem"></div>
@@ -1171,9 +1225,11 @@ button{
                         <div class="rose"></div>
                         <div class="rose"></div>
                         <div class="rose"></div>
+
                     </div>
 
                 </div>
+
             </div>
 
             <h1>HAPPY BIRTHDAY, ALLIE ♡</h1>
@@ -1189,46 +1245,56 @@ button{
         <div class="choices">
 
             <button class="choice" onclick="showScreen('letterScreen')">
-                <h3>FOR ALLIE ♡</h3>
+                <h2>FOR ALLIE ♡</h2>
                 <p>A little letter I wanted you to have.</p>
             </button>
 
             <button class="choice" onclick="showScreen('songScreen')">
-                <h3>SONG ♡</h3>
+                <h2>SONG ♡</h2>
                 <p>A little song for today's special day.</p>
             </button>
 
             <button class="choice" onclick="showScreen('thoughtScreen')">
-                <h3>RANDOM THOUGHTS</h3>
-                <p>Some thoughts that randomly crossed my mind.</p>
+                <h2>RANDOM THOUGHTS</h2>
+                <p>A few thoughts that crossed my mind.</p>
             </button>
 
             <button class="choice" onclick="showScreen('animationScreen')">
-                <h3>ANIMATION ♡</h3>
-                <p>The cats have something planned for you.</p>
+                <h2>ANIMATION ♡</h2>
+                <p>The cats have prepared something.</p>
             </button>
 
             <button class="choice" onclick="showScreen('finalScreen')">
-                <h3>ONE LAST THING ♡</h3>
+                <h2>ONE LAST THING ♡</h2>
                 <p>Before you go... there's one more little surprise.</p>
             </button>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ================= LETTER ================= -->
+<!-- ======================================================
+     LETTER
+====================================================== -->
 
 <section id="letterScreen" class="screen">
 
     <div class="subpage">
 
-        <div class="sub-card letter">
+        <div class="subcard letter">
 
-            <div class="letter-flower flower">
-                <span></span><span></span><span></span><span></span><span></span><i></i>
+            <div style="text-align:right">
+                <div class="flower">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="center"></div>
+                </div>
             </div>
 
             <h2>FOR ALLIE ♡</h2>
@@ -1270,8 +1336,8 @@ button{
                 down I was back then. Honestly, I thought we probably
                 wouldn't talk again after that. But then I opened your
                 story and replied to it, and somehow, that's where our
-                frequent conversations started. I'm really glad I replied
-                because I ended up meeting someone I genuinely enjoy
+                frequent conversations started. I'm really glad that i did
+                that because I ended up meeting someone I genuinely enjoy
                 talking to.
             </p>
 
@@ -1301,8 +1367,8 @@ button{
                 I hope you can do that because, honestly, I can't imagine
                 just losing you and never talking to you again. This
                 probably sounds dramatic, but yeah, I really don't want
-                to lose you, Allie. You've become someone I genuinely
-                care about, and I'm really grateful that I got to meet you.
+                to lose you, Allie. You've become someone I genuinely care
+                about, and I'm really grateful that I got to meet you.
             </p>
 
             <p>That's it.</p>
@@ -1318,25 +1384,30 @@ button{
 
         </div>
 
-        <button class="primary-btn back" onclick="showScreen('mainScreen')">
+        <button class="primary back" onclick="showScreen('mainScreen')">
             ← Back to Choices
         </button>
 
     </div>
+
 </section>
 
 
-<!-- ================= SONG ================= -->
+<!-- ======================================================
+     SONG
+====================================================== -->
 
 <section id="songScreen" class="screen">
 
     <div class="subpage">
 
-        <div class="sub-card song-card">
+        <div class="subcard song">
 
-            <h1 class="sub-title">For Today's Song ♡</h1>
+            <h1 class="sub-title">
+                For Today's Song ♡
+            </h1>
 
-            <p class="small-note">
+            <p class="note">
                 I wanted this song to be part of this little birthday thing too.
             </p>
 
@@ -1352,87 +1423,107 @@ button{
                     Mac DeMarco
                 </div>
 
-                <button id="playBtn" class="play-btn" onclick="playSong()">
+                <button class="play" onclick="playSong()">
                     PLAY ♡
                 </button>
 
                 <div id="lyrics" class="lyrics">
-                    To all the days we were together<br>
-                    To all the time we were apart<br>
-                    Of each other's lives<br>
-                    Heart to heart
+                    <em>
+                        Your lyric excerpt will appear here.
+                    </em>
                 </div>
 
             </div>
 
-            <button class="primary-btn back" onclick="showScreen('mainScreen')">
+            <button class="primary back" onclick="showScreen('mainScreen')">
                 ← Back to Choices
             </button>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ================= RANDOM THOUGHTS ================= -->
+<!-- ======================================================
+     RANDOM THOUGHTS
+====================================================== -->
 
 <section id="thoughtScreen" class="screen">
 
     <div class="subpage">
 
-        <div class="sub-card">
+        <div class="subcard">
 
-            <h1 class="sub-title">Random Thoughts ♡</h1>
+            <h1 class="sub-title">
+                Random Thoughts ♡
+            </h1>
 
             <div class="thoughts">
 
                 <div class="thought">
-                    <div class="thought-number">01</div>
-                    Imagine if we never met online… your birthday would just be another random date on my calendar.
+                    <div class="number">01</div>
+                    Imagine if we never met online… your birthday would just
+                    be another random date on my calendar.
                 </div>
 
                 <div class="thought">
-                    <div class="thought-number">02</div>
-                    I wonder how different this year would’ve been if we never randomly crossed paths online.
+                    <div class="number">02</div>
+                    I wonder how different this year would’ve been if we
+                    never randomly crossed paths online.
                 </div>
 
                 <div class="thought">
-                    <div class="thought-number">03</div>
-                    It’s kinda crazy that today is just another day for the whole world, but for me, it’s the day someone really special was born.
+                    <div class="number">03</div>
+                    It’s kinda crazy that today is just another day for the
+                    whole world, but for me, it’s the day someone really
+                    special was born.
                 </div>
 
             </div>
 
-            <div style="text-align:center;margin-top:25px;">
-                <div class="flower" style="margin:auto;">
-                    <span></span><span></span><span></span><span></span><span></span><i></i>
+            <div style="text-align:center;margin-top:25px">
+
+                <div class="flower">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="center"></div>
+
                 </div>
+
             </div>
 
         </div>
 
-        <button class="primary-btn back" onclick="showScreen('mainScreen')">
+        <button class="primary back" onclick="showScreen('mainScreen')">
             ← Back to Choices
         </button>
 
     </div>
+
 </section>
 
 
-<!-- ================= ANIMATION ================= -->
+<!-- ======================================================
+     ANIMATION
+====================================================== -->
 
 <section id="animationScreen" class="screen">
 
     <div class="subpage">
 
-        <div class="party-scene">
+        <div class="party">
 
-            <div class="party-message">
+            <div class="party-title">
                 The cats want to celebrate your birthday! ♡
             </div>
 
-            <div class="birthday-cake">
+            <div class="cake">
 
                 <div class="candle">
                     <div class="flame"></div>
@@ -1449,19 +1540,22 @@ button{
             </div>
 
 
-            <!-- CAT 1 -->
+            <!-- CAT ONE -->
+
             <div class="party-cat">
 
                 <div class="cat">
 
-                    <div class="ear left"><div class="inner-ear"></div></div>
-                    <div class="ear right"><div class="inner-ear"></div></div>
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
 
                     <div class="head">
                         <div class="eye left"></div>
                         <div class="eye right"></div>
                         <div class="nose"></div>
                         <div class="mouth"></div>
+                        <div class="whisker w1"></div>
+                        <div class="whisker w2"></div>
                     </div>
 
                     <div class="body"></div>
@@ -1474,19 +1568,22 @@ button{
             </div>
 
 
-            <!-- CAT 2 -->
+            <!-- CAT TWO -->
+
             <div class="party-cat">
 
                 <div class="cat">
 
-                    <div class="ear left"><div class="inner-ear"></div></div>
-                    <div class="ear right"><div class="inner-ear"></div></div>
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
 
                     <div class="head">
                         <div class="eye left"></div>
                         <div class="eye right"></div>
                         <div class="nose"></div>
                         <div class="mouth"></div>
+                        <div class="whisker w1"></div>
+                        <div class="whisker w2"></div>
                     </div>
 
                     <div class="body"></div>
@@ -1499,19 +1596,22 @@ button{
             </div>
 
 
-            <!-- CAT 3 -->
+            <!-- CAT THREE -->
+
             <div class="party-cat">
 
                 <div class="cat">
 
-                    <div class="ear left"><div class="inner-ear"></div></div>
-                    <div class="ear right"><div class="inner-ear"></div></div>
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
 
                     <div class="head">
                         <div class="eye left"></div>
                         <div class="eye right"></div>
                         <div class="nose"></div>
                         <div class="mouth"></div>
+                        <div class="whisker w1"></div>
+                        <div class="whisker w2"></div>
                     </div>
 
                     <div class="body"></div>
@@ -1524,19 +1624,22 @@ button{
             </div>
 
 
-            <!-- CAT 4 -->
+            <!-- CAT FOUR -->
+
             <div class="party-cat">
 
                 <div class="cat">
 
-                    <div class="ear left"><div class="inner-ear"></div></div>
-                    <div class="ear right"><div class="inner-ear"></div></div>
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
 
                     <div class="head">
                         <div class="eye left"></div>
                         <div class="eye right"></div>
                         <div class="nose"></div>
                         <div class="mouth"></div>
+                        <div class="whisker w1"></div>
+                        <div class="whisker w2"></div>
                     </div>
 
                     <div class="body"></div>
@@ -1549,7 +1652,6 @@ button{
             </div>
 
 
-            <!-- CONFETTI -->
             <div class="confetti"></div>
             <div class="confetti"></div>
             <div class="confetti"></div>
@@ -1559,56 +1661,60 @@ button{
 
         </div>
 
-        <button class="primary-btn back" onclick="showScreen('mainScreen')">
+        <button class="primary back" onclick="showScreen('mainScreen')">
             ← Back to Choices
         </button>
 
     </div>
+
 </section>
 
 
-<!-- ================= ONE LAST THING ================= -->
+<!-- ======================================================
+     ONE LAST THING
+====================================================== -->
 
 <section id="finalScreen" class="screen">
 
     <div class="subpage">
 
-        <div class="sub-card final-card">
+        <div class="subcard final">
 
             <h1 class="sub-title">
                 One Last Thing ♡
             </h1>
 
-            <p class="small-note">
+            <p class="note">
                 Before you go... there's one more little surprise.
             </p>
 
-            <button
-                id="lastButton"
-                class="primary-btn"
-                onclick="openGift()">
+            <button id="lastButton"
+                    class="primary"
+                    onclick="openGift()">
                 CLICK THE LAST ONE ♡
             </button>
 
 
-            <div id="gift" class="gift-box">
+            <div id="gift" class="gift">
 
-                <div class="box-lid"></div>
+                <div class="gift-lid"></div>
 
-                <div class="box-body"></div>
+                <div class="gift-body"></div>
 
-                <div class="final-cats">
+                <div class="gift-cats">
 
                     <div class="cat">
 
-                        <div class="ear left"><div class="inner-ear"></div></div>
-                        <div class="ear right"><div class="inner-ear"></div></div>
+                        <div class="ear left"></div>
+                        <div class="ear right"></div>
 
                         <div class="head">
                             <div class="eye left"></div>
                             <div class="eye right"></div>
                             <div class="nose"></div>
                             <div class="mouth"></div>
+                            <div class="whisker w1"></div>
+                            <div class="whisker w2"></div>
                         </div>
 
                         <div class="body"></div>
@@ -1625,15 +1731,15 @@ button{
 
             <div id="finalMessage" class="final-message">
 
-                <div style="margin-bottom:15px;">
-                    <div class="flower" style="margin:auto;">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <i></i>
-                    </div>
+                <div class="flower" style="margin:auto auto 15px">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="center"></div>
+
                 </div>
 
                 Happy birthdayyy, Allie! I hope you have such a wonderful
@@ -1641,10 +1747,9 @@ button{
                 make you happy. Please always remember to take care of
                 yourself and get enough rest. Enjoy your dayyy! ♡
 
-                <button
-                    id="labuButton"
-                    class="labu-btn"
-                    onclick="showLabu()">
+                <button id="labuButton"
+                        class="labu-btn"
+                        onclick="showLabu()">
                     CLICK ONE MORE TIME
                 </button>
 
@@ -1656,18 +1761,18 @@ button{
 
         </div>
 
-
-        <button class="primary-btn back" onclick="showScreen('mainScreen')">
+        <button class="primary back" onclick="showScreen('mainScreen')">
             ← Back to Choices
         </button>
 
     </div>
+
 </section>
 
 
 <script>
 
-/* ================= SCREEN SYSTEM ================= */
+/* ================= SCREEN NAVIGATION ================= */
 
 function showScreen(id){
 
@@ -1676,11 +1781,15 @@ function showScreen(id){
     });
 
     setTimeout(()=>{
-        document.getElementById(id).classList.add("active");
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
+        const target=document.getElementById(id);
+
+        if(target){
+            target.classList.add("active");
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+        }
     },80);
 }
 
@@ -1709,43 +1818,52 @@ function checkPassword(){
                 {transform:"translateX(0)"},
                 {transform:"translateX(-8px)"},
                 {transform:"translateX(8px)"},
+                {transform:"translateX(-5px)"},
                 {transform:"translateX(0)"}
             ],
             {
-                duration:300
+                duration:350
             }
         );
+
     }
+
 }
 
-document.getElementById("password").addEventListener("keydown",function(e){
 
-    if(e.key==="Enter"){
-        checkPassword();
+/* ENTER PASSWORD WITH ENTER */
+
+document.getElementById("password").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Enter"){
+            checkPassword();
+        }
+
     }
-
-});
+);
 
 
 /* ================= SONG ================= */
 
-let songPlayed=false;
+let songOpened=false;
 
 function playSong(){
 
     const lyrics=document.getElementById("lyrics");
-    const btn=document.getElementById("playBtn");
+    const button=document.querySelector(".play");
 
     lyrics.classList.add("show");
 
-    if(!songPlayed){
+    if(!songOpened){
 
-        btn.textContent="PLAYING ♡";
-        songPlayed=true;
+        button.textContent="PLAYING ♡";
+        songOpened=true;
 
     }else{
 
-        btn.textContent="PLAY AGAIN ♡";
+        button.textContent="PLAY AGAIN ♡";
 
         lyrics.animate(
             [
@@ -1753,31 +1871,35 @@ function playSong(){
                 {opacity:1}
             ],
             {
-                duration:600
+                duration:650
             }
         );
+
     }
+
 }
 
 
-/* ================= FINAL GIFT ================= */
+/* ================= GIFT ================= */
 
 function openGift(){
 
     const gift=document.getElementById("gift");
     const message=document.getElementById("finalMessage");
-    const button=document.getElementById("labuButton");
+    const labuButton=document.getElementById("labuButton");
+    const lastButton=document.getElementById("lastButton");
 
     gift.classList.add("open");
 
-    document.getElementById("lastButton").textContent="OPENED ♡";
+    lastButton.textContent="OPENED ♡";
 
     setTimeout(()=>{
 
         message.classList.add("show");
-        button.classList.add("show");
+        labuButton.classList.add("show");
 
-    },900);
+    },850);
+
 }
 
 
@@ -1794,17 +1916,23 @@ function showLabu(){
 }
 
 
-/* ================= LITTLE FLOWERS ================= */
+/* ================= LITTLE FLOWER INTERACTION ================= */
 
 document.querySelectorAll(".flower").forEach(flower=>{
 
-    flower.addEventListener("click",()=>{
+    flower.addEventListener("click",function(){
 
-        flower.animate(
+        this.animate(
             [
-                {transform:"scale(1) rotate(0deg)"},
-                {transform:"scale(1.2) rotate(8deg)"},
-                {transform:"scale(1) rotate(0deg)"}
+                {
+                    transform:"scale(1) rotate(0)"
+                },
+                {
+                    transform:"scale(1.15) rotate(8deg)"
+                },
+                {
+                    transform:"scale(1) rotate(0)"
+                }
             ],
             {
                 duration:500
