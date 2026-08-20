@@ -2,821 +2,1188 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Allie ♡</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Patrick+Hand&family=Quicksand:wght@400;500;600;700&display=swap');
 
-*{box-sizing:border-box;margin:0;padding:0}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --deep: #350008;
+    --wine: #52000f;
+    --darkred: #710018;
+    --red: #a90025;
+    --cherry: #d51d42;
+    --rose: #ed4d6c;
+    --pink: #ff8297;
+    --blush: #ffd3da;
+    --cream: #fff6f7;
+}
 
-:root{
- --deep:#3b000b;
- --wine:#590014;
- --dark:#710018;
- --red:#a90025;
- --cherry:#d51d42;
- --rose:#ed4d6c;
- --pink:#ff8297;
- --blush:#ffd3da;
- --cream:#fff6f7;
+html {
+    scroll-behavior: smooth;
 }
 
-html{scroll-behavior:smooth}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--cream);
 
-body{
- min-height:100vh;
- overflow-x:hidden;
- font-family:'Quicksand',sans-serif;
- color:var(--cream);
- background:
- radial-gradient(circle at 15% 10%,#e63258 0,transparent 25%),
- radial-gradient(circle at 85% 80%,#b20b32 0,transparent 30%),
- linear-gradient(135deg,#390009,#650014,#a90025,#650014);
+    background:
+        radial-gradient(circle at 10% 10%, #e9365b 0, transparent 25%),
+        radial-gradient(circle at 90% 80%, #b30b32 0, transparent 30%),
+        linear-gradient(135deg, #350008, #650014, #a90025, #650014);
 }
 
-.screen{
- display:none;
- min-height:100vh;
- padding:30px 16px;
- align-items:center;
- justify-content:center;
- animation:fade .55s ease;
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 16px;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn .6s ease;
 }
 
-.screen.active{display:flex}
+.screen.active {
+    display: flex;
+}
 
-.container{
- width:min(920px,100%);
- text-align:center;
- position:relative;
- z-index:2;
+.container {
+    width: min(920px, 100%);
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
-@keyframes fade{
- from{opacity:0;transform:translateY(15px)}
- to{opacity:1;transform:translateY(0)}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-h1,h2,h3{
- font-family:'DM Serif Display',serif;
+h1,
+h2,
+h3 {
+    font-family: 'DM Serif Display', serif;
 }
 
-h1{
- font-size:clamp(42px,8vw,76px);
- line-height:1;
- text-shadow:0 8px 25px #280006;
+h1 {
+    font-size: clamp(42px, 8vw, 76px);
+    line-height: 1;
+    text-shadow: 0 8px 25px #280006;
 }
 
-h2{
- font-size:clamp(34px,7vw,55px);
- margin-bottom:15px;
+h2 {
+    font-size: clamp(34px, 7vw, 55px);
+    margin-bottom: 15px;
 }
 
-.subtitle{
- max-width:650px;
- margin:18px auto 30px;
- line-height:1.7;
- color:#ffdfe4;
- font-size:17px;
+.subtitle {
+    max-width: 650px;
+    margin: 18px auto 30px;
+    line-height: 1.7;
+    color: #ffdfe4;
+    font-size: 17px;
 }
 
-.hand{
- font-family:'Patrick Hand',cursive;
+.hand {
+    font-family: 'Patrick Hand', cursive;
 }
 
-/* FLOATING DECOR */
+/* =========================
+   DECORATIONS
+========================= */
 
-.decor{
- position:fixed;
- pointer-events:none;
- z-index:1;
- color:#ff9fb0;
- font-size:24px;
- animation:float 4s ease-in-out infinite;
+.decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    color: #ff9fb0;
+    font-size: 24px;
+    animation: float 4s ease-in-out infinite;
 }
 
-@keyframes float{
- 50%{transform:translateY(-15px) rotate(8deg)}
+@keyframes float {
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
 }
+
+/* =========================
+   BUTTON
+========================= */
 
-/* BUTTON */
+.btn {
+    border: 0;
+    cursor: pointer;
+    padding: 14px 28px;
+    border-radius: 999px;
+    color: white;
 
-.btn{
- border:0;
- cursor:pointer;
- padding:14px 28px;
- border-radius:999px;
- color:white;
- background:linear-gradient(135deg,#e12a50,#81001b);
- font-family:'Quicksand',sans-serif;
- font-weight:700;
- font-size:15px;
- box-shadow:0 9px 25px #32000988;
- transition:.25s;
+    background:
+        linear-gradient(135deg, #e12a50, #81001b);
+
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+
+    box-shadow: 0 9px 25px #32000988;
+    transition: .25s;
 }
 
-.btn:hover{
- transform:translateY(-3px) scale(1.03);
+.btn:hover {
+    transform: translateY(-3px) scale(1.03);
 }
 
-.back{
- margin-top:25px;
- background:transparent;
- border:1px solid #ffc0ca66;
+.back {
+    margin-top: 25px;
+    background: transparent;
+    border: 1px solid #ffc0ca66;
 }
+
+/* =========================
+   PASSWORD
+========================= */
 
-/* PASSWORD */
+.password-card {
+    width: min(450px, 100%);
+    margin: auto;
+    padding: 35px 25px;
+    border-radius: 30px;
 
-.password-card{
- width:min(450px,100%);
- margin:auto;
- padding:35px 25px;
- border-radius:30px;
- background:#42000db8;
- border:2px solid #ffb4c055;
- box-shadow:0 25px 70px #20000577;
- backdrop-filter:blur(12px);
+    background: #42000db8;
+    border: 2px solid #ffb4c055;
+
+    box-shadow: 0 25px 70px #20000577;
+    backdrop-filter: blur(12px);
+}
+
+.password-card h2 {
+    color: white;
 }
+
+.password-input {
+    width: 100%;
+    padding: 16px;
 
-.password-card h2{color:white}
+    border: 0;
+    outline: 0;
+    border-radius: 18px;
 
-.password-input{
- width:100%;
- padding:16px;
- border:0;
- outline:0;
- border-radius:18px;
- margin:15px 0 10px;
- background:#fff2f4;
- color:#650014;
- text-align:center;
- font-size:20px;
- letter-spacing:7px;
+    margin: 15px 0 10px;
+
+    background: #fff2f4;
+    color: #650014;
+
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 7px;
 }
 
-.hint{
- font-family:'Patrick Hand',cursive;
- font-size:19px;
- color:#ffc1cc;
- margin-bottom:20px;
+.hint {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 19px;
+    color: #ffc1cc;
+    margin-bottom: 20px;
 }
 
-#error{
- height:22px;
- margin-top:10px;
- color:#ffb0bd;
- font-size:14px;
+#error {
+    height: 22px;
+    margin-top: 10px;
+    color: #ffb0bd;
+    font-size: 14px;
 }
+
+/* =========================
+   CAT DRAWING
+========================= */
 
-/* CAT */
+.cat {
+    width: 190px;
+    margin: 0 auto 20px;
+    animation: catFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 15px 12px #26000655);
+}
 
-.cat{
- width:190px;
- margin:0 auto 20px;
- animation:catFloat 3s ease-in-out infinite;
- filter:drop-shadow(0 15px 12px #26000655);
+.cat.small {
+    width: 125px;
 }
 
-.cat.small{width:125px}
+@keyframes catFloat {
+    50% {
+        transform: translateY(-9px);
+    }
+}
 
-@keyframes catFloat{
- 50%{transform:translateY(-9px)}
+.cat-body {
+    fill: #fff7f4;
+    stroke: #4b0010;
+    stroke-width: 4;
+    stroke-linejoin: round;
 }
 
-.cat-body{
- fill:#fff7f4;
- stroke:#4b0010;
- stroke-width:4;
- stroke-linejoin:round;
+.cat-ear {
+    fill: #ff9caf;
+    stroke: #4b0010;
+    stroke-width: 3;
 }
 
-.cat-shadow{
- fill:#e7c7c7;
+.cat-eye {
+    fill: #3e0010;
 }
 
-.cat-ear{
- fill:#ff9caf;
- stroke:#4b0010;
- stroke-width:3;
+.cat-eye-light {
+    fill: white;
 }
 
-.cat-eye{
- fill:#3e0010;
+.cat-nose {
+    fill: #e74767;
+    stroke: #4b0010;
+    stroke-width: 2;
 }
 
-.cat-eye-light{
- fill:white;
+.cat-mouth {
+    fill: none;
+    stroke: #4b0010;
+    stroke-width: 3;
+    stroke-linecap: round;
 }
 
-.cat-nose{
- fill:#e74767;
- stroke:#4b0010;
- stroke-width:2;
+.cat-stripe {
+    fill: #9b1834;
 }
 
-.cat-mouth{
- fill:none;
- stroke:#4b0010;
- stroke-width:3;
- stroke-linecap:round;
+.stem {
+    fill: none;
+    stroke: #557632;
+    stroke-width: 4;
+    stroke-linecap: round;
 }
 
-.cat-stripe{
- fill:#9b1834;
+.flower {
+    fill: #d51d42;
+    stroke: #650014;
+    stroke-width: 2;
 }
 
-.stem{
- fill:none;
- stroke:#557632;
- stroke-width:4;
- stroke-linecap:round;
+.flower-light {
+    fill: #ff7890;
+    stroke: #650014;
+    stroke-width: 2;
 }
 
-.flower{
- fill:#d51d42;
- stroke:#650014;
- stroke-width:2;
+.flower-center {
+    fill: #ffd36a;
 }
 
-.flower-light{
- fill:#ff7890;
- stroke:#650014;
- stroke-width:2;
+/* =========================
+   PACKAGE
+========================= */
+
+.package {
+    width: 230px;
+    height: 190px;
+    position: relative;
+    margin: 15px auto 25px;
+    animation: packageFloat 3s ease-in-out infinite;
 }
 
-.flower-center{
- fill:#ffd36a;
+@keyframes packageFloat {
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
 }
+
+.package-body {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
 
-/* ENTRANCE PACKAGE */
+    width: 190px;
+    height: 115px;
 
-.package{
- width:230px;
- height:190px;
- position:relative;
- margin:15px auto 25px;
- animation:packageFloat 3s ease-in-out infinite;
+    background: linear-gradient(135deg, #c5163b, #720018);
+
+    border: 4px solid #46000d;
+    border-radius: 10px;
 }
+
+.package-lid {
+    position: absolute;
+    top: 45px;
+    left: 10px;
+
+    width: 210px;
+    height: 40px;
 
-@keyframes packageFloat{
- 50%{transform:translateY(-10px) rotate(1deg)}
+    background: #dc2b4e;
+
+    border: 4px solid #46000d;
+    border-radius: 9px;
+
+    z-index: 3;
 }
+
+.ribbon-v {
+    position: absolute;
+    left: 98px;
+    bottom: 0;
+
+    width: 32px;
+    height: 115px;
 
-.package-body{
- position:absolute;
- bottom:0;
- left:20px;
- width:190px;
- height:115px;
- background:linear-gradient(135deg,#c5163b,#720018);
- border:4px solid #46000d;
- border-radius:10px;
+    background: #ff91a4;
+
+    border-left: 3px solid #650014;
+    border-right: 3px solid #650014;
+
+    z-index: 2;
 }
+
+.ribbon-h {
+    position: absolute;
+    left: 20px;
+    top: 52px;
 
-.package-lid{
- position:absolute;
- top:45px;
- left:10px;
- width:210px;
- height:40px;
- background:#dc2b4e;
- border:4px solid #46000d;
- border-radius:9px;
- z-index:3;
+    width: 190px;
+    height: 24px;
+
+    background: #ff91a4;
+
+    z-index: 4;
 }
+
+/* =========================
+   CHOICES
+========================= */
+
+.choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
 
-.ribbon-v{
- position:absolute;
- left:98px;
- bottom:0;
- width:32px;
- height:115px;
- background:#ff91a4;
- border-left:3px solid #650014;
- border-right:3px solid #650014;
- z-index:2;
+    max-width: 820px;
+    margin: 35px auto;
 }
 
-.ribbon-h{
- position:absolute;
- left:20px;
- top:52px;
- width:190px;
- height:24px;
- background:#ff91a4;
- z-index:4;
+.choice {
+    min-height: 150px;
+
+    padding: 27px 18px;
+
+    border-radius: 25px;
+
+    background: #ffffff13;
+    border: 1px solid #ffbdc944;
+
+    box-shadow: 0 15px 35px #26000644;
+
+    cursor: pointer;
+    transition: .3s;
 }
 
-/* CHOICES */
+.choice:hover {
+    transform: translateY(-7px) rotate(-1deg);
+    background: #ffffff20;
+}
 
-.choices{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:18px;
- max-width:820px;
- margin:35px auto;
+.choice h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
-.choice{
- min-height:150px;
- padding:27px 18px;
- border-radius:25px;
- background:#ffffff13;
- border:1px solid #ffbdc944;
- box-shadow:0 15px 35px #26000644;
- cursor:pointer;
- transition:.3s;
+.choice p {
+    color: #ffdee3;
+    font-size: 14px;
+    line-height: 1.5;
 }
+
+/* =========================
+   LETTER
+========================= */
 
-.choice:hover{
- transform:translateY(-7px) rotate(-1deg);
- background:#ffffff20;
+.letter {
+    max-width: 770px;
+    margin: auto;
+
+    padding: 42px clamp(22px, 6vw, 60px);
+
+    text-align: left;
+
+    color: #570014;
+
+    background: #fff8f5;
+
+    border-radius: 8px 28px 8px 28px;
+
+    box-shadow: 0 25px 65px #22000666;
+
+    position: relative;
 }
 
-.choice h3{
- font-size:25px;
- margin-bottom:10px;
+.letter-title {
+    text-align: center;
+
+    font-family: 'DM Serif Display', serif;
+
+    color: #a90025;
+
+    font-size: 36px;
+
+    margin-bottom: 28px;
 }
 
-.choice p{
- color:#ffdee3;
- font-size:14px;
- line-height:1.5;
+.letter p {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 20px;
 }
 
-/* LETTER */
+.signature {
+    text-align: right;
 
-.letter{
- max-width:770px;
- margin:auto;
- padding:42px clamp(22px,6vw,60px);
- text-align:left;
- color:#570014;
- background:#fff8f5;
- border-radius:8px 28px 8px 28px;
- box-shadow:0 25px 65px #22000666;
- position:relative;
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 27px;
+
+    color: #8b001d;
 }
+
+/* =========================
+   SONG
+========================= */
+
+.music-card {
+    max-width: 600px;
+    margin: 30px auto;
 
-.letter-title{
- text-align:center;
- font-family:'DM Serif Display',serif;
- color:#a90025;
- font-size:36px;
- margin-bottom:28px;
+    padding: 35px 25px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(145deg, #670017, #a90025);
+
+    border: 2px solid #ffbec933;
+
+    box-shadow: 0 25px 60px #26000655;
 }
+
+.record {
+    width: 155px;
+    height: 155px;
+
+    margin: auto auto 25px;
+
+    border-radius: 50%;
 
-.letter p{
- font-size:16px;
- line-height:1.85;
- margin-bottom:20px;
+    background:
+        repeating-radial-gradient(
+            circle,
+            #260008 0 3px,
+            #5c0015 4px 6px
+        );
+
+    border: 10px solid #91162f;
+
+    position: relative;
 }
+
+.record:after {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
 
-.signature{
- text-align:right;
- font-family:'Patrick Hand',cursive;
- font-size:27px;
- color:#8b001d;
+    border-radius: 50%;
+
+    background: #ff7188;
+
+    border: 6px solid #4d0010;
 }
+
+.lyrics {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    background: #ffffff10;
 
-/* SONG */
+    border: 1px solid #ffc0ca44;
 
-.music-card{
- max-width:600px;
- margin:30px auto;
- padding:35px 25px;
- border-radius:30px;
- background:linear-gradient(145deg,#670017,#a90025);
- border:2px solid #ffbec933;
- box-shadow:0 25px 60px #26000655;
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+
+    animation: lyricsAnimation .8s ease;
 }
 
-.record{
- width:155px;
- height:155px;
- margin:auto auto 25px;
- border-radius:50%;
- background:repeating-radial-gradient(circle,#260008 0 3px,#5c0015 4px 6px);
- border:10px solid #91162f;
- position:relative;
+.lyrics.show {
+    display: block;
 }
+
+@keyframes lyricsAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* =========================
+   RANDOM THOUGHT
+========================= */
 
-.record:after{
- content:"";
- position:absolute;
- width:30px;
- height:30px;
- left:50%;
- top:50%;
- transform:translate(-50%,-50%);
- border-radius:50%;
- background:#ff7188;
- border:6px solid #4d0010;
+.thought {
+    max-width: 700px;
+    margin: 30px auto;
+
+    padding: 35px;
+
+    background: #fff0f3;
+
+    color: #620018;
+
+    border-radius: 25px 8px 25px 8px;
+
+    box-shadow: 0 20px 45px #26000655;
+
+    transform: rotate(-1deg);
 }
+
+.thought h3 {
+    font-family: 'Patrick Hand', cursive;
 
-.lyrics{
- display:none;
- margin-top:25px;
- padding:24px;
- border-radius:20px;
- background:#ffffff10;
- border:1px solid #ffc0ca44;
- font-family:'Patrick Hand',cursive;
- font-size:22px;
- line-height:1.7;
- animation:lyrics .8s ease;
+    font-size: 29px;
+
+    color: #ad1233;
+
+    margin-bottom: 18px;
 }
+
+.thought p {
+    font-family: 'Patrick Hand', cursive;
 
-.lyrics.show{display:block}
+    font-size: 22px;
 
-@keyframes lyrics{
- from{opacity:0;transform:translateY(20px);filter:blur(5px)}
- to{opacity:1;transform:translateY(0);filter:blur(0)}
+    line-height: 1.6;
 }
+
+/* =========================
+   CELEBRATION
+========================= */
+
+.celebration {
+    height: 500px;
+    max-width: 900px;
+
+    margin: 25px auto;
+
+    position: relative;
+    overflow: hidden;
 
-/* THOUGHT */
+    border-radius: 35px;
 
-.thought{
- max-width:700px;
- margin:30px auto;
- padding:35px;
- background:#fff0f3;
- color:#620018;
- border-radius:25px 8px 25px 8px;
- box-shadow:0 20px 45px #26000655;
- transform:rotate(-1deg);
+    border: 3px solid #ffbeca55;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #e23457,
+            transparent 30%
+        ),
+        linear-gradient(#570012, #a90025);
+
+    box-shadow: 0 25px 60px #24000666;
 }
 
-.thought h3{
- font-family:'Patrick Hand',cursive;
- font-size:29px;
- color:#ad1233;
- margin-bottom:18px;
+.party-cat {
+    position: absolute;
+    width: 135px;
 }
+
+.center-cat {
+    width: 220px;
 
-.thought p{
- font-family:'Patrick Hand',cursive;
- font-size:22px;
- line-height:1.6;
+    left: 50%;
+    bottom: 45px;
+
+    transform: translateX(-50%);
+
+    animation: jump 1.6s ease-in-out infinite;
 }
 
-/* CELEBRATION */
+.left-cat {
+    left: 5%;
+    bottom: 45px;
 
-.celebration{
- height:500px;
- max-width:900px;
- margin:25px auto;
- position:relative;
- overflow:hidden;
- border-radius:35px;
- border:3px solid #ffbeca55;
- background:
- radial-gradient(circle at 50% 70%,#e23457,transparent 30%),
- linear-gradient(#570012,#a90025);
- box-shadow:0 25px 60px #24000666;
+    animation: bounce 1.2s ease-in-out infinite;
 }
 
-.party-cat{
- position:absolute;
- width:135px;
+.right-cat {
+    right: 5%;
+    bottom: 45px;
+
+    animation: bounce 1.4s ease-in-out infinite .2s;
 }
+
+.top-cat {
+    top: 50px;
+    left: 18%;
 
-.center-cat{
- width:220px;
- left:50%;
- bottom:45px;
- transform:translateX(-50%);
- animation:jump 1.6s ease-in-out infinite;
+    animation: wave 1.5s ease-in-out infinite;
 }
 
-.left-cat{
- left:5%;
- bottom:45px;
- animation:bounce 1.2s ease-in-out infinite;
+.top-cat2 {
+    top: 55px;
+    right: 18%;
+
+    animation: wave 1.7s ease-in-out infinite .2s;
 }
 
-.right-cat{
- right:5%;
- bottom:45px;
- animation:bounce 1.4s ease-in-out infinite .2s;
+@keyframes jump {
+    50% {
+        transform: translateX(-50%) translateY(-28px);
+    }
 }
 
-.top-cat{
- top:50px;
- left:18%;
- animation:wave 1.5s ease-in-out infinite;
+@keyframes bounce {
+    50% {
+        transform: translateY(-18px) rotate(-5deg);
+    }
 }
 
-.top-cat2{
- top:55px;
- right:18%;
- animation:wave 1.7s ease-in-out infinite .2s;
+@keyframes wave {
+    50% {
+        transform: translateY(-10px) rotate(8deg);
+    }
 }
+
+/* =========================
+   CAKE
+========================= */
+
+.cake {
+    position: absolute;
+
+    width: 155px;
+    height: 105px;
 
-@keyframes jump{
- 50%{transform:translateX(-50%) translateY(-28px)}
+    top: 32px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
 }
+
+.cake-base {
+    position: absolute;
+
+    bottom: 0;
 
-@keyframes bounce{
- 50%{transform:translateY(-18px) rotate(-5deg)}
+    width: 155px;
+    height: 67px;
+
+    border: 4px solid #650014;
+
+    border-radius: 12px 12px 20px 20px;
+
+    background:
+        linear-gradient(#ffb4c1, #df4160);
 }
+
+.cake-top {
+    position: absolute;
+
+    top: 24px;
+
+    width: 155px;
+    height: 38px;
+
+    border: 4px solid #650014;
 
-@keyframes wave{
- 50%{transform:translateY(-10px) rotate(8deg)}
+    border-radius: 50%;
+
+    background: #ffd8de;
 }
+
+.candle {
+    position: absolute;
+
+    bottom: 66px;
 
-/* CAKE */
+    width: 14px;
+    height: 40px;
 
-.cake{
- position:absolute;
- width:155px;
- height:105px;
- top:32px;
- left:50%;
- transform:translateX(-50%);
- z-index:10;
+    border: 2px solid #650014;
+
+    border-radius: 4px;
+
+    background: #fff4f5;
+
+    z-index: 3;
 }
 
-.cake-base{
- position:absolute;
- bottom:0;
- width:155px;
- height:67px;
- border:4px solid #650014;
- border-radius:12px 12px 20px 20px;
- background:linear-gradient(#ffb4c1,#df4160);
+.candle:nth-of-type(1) {
+    left: 40px;
 }
 
-.cake-top{
- position:absolute;
- top:24px;
- width:155px;
- height:38px;
- border:4px solid #650014;
- border-radius:50%;
- background:#ffd8de;
+.candle:nth-of-type(2) {
+    left: 70px;
 }
 
-.candle{
- position:absolute;
- bottom:66px;
- width:14px;
- height:40px;
- border:2px solid #650014;
- border-radius:4px;
- background:#fff4f5;
- z-index:3;
+.candle:nth-of-type(3) {
+    left: 100px;
 }
+
+.flame {
+    position: absolute;
 
-.candle:nth-of-type(1){left:40px}
-.candle:nth-of-type(2){left:70px}
-.candle:nth-of-type(3){left:100px}
+    width: 14px;
+    height: 19px;
 
-.flame{
- position:absolute;
- width:14px;
- height:19px;
- top:-18px;
- background:#ffd36c;
- border-radius:50% 50% 50% 0;
- transform:rotate(-45deg);
- animation:flame .6s infinite alternate;
+    top: -18px;
+
+    background: #ffd36c;
+
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    animation: flame .6s infinite alternate;
 }
 
-@keyframes flame{
- to{transform:rotate(-40deg) scale(1.12)}
+@keyframes flame {
+    to {
+        transform: rotate(-40deg) scale(1.12);
+    }
 }
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: absolute;
+
+    width: 7px;
+    height: 18px;
 
-/* CONFETTI */
+    border-radius: 3px;
 
-.confetti{
- position:absolute;
- width:7px;
- height:18px;
- border-radius:3px;
- background:#ff9dae;
- animation:fall 3s linear infinite;
+    background: #ff9dae;
+
+    animation: fall 3s linear infinite;
 }
 
-.confetti:nth-child(3n){background:#ffd4db}
-.confetti:nth-child(4n){background:#fff0f2}
+.confetti:nth-child(3n) {
+    background: #ffd4db;
+}
 
-@keyframes fall{
- from{transform:translateY(-30px) rotate(0);opacity:0}
- 15%{opacity:1}
- to{transform:translateY(530px) rotate(600deg);opacity:0}
+.confetti:nth-child(4n) {
+    background: #fff0f2;
 }
+
+@keyframes fall {
+    from {
+        transform: translateY(-30px) rotate(0);
+        opacity: 0;
+    }
 
-/* GIFT */
+    15% {
+        opacity: 1;
+    }
 
-.gift{
- width:300px;
- height:250px;
- margin:40px auto 25px;
- position:relative;
- cursor:pointer;
- transition:.3s;
+    to {
+        transform: translateY(530px) rotate(600deg);
+        opacity: 0;
+    }
 }
+
+/* =========================
+   GIFT BOX
+========================= */
+
+.gift {
+    width: 300px;
+    height: 250px;
+
+    margin: 40px auto 25px;
+
+    position: relative;
 
-.gift:hover{transform:translateY(-5px)}
+    cursor: pointer;
 
-.box{
- position:absolute;
- left:25px;
- bottom:0;
- width:250px;
- height:155px;
- border:5px solid #45000d;
- border-radius:10px 10px 22px 22px;
- background:linear-gradient(135deg,#b90d32,#650014);
- overflow:hidden;
+    transition: .3s;
 }
 
-.box-v{
- position:absolute;
- left:103px;
- width:40px;
- height:155px;
- background:#ff7e94;
- border-left:3px solid #650014;
- border-right:3px solid #650014;
+.gift:hover {
+    transform: translateY(-5px);
 }
 
-.box-h{
- position:absolute;
- top:42px;
- width:250px;
- height:35px;
- background:#ff7e94;
- border-top:3px solid #650014;
- border-bottom:3px solid #650014;
+.box {
+    position: absolute;
+
+    left: 25px;
+    bottom: 0;
+
+    width: 250px;
+    height: 155px;
+
+    border: 5px solid #45000d;
+
+    border-radius: 10px 10px 22px 22px;
+
+    background:
+        linear-gradient(135deg, #b90d32, #650014);
+
+    overflow: hidden;
+}
+
+.box-v {
+    position: absolute;
+
+    left: 103px;
+
+    width: 40px;
+    height: 155px;
+
+    background: #ff7e94;
+
+    border-left: 3px solid #650014;
+    border-right: 3px solid #650014;
 }
+
+.box-h {
+    position: absolute;
+
+    top: 42px;
 
-.lid{
- position:absolute;
- left:10px;
- top:32px;
- width:280px;
- height:48px;
- border:5px solid #45000d;
- border-radius:12px;
- background:#d51d42;
- z-index:5;
- transition:.8s;
+    width: 250px;
+    height: 35px;
+
+    background: #ff7e94;
+
+    border-top: 3px solid #650014;
+    border-bottom: 3px solid #650014;
 }
+
+.lid {
+    position: absolute;
+
+    left: 10px;
+    top: 32px;
+
+    width: 280px;
+    height: 48px;
+
+    border: 5px solid #45000d;
+
+    border-radius: 12px;
 
-.gift.open .lid{
- transform:translateY(-115px) rotate(-3deg);
+    background: #d51d42;
+
+    z-index: 5;
+
+    transition: .8s;
 }
 
-.bow{
- position:absolute;
- left:50%;
- top:0;
- transform:translateX(-50%);
- z-index:8;
+.gift.open .lid {
+    transform:
+        translateY(-115px)
+        rotate(-3deg);
 }
+
+.bow {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
 
-.bow span{
- position:absolute;
- width:65px;
- height:42px;
- background:#ff7890;
- border:4px solid #650014;
+    transform: translateX(-50%);
+
+    z-index: 8;
 }
+
+.bow span {
+    position: absolute;
+
+    width: 65px;
+    height: 42px;
+
+    background: #ff7890;
 
-.bow .a{
- right:2px;
- transform:rotate(25deg);
- border-radius:60% 10% 60% 10%;
+    border: 4px solid #650014;
 }
 
-.bow .b{
- left:2px;
- transform:rotate(-25deg);
- border-radius:10% 60% 10% 60%;
+.bow .a {
+    right: 2px;
+
+    transform: rotate(25deg);
+
+    border-radius: 60% 10% 60% 10%;
 }
+
+.bow .b {
+    left: 2px;
 
-.bow i{
- position:absolute;
- left:-13px;
- top:17px;
- width:28px;
- height:28px;
- border-radius:50%;
- background:#ffd2d9;
- border:3px solid #650014;
+    transform: rotate(-25deg);
+
+    border-radius: 10% 60% 10% 60%;
 }
+
+.bow i {
+    position: absolute;
+
+    left: -13px;
+    top: 17px;
+
+    width: 28px;
+    height: 28px;
 
-.inside{
- position:absolute;
- left:35px;
- bottom:35px;
- width:230px;
- height:135px;
- border-radius:20px;
- background:#fff0f3;
- z-index:1;
- display:flex;
- align-items:center;
- justify-content:center;
- gap:3px;
- overflow:hidden;
- opacity:0;
- transform:scale(.4);
- transition:.8s;
+    border-radius: 50%;
+
+    background: #ffd2d9;
+
+    border: 3px solid #650014;
 }
+
+/* =========================
+   INSIDE GIFT
+========================= */
+
+.inside {
+    position: absolute;
+
+    left: 35px;
+    bottom: 35px;
+
+    width: 230px;
+    height: 135px;
+
+    border-radius: 20px;
 
-.gift.open .inside{
- opacity:1;
- transform:scale(1);
+    background: #fff0f3;
+
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: scale(.4);
+
+    transition: .8s;
 }
 
-.note{
- display:none;
- max-width:600px;
- margin:25px auto;
- padding:28px;
- border-radius:25px;
- background:#ffffff12;
- border:1px solid #ffbeca44;
- font-family:'Patrick Hand',cursive;
- font-size:24px;
- line-height:1.6;
- animation:fade .8s ease;
+.gift.open .inside {
+    opacity: 1;
+    transform: scale(1);
 }
+
+/* =========================
+   NOTE
+========================= */
+
+.note {
+    display: none;
+
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    padding: 28px;
+
+    border-radius: 25px;
+
+    background: #ffffff12;
+
+    border: 1px solid #ffbeca44;
 
-.note.show{display:block}
+    font-family: 'Patrick Hand', cursive;
 
-.second-click{
- display:none;
- margin-top:15px;
+    font-size: 24px;
+
+    line-height: 1.6;
+
+    animation: fadeIn .8s ease;
+}
+
+.note.show {
+    display: block;
 }
+
+/* =========================
+   SECOND CLICK
+========================= */
 
-.second-click.show{display:inline-block}
+.second-click {
+    display: none;
 
-/* FINAL SURPRISE */
+    margin-top: 15px;
+}
 
-.final-surprise{
- display:none;
- margin:35px auto 10px;
- max-width:650px;
- padding:40px 25px;
- border-radius:30px;
- background:
- radial-gradient(circle at 20% 20%,#ff8297 0 5px,transparent 6px),
- radial-gradient(circle at 80% 30%,#ffd0d8 0 5px,transparent 6px),
- linear-gradient(145deg,#720018,#b50c32);
- border:2px solid #ffc2cc66;
- box-shadow:0 25px 60px #26000666;
- animation:finalReveal 1s ease;
+.second-click.show {
+    display: inline-block;
 }
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+.final-surprise {
+    display: none;
+
+    margin: 35px auto 10px;
+
+    max-width: 650px;
+
+    padding: 50px 25px;
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ff8297 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            #ffd0d8 0 5px,
+            transparent 6px
+        ),
+        linear-gradient(145deg, #720018, #b50c32);
+
+    border: 2px solid #ffc2cc66;
 
-.final-surprise.show{display:block}
+    box-shadow: 0 25px 60px #26000666;
 
-@keyframes finalReveal{
- from{
-  opacity:0;
-  transform:scale(.75) translateY(30px);
- }
- to{
-  opacity:1;
-  transform:scale(1) translateY(0);
- }
+    animation: finalReveal 1s ease;
 }
 
-.final-surprise h2{
- font-family:'DM Serif Display',serif;
+.final-surprise.show {
+    display: block;
 }
 
-.final-surprise p{
- font-family:'Patrick Hand',cursive;
- font-size:25px;
- line-height:1.6;
- color:#ffe9ed;
+@keyframes finalReveal {
+    from {
+        opacity: 0;
+        transform: scale(.75) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.final-surprise h2 {
+    font-family: 'DM Serif Display', serif;
+
+    font-size: clamp(50px, 12vw, 90px);
+
+    color: #fff3f5;
+
+    text-shadow:
+        0 5px 20px #380008;
 }
+
+.flowers {
+    font-size: 42px;
 
-.flowers{
- font-size:42px;
- margin:15px 0;
+    margin: 15px 0;
 }
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 600px) {
+
+    .cat {
+        width: 150px;
+    }
+
+    .letter p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .celebration {
+        height: 450px;
+    }
+
+    .center-cat {
+        width: 190px;
+    }
+
+    .left-cat,
+    .right-cat {
+        width: 95px;
+    }
+
+    .top-cat,
+    .top-cat2 {
+        width: 85px;
+    }
 
-/* MOBILE */
+    .thought {
+        padding: 25px 20px;
+    }
 
-@media(max-width:600px){
- .cat{width:150px}
- .letter p{font-size:15px;line-height:1.75}
- .celebration{height:450px}
- .center-cat{width:190px}
- .left-cat,.right-cat{width:95px}
- .top-cat,.top-cat2{width:85px}
- .thought{padding:25px 20px}
+    .gift {
+        transform: scale(.9);
+    }
 }
 </style>
 </head>
 
 <body>
+
+<!-- SMALL DECORATIONS -->
 
 <div class="decor" style="left:7%;top:16%">♥</div>
 <div class="decor" style="right:8%;top:28%">♥</div>
@@ -825,51 +1192,112 @@ h2{
 
 
 <!-- =====================================================
-PASSWORD
+     PASSWORD SCREEN
 ===================================================== -->
 
 <section id="passwordScreen" class="screen active">
+
 <div class="container">
 
 <svg class="cat" viewBox="0 0 220 260">
 
-<path class="cat-body" d="M48 75L38 18L84 52Z"/>
-<path class="cat-body" d="M172 75L182 18L136 52Z"/>
+    <path class="cat-body"
+          d="M48 75L38 18L84 52Z"/>
 
-<path class="cat-ear" d="M51 53L46 32L68 49Z"/>
-<path class="cat-ear" d="M169 53L174 32L152 49Z"/>
+    <path class="cat-body"
+          d="M172 75L182 18L136 52Z"/>
 
-<circle class="cat-body" cx="110" cy="96" r="66"/>
+    <path class="cat-ear"
+          d="M51 53L46 32L68 49Z"/>
 
-<path class="cat-stripe" d="M82 47Q89 68 99 72Q93 53 95 40Z"/>
-<path class="cat-stripe" d="M138 47Q131 68 121 72Q127 53 125 40Z"/>
+    <path class="cat-ear"
+          d="M169 53L174 32L152 49Z"/>
 
-<ellipse class="cat-eye" cx="85" cy="94" rx="9" ry="13"/>
-<ellipse class="cat-eye" cx="135" cy="94" rx="9" ry="13"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="96"
+            r="66"/>
 
-<circle class="cat-eye-light" cx="88" cy="90" r="3"/>
-<circle class="cat-eye-light" cx="138" cy="90" r="3"/>
+    <path class="cat-stripe"
+          d="M82 47Q89 68 99 72Q93 53 95 40Z"/>
 
-<path class="cat-nose" d="M103 105Q110 99 117 105Q110 113 103 105Z"/>
+    <path class="cat-stripe"
+          d="M138 47Q131 68 121 72Q127 53 125 40Z"/>
 
-<path class="cat-mouth" d="M110 112Q102 123 95 116M110 112Q118 123 125 116"/>
+    <ellipse class="cat-eye"
+             cx="85"
+             cy="94"
+             rx="9"
+             ry="13"/>
 
-<path class="cat-body" d="M62 151Q110 128 158 151L178 238Q110 253 42 238Z"/>
+    <ellipse class="cat-eye"
+             cx="135"
+             cy="94"
+             rx="9"
+             ry="13"/>
 
-<!-- bouquet -->
-<path class="stem" d="M83 204Q65 168 43 145"/>
-<path class="stem" d="M88 204Q80 163 67 138"/>
-<path class="stem" d="M94 204Q99 160 107 135"/>
+    <circle class="cat-eye-light"
+            cx="88"
+            cy="90"
+            r="3"/>
 
-<circle class="flower" cx="42" cy="141" r="17"/>
-<circle class="flower-light" cx="67" cy="134" r="17"/>
-<circle class="flower" cx="107" cy="132" r="17"/>
+    <circle class="cat-eye-light"
+            cx="138"
+            cy="90"
+            r="3"/>
 
-<circle class="flower-center" cx="42" cy="141" r="5"/>
-<circle class="flower-center" cx="67" cy="134" r="5"/>
-<circle class="flower-center" cx="107" cy="132" r="5"/>
+    <path class="cat-nose"
+          d="M103 105Q110 99 117 105Q110 113 103 105Z"/>
+
+    <path class="cat-mouth"
+          d="M110 112Q102 123 95 116M110 112Q118 123 125 116"/>
+
+    <path class="cat-body"
+          d="M62 151Q110 128 158 151L178 238Q110 253 42 238Z"/>
+
+    <!-- bouquet -->
+
+    <path class="stem"
+          d="M83 204Q65 168 43 145"/>
+
+    <path class="stem"
+          d="M88 204Q80 163 67 138"/>
+
+    <path class="stem"
+          d="M94 204Q99 160 107 135"/>
+
+    <circle class="flower"
+            cx="42"
+            cy="141"
+            r="17"/>
+
+    <circle class="flower-light"
+            cx="67"
+            cy="134"
+            r="17"/>
+
+    <circle class="flower"
+            cx="107"
+            cy="132"
+            r="17"/>
+
+    <circle class="flower-center"
+            cx="42"
+            cy="141"
+            r="5"/>
+
+    <circle class="flower-center"
+            cx="67"
+            cy="134"
+            r="5"/>
+
+    <circle class="flower-center"
+            cx="107"
+            cy="132"
+            r="5"/>
 
 </svg>
+
 
 <div class="password-card">
 
@@ -880,55 +1308,91 @@ There's something waiting for you inside.
 </p>
 
 <input
- id="passwordInput"
- class="password-input"
- type="password"
- maxlength="6"
- placeholder="PASSWORD"
+    id="passwordInput"
+    class="password-input"
+    type="password"
+    maxlength="6"
+    placeholder="PASSWORD"
 >
 
-<div class="hint">« It’s your special day. »</div>
+<div class="hint">
+« It’s your special day. »
+</div>
 
-<button class="btn" onclick="checkPassword()">OPEN ♡</button>
+<button class="btn" onclick="checkPassword()">
+OPEN ♡
+</button>
 
 <div id="error"></div>
 
 </div>
+
 </div>
+
 </section>
 
 
 <!-- =====================================================
-ENTRANCE
+     ENTRANCE
 ===================================================== -->
 
 <section id="entranceScreen" class="screen">
+
 <div class="container">
 
 <div class="package">
 
-<svg style="position:absolute;width:150px;left:40px;top:-40px;z-index:5"
-viewBox="0 0 220 220">
+<svg
+    style="position:absolute;width:150px;left:40px;top:-40px;z-index:5"
+    viewBox="0 0 220 220">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<path class="cat-ear" d="M49 50L46 31L66 48Z"/>
-<path class="cat-ear" d="M171 50L174 31L154 48Z"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-ear"
+          d="M49 50L46 31L66 48Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <path class="cat-ear"
+          d="M171 50L174 31L154 48Z"/>
 
-<circle class="cat-eye-light" cx="88" cy="87" r="3"/>
-<circle class="cat-eye-light" cx="136" cy="87" r="3"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-mouth" d="M110 110Q102 120 95 113M110 110Q118 120 125 113"/>
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L175 215L45 215Z"/>
+    <circle class="cat-eye-light"
+            cx="88"
+            cy="87"
+            r="3"/>
+
+    <circle class="cat-eye-light"
+            cx="136"
+            cy="87"
+            r="3"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-mouth"
+          d="M110 110Q102 120 95 113M110 110Q118 120 125 113"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 215L45 215Z"/>
 
 </svg>
 
@@ -939,261 +1403,499 @@ viewBox="0 0 220 220">
 
 </div>
 
-<h1>Hey you.<br>Yeah, you.</h1>
+
+<h1>
+Hey you.<br>
+Yeah, you.
+</h1>
 
 <p class="subtitle">
 Happy Birthday, Allie! ♡<br>
 A tiny digital surprise made just for you.
 </p>
 
-<button class="btn" onclick="showScreen('mainScreen')">
+<button
+    class="btn"
+    onclick="showScreen('mainScreen')">
+
 COME IN ♡
+
 </button>
 
 </div>
+
 </section>
 
 
 <!-- =====================================================
-MAIN
+     MAIN PAGE
 ===================================================== -->
 
 <section id="mainScreen" class="screen">
+
 <div class="container">
 
 <div class="cat">
 
 <svg viewBox="0 0 220 270">
 
-<path class="cat-body" d="M48 75L38 18L84 52Z"/>
-<path class="cat-body" d="M172 75L182 18L136 52Z"/>
+    <path class="cat-body"
+          d="M48 75L38 18L84 52Z"/>
 
-<path class="cat-ear" d="M51 53L46 32L68 49Z"/>
-<path class="cat-ear" d="M169 53L174 32L152 49Z"/>
+    <path class="cat-body"
+          d="M172 75L182 18L136 52Z"/>
 
-<circle class="cat-body" cx="110" cy="96" r="66"/>
+    <path class="cat-ear"
+          d="M51 53L46 32L68 49Z"/>
 
-<ellipse class="cat-eye" cx="85" cy="94" rx="9" ry="13"/>
-<ellipse class="cat-eye" cx="135" cy="94" rx="9" ry="13"/>
+    <path class="cat-ear"
+          d="M169 53L174 32L152 49Z"/>
 
-<circle class="cat-eye-light" cx="88" cy="90" r="3"/>
-<circle class="cat-eye-light" cx="138" cy="90" r="3"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="96"
+            r="66"/>
 
-<path class="cat-nose" d="M103 105Q110 99 117 105Q110 113 103 105Z"/>
+    <ellipse class="cat-eye"
+             cx="85"
+             cy="94"
+             rx="9"
+             ry="13"/>
 
-<path class="cat-mouth" d="M110 112Q102 123 95 116M110 112Q118 123 125 116"/>
+    <ellipse class="cat-eye"
+             cx="135"
+             cy="94"
+             rx="9"
+             ry="13"/>
 
-<path class="cat-body" d="M62 151Q110 128 158 151L178 242Q110 258 42 242Z"/>
+    <circle class="cat-eye-light"
+            cx="88"
+            cy="90"
+            r="3"/>
 
-<!-- bouquet -->
-<path class="stem" d="M94 205Q63 166 35 140"/>
-<path class="stem" d="M100 205Q77 160 64 123"/>
-<path class="stem" d="M105 205Q105 154 108 113"/>
-<path class="stem" d="M111 205Q131 160 151 130"/>
-<path class="stem" d="M116 205Q147 170 178 148"/>
+    <circle class="cat-eye-light"
+            cx="138"
+            cy="90"
+            r="3"/>
 
-<circle class="flower" cx="34" cy="137" r="18"/>
-<circle class="flower-light" cx="64" cy="120" r="18"/>
-<circle class="flower" cx="108" cy="110" r="18"/>
-<circle class="flower-light" cx="151" cy="126" r="18"/>
-<circle class="flower" cx="180" cy="145" r="18"/>
+    <path class="cat-nose"
+          d="M103 105Q110 99 117 105Q110 113 103 105Z"/>
 
-<circle class="flower-center" cx="34" cy="137" r="5"/>
-<circle class="flower-center" cx="64" cy="120" r="5"/>
-<circle class="flower-center" cx="108" cy="110" r="5"/>
-<circle class="flower-center" cx="151" cy="126" r="5"/>
-<circle class="flower-center" cx="180" cy="145" r="5"/>
+    <path class="cat-mouth"
+          d="M110 112Q102 123 95 116M110 112Q118 123 125 116"/>
+
+    <path class="cat-body"
+          d="M62 151Q110 128 158 151L178 242Q110 258 42 242Z"/>
+
+    <!-- bouquet -->
+
+    <path class="stem"
+          d="M94 205Q63 166 35 140"/>
+
+    <path class="stem"
+          d="M100 205Q77 160 64 123"/>
+
+    <path class="stem"
+          d="M105 205Q105 154 108 113"/>
+
+    <path class="stem"
+          d="M111 205Q131 160 151 130"/>
+
+    <path class="stem"
+          d="M116 205Q147 170 178 148"/>
+
+    <circle class="flower"
+            cx="34"
+            cy="137"
+            r="18"/>
+
+    <circle class="flower-light"
+            cx="64"
+            cy="120"
+            r="18"/>
+
+    <circle class="flower"
+            cx="108"
+            cy="110"
+            r="18"/>
+
+    <circle class="flower-light"
+            cx="151"
+            cy="126"
+            r="18"/>
+
+    <circle class="flower"
+            cx="180"
+            cy="145"
+            r="18"/>
+
+    <circle class="flower-center"
+            cx="34"
+            cy="137"
+            r="5"/>
+
+    <circle class="flower-center"
+            cx="64"
+            cy="120"
+            r="5"/>
+
+    <circle class="flower-center"
+            cx="108"
+            cy="110"
+            r="5"/>
+
+    <circle class="flower-center"
+            cx="151"
+            cy="126"
+            r="5"/>
+
+    <circle class="flower-center"
+            cx="180"
+            cy="145"
+            r="5"/>
 
 </svg>
 
 </div>
 
-<h1>HAPPY BIRTHDAY,<br>ALLIE ♡</h1>
+
+<h1>
+HAPPY BIRTHDAY,<br>
+ALLIE ♡
+</h1>
+
 
 <p class="subtitle">
 I couldn't send you an actual gift through the screen,
 so I made this instead.
 </p>
 
+
 <div class="choices">
 
-<div class="choice" onclick="showScreen('letterScreen')">
-<h3>FOR ALLIE ♡</h3>
-<p>A little letter from me to you.</p>
-</div>
+<div
+    class="choice"
+    onclick="showScreen('letterScreen')">
 
-<div class="choice" onclick="showScreen('songScreen')">
-<h3>SONG</h3>
-<p>A song I wanted to put in your birthday gift.</p>
-</div>
+    <h3>FOR ALLIE ♡</h3>
 
-<div class="choice" onclick="showScreen('thoughtScreen')">
-<h3>RANDOM THOUGHTS</h3>
-<p>Some random thoughts I wanted to leave here.</p>
-</div>
-
-<div class="choice" onclick="showScreen('animationScreen')">
-<h3>ANIMATION</h3>
-<p>The cats have something to celebrate.</p>
-</div>
-
-<div class="choice" onclick="showScreen('lastScreen')">
-<h3>ONE LAST THING ♡</h3>
-<p>Before you go... there's one more surprise.</p>
-</div>
+    <p>
+    A little letter from me to you.
+    </p>
 
 </div>
+
+
+<div
+    class="choice"
+    onclick="showScreen('songScreen')">
+
+    <h3>SONG</h3>
+
+    <p>
+    A song I wanted to put in your birthday gift.
+    </p>
+
 </div>
+
+
+<div
+    class="choice"
+    onclick="showScreen('thoughtScreen')">
+
+    <h3>RANDOM THOUGHTS</h3>
+
+    <p>
+    Some random thoughts I wanted to leave here.
+    </p>
+
+</div>
+
+
+<div
+    class="choice"
+    onclick="showScreen('animationScreen')">
+
+    <h3>ANIMATION</h3>
+
+    <p>
+    The cats have something to celebrate.
+    </p>
+
+</div>
+
+
+<div
+    class="choice"
+    onclick="showScreen('lastScreen')">
+
+    <h3>ONE LAST THING ♡</h3>
+
+    <p>
+    Before you go... there's one more surprise.
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
 <!-- =====================================================
-LETTER
+     LETTER
 ===================================================== -->
 
 <section id="letterScreen" class="screen">
+
 <div class="container">
 
 <div class="letter">
 
-<div class="letter-title">FOR ALLIE ♡</div>
+<div class="letter-title">
+FOR ALLIE ♡
+</div>
 
-<svg class="cat small" style="float:right;margin:-5px -5px 10px 15px"
-viewBox="0 0 220 240">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+<svg
+    class="cat small"
+    style="float:right;margin:-5px -5px 10px 15px"
+    viewBox="0 0 220 240">
 
-<path class="cat-ear" d="M49 50L46 31L66 48Z"/>
-<path class="cat-ear" d="M171 50L174 31L154 48Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <path class="cat-ear"
+          d="M49 50L46 31L66 48Z"/>
 
-<circle class="cat-eye-light" cx="88" cy="87" r="3"/>
-<circle class="cat-eye-light" cx="136" cy="87" r="3"/>
+    <path class="cat-ear"
+          d="M171 50L174 31L154 48Z"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
-<path class="cat-mouth" d="M110 110Q102 120 95 113M110 110Q118 120 125 113"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="stem" d="M80 190Q55 155 38 140"/>
-<path class="stem" d="M83 190Q70 155 67 138"/>
-<path class="stem" d="M87 190Q90 155 100 138"/>
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<circle class="flower" cx="38" cy="137" r="14"/>
-<circle class="flower-light" cx="67" cy="136" r="14"/>
-<circle class="flower" cx="100" cy="136" r="14"/>
+    <circle class="cat-eye-light"
+            cx="88"
+            cy="87"
+            r="3"/>
+
+    <circle class="cat-eye-light"
+            cx="136"
+            cy="87"
+            r="3"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-mouth"
+          d="M110 110Q102 120 95 113M110 110Q118 120 125 113"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+
+    <path class="stem"
+          d="M80 190Q55 155 38 140"/>
+
+    <path class="stem"
+          d="M83 190Q70 155 67 138"/>
+
+    <path class="stem"
+          d="M87 190Q90 155 100 138"/>
+
+    <circle class="flower"
+            cx="38"
+            cy="137"
+            r="14"/>
+
+    <circle class="flower-light"
+            cx="67"
+            cy="136"
+            r="14"/>
+
+    <circle class="flower"
+            cx="100"
+            cy="136"
+            r="14"/>
 
 </svg>
 
-<p>Hello there, Allie.</p>
+
+<p>
+Hello there, Allie.
+</p>
+
 
 <p>
 I just wanted to greet you a happy birthday. You know, I'm genuinely really happy that I met you, even if it was only online and through a screen. I'm really glad that I have YOU. You're honestly one of my favorite people I've met online, and I'm really grateful that you became such a great friend to me.
 </p>
 
+
 <p>
 Our conversations, especially the random and funny things we talk about, always manage to make me smile. I'm really happy whenever I'm talking to you. I feel like I can be myself whenever I'm talking to you, and I really appreciate that because I don't feel like I have to pretend or act differently around you.
 </p>
+
 
 <p>
 It's your birthday now, so I really hope you have a happy day. Smile, eat well, enjoy yourself, and do the things that make you happy. And if you ever feel sad or things get difficult, please remember that I'm always here. You can always talk to me whenever you need someone.
 </p>
 
+
 <p>
 Do you know I still remember the day you first talked to me on Instagram? I still remember it, even though I completely forgot what our conversation was about. I just remember that you said goodbye pretty quickly because you were going to sleep. And I still remember that you saw how down I was back then. Honestly, I thought we probably wouldn't talk again after that. But then I opened your story and replied to it, and somehow, that's where our frequent conversations started. I'm really glad I replied because I ended up meeting someone I genuinely enjoy talking to.
 </p>
+
 
 <p>
 And I was really happy that you never ghosted me. Please keep being yourself, Allie. Keep being silly, keep being you, and keep sending me those random reels. I actually watch all the reels you send me because I want to know what's in them. Maybe somewhere in those random reels, I can also see a little bit of you. The things that make you laugh, the things you like, the things you're interested in, and the little things that make you happy. That's why I watch them all.
 </p>
 
+
 <p>
 I hope we stay friends for a really long time. I hope there will never be a time when we leave each other behind. I hope we can keep talking, laughing, sending each other random things, and just being ourselves around each other for a long time. And even if you ever get mad at me someday, I hope we can still work things out and remain friends.
 </p>
+
 
 <p>
 I hope you can do that because, honestly, I can't imagine just losing you and never talking to you again. This probably sounds dramatic, but yeah, I really don't want to lose you, Allie. You've become someone I genuinely care about, and I'm really grateful that I got to meet you.
 </p>
 
-<p>That's it.</p>
+
+<p>
+That's it.
+</p>
+
 
 <p>
 Happy birthday, Allie. I hope you have a really good day, and I hope you continue to find more things that make you happy. Keep being yourself, keep being silly, and please don't ever feel like you have to change who you are.
 </p>
 
-<div class="signature">— shen</div>
+
+<div class="signature">
+— shen
+</div>
 
 </div>
 
-<button class="btn back" onclick="showScreen('mainScreen')">
+
+<button
+    class="btn back"
+    onclick="showScreen('mainScreen')">
+
 ← Back to Choices
+
 </button>
 
 </div>
+
 </section>
 
 
 <!-- =====================================================
-SONG
+     SONG
 ===================================================== -->
 
 <section id="songScreen" class="screen">
+
 <div class="container">
 
-<h2>For Today's Song ♡</h2>
+<h2>
+For Today's Song ♡
+</h2>
 
 <p class="subtitle">
 I wanted this song to be part of this little birthday thing too.
 </p>
 
+
 <div class="music-card">
 
 <div class="record"></div>
 
-<h3 style="font-size:30px">Heart to Heart</h3>
+
+<h3 style="font-size:30px">
+Heart to Heart
+</h3>
+
 
 <p style="margin:8px 0 25px;color:#ffcbd3">
 Mac DeMarco
 </p>
 
-<button class="btn" onclick="showLyrics()">
+
+<button
+    class="btn"
+    onclick="showLyrics()">
+
 PLAY ♡
+
 </button>
 
-<div id="lyrics" class="lyrics">
-To all the days we were together<br>
-To all the time we were apart<br>
-Of each other's lives<br>
-Heart to heart
-</div>
+
+<div
+    id="lyrics"
+    class="lyrics">
+
+    <p>
+        ♡
+    </p>
+
+    <p style="font-size:15px;margin-top:10px;">
+        Add your permitted lyric excerpt here.
+    </p>
 
 </div>
 
-<button class="btn back" onclick="showScreen('mainScreen')">
+</div>
+
+
+<button
+    class="btn back"
+    onclick="showScreen('mainScreen')">
+
 ← Back to Choices
+
 </button>
 
 </div>
+
 </section>
 
 
 <!-- =====================================================
-THOUGHTS
+     RANDOM THOUGHTS
 ===================================================== -->
 
 <section id="thoughtScreen" class="screen">
+
 <div class="container">
 
-<h2>Random Thoughts ♡</h2>
+<h2>
+Random Thoughts ♡
+</h2>
 
 <p class="subtitle">
 A tiny collection of thoughts.
 </p>
+
 
 <div class="thought">
 
@@ -1201,11 +1903,16 @@ A tiny collection of thoughts.
 ♥ ✦ 🌹 ✦ ♥
 </div>
 
-<h3>Random thought #01</h3>
+
+<h3>
+Random thought #01
+</h3>
+
 
 <p>
 I still think it's kinda crazy how two people can randomly meet online and somehow become such an important part of each other's days. Life really has a funny way of introducing people to us.
 </p>
+
 
 <div style="font-size:28px;margin-top:15px">
 ✦ ♡ ✦ ♡ ✦
@@ -1213,284 +1920,546 @@ I still think it's kinda crazy how two people can randomly meet online and someh
 
 </div>
 
-<button class="btn" onclick="showScreen('animationScreen')">
+
+<button
+    class="btn"
+    onclick="showScreen('animationScreen')">
+
 ANIMATION ♡
+
 </button>
+
 
 <br>
 
-<button class="btn back" onclick="showScreen('mainScreen')">
+
+<button
+    class="btn back"
+    onclick="showScreen('mainScreen')">
+
 ← Back to Choices
+
 </button>
 
 </div>
+
 </section>
 
 
 <!-- =====================================================
-ANIMATION
+     CAT CELEBRATION
 ===================================================== -->
 
 <section id="animationScreen" class="screen">
+
 <div class="container">
 
-<h2>The cats want to celebrate your birthday! ♡</h2>
+<h2>
+The cats want to celebrate your birthday! ♡
+</h2>
 
 <p class="subtitle">
 Look at them. They actually showed up for you.
 </p>
 
-<div class="celebration" id="celebration">
+
+<div
+    class="celebration"
+    id="celebration">
+
+
+<!-- CAKE -->
 
 <div class="cake">
 
 <div class="cake-top"></div>
 <div class="cake-base"></div>
 
+
 <div class="candle" style="left:40px">
-<div class="flame"></div>
+    <div class="flame"></div>
 </div>
+
 
 <div class="candle" style="left:70px">
-<div class="flame"></div>
+    <div class="flame"></div>
 </div>
+
 
 <div class="candle" style="left:100px">
-<div class="flame"></div>
+    <div class="flame"></div>
 </div>
 
 </div>
 
 
-<!-- CENTER CELEBRATING CAT -->
+<!-- CENTER CAT -->
 
-<svg class="party-cat center-cat" viewBox="0 0 220 260">
+<svg
+    class="party-cat center-cat"
+    viewBox="0 0 220 260">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<path class="cat-ear" d="M49 50L46 31L66 48Z"/>
-<path class="cat-ear" d="M171 50L174 31L154 48Z"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-ear"
+          d="M49 50L46 31L66 48Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <path class="cat-ear"
+          d="M171 50L174 31L154 48Z"/>
 
-<circle class="cat-eye-light" cx="88" cy="87" r="3"/>
-<circle class="cat-eye-light" cx="136" cy="87" r="3"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-mouth" d="M96 114Q110 130 124 114"/>
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L180 245L40 245Z"/>
+    <circle class="cat-eye-light"
+            cx="88"
+            cy="87"
+            r="3"/>
 
-<!-- raised paws -->
+    <circle class="cat-eye-light"
+            cx="136"
+            cy="87"
+            r="3"/>
 
-<path d="M70 165Q30 125 20 88"
-stroke="#fff7f4"
-stroke-width="17"
-stroke-linecap="round"/>
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
 
-<path d="M150 165Q190 125 200 88"
-stroke="#fff7f4"
-stroke-width="17"
-stroke-linecap="round"/>
+    <path class="cat-mouth"
+          d="M96 114Q110 130 124 114"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L180 245L40 245Z"/>
+
+    <!-- raised paws -->
+
+    <path
+        d="M70 165Q30 125 20 88"
+        stroke="#fff7f4"
+        stroke-width="17"
+        stroke-linecap="round"/>
+
+    <path
+        d="M150 165Q190 125 200 88"
+        stroke="#fff7f4"
+        stroke-width="17"
+        stroke-linecap="round"/>
 
 </svg>
 
 
 <!-- LEFT CAT -->
 
-<svg class="party-cat left-cat" viewBox="0 0 220 250">
+<svg
+    class="party-cat left-cat"
+    viewBox="0 0 220 250">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L175 240L45 240Z"/>
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="stem" d="M105 220Q90 180 90 145"/>
-<circle class="flower" cx="90" cy="140" r="17"/>
-<circle class="flower-center" cx="90" cy="140" r="5"/>
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 240L45 240Z"/>
+
+    <path
+        class="stem"
+        d="M105 220Q90 180 90 145"/>
+
+    <circle
+        class="flower"
+        cx="90"
+        cy="140"
+        r="17"/>
+
+    <circle
+        class="flower-center"
+        cx="90"
+        cy="140"
+        r="5"/>
 
 </svg>
 
 
 <!-- RIGHT CAT -->
 
-<svg class="party-cat right-cat" viewBox="0 0 220 250">
+<svg
+    class="party-cat right-cat"
+    viewBox="0 0 220 250">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L175 240L45 240Z"/>
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<ellipse cx="110" cy="40" rx="25" ry="31"
-fill="#ff7188"
-stroke="#650014"
-stroke-width="4"/>
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
 
-<path d="M110 71V195"
-stroke="#fff1f3"
-stroke-width="3"/>
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 240L45 240Z"/>
+
+    <ellipse
+        cx="110"
+        cy="40"
+        rx="25"
+        ry="31"
+        fill="#ff7188"
+        stroke="#650014"
+        stroke-width="4"/>
+
+    <path
+        d="M110 71V195"
+        stroke="#fff1f3"
+        stroke-width="3"/>
 
 </svg>
 
 
-<!-- TOP CATS -->
+<!-- TOP CAT -->
 
-<svg class="party-cat top-cat" viewBox="0 0 220 220">
+<svg
+    class="party-cat top-cat"
+    viewBox="0 0 220 220">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 210L45 210Z"/>
 
 </svg>
 
-<svg class="party-cat top-cat2" viewBox="0 0 220 220">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
+<!-- TOP RIGHT CAT -->
 
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+<svg
+    class="party-cat top-cat2"
+    viewBox="0 0 220 220">
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<path class="cat-body" d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
+
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 210L45 210Z"/>
 
 </svg>
 
 </div>
 
-<button class="btn back" onclick="showScreen('mainScreen')">
+
+<button
+    class="btn back"
+    onclick="showScreen('mainScreen')">
+
 ← Back to Choices
+
 </button>
 
 </div>
+
 </section>
 
 
 <!-- =====================================================
-ONE LAST THING
+     ONE LAST THING
 ===================================================== -->
 
 <section id="lastScreen" class="screen">
+
 <div class="container">
 
-<h2>One Last Thing ♡</h2>
+<h2>
+One Last Thing ♡
+</h2>
+
 
 <p class="subtitle">
 Before you go... there's one more little surprise.
 </p>
 
-<button class="btn" id="firstClick" onclick="openGift()">
+
+<!-- FIRST CLICK -->
+
+<button
+    class="btn"
+    id="firstClick"
+    onclick="openGift()">
+
 CLICK THE LAST ONE ♡
+
 </button>
 
-<div class="gift" id="gift" onclick="openGift()">
+
+<!-- GIFT -->
+
+<div
+    class="gift"
+    id="gift"
+    onclick="openGift()">
+
+
+<!-- BOW -->
 
 <div class="bow">
+
 <span class="a"></span>
 <span class="b"></span>
 <i></i>
+
 </div>
+
+
+<!-- LID -->
 
 <div class="lid"></div>
 
+
+<!-- INSIDE -->
+
 <div class="inside">
 
-<!-- THREE CATS -->
+<!-- CAT 1 -->
 
-<svg class="cat small" viewBox="0 0 220 220">
+<svg
+    class="cat small"
+    viewBox="0 0 220 220">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
-<path class="cat-body" d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
+
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 210L45 210Z"/>
 
 </svg>
 
-<svg class="cat small" viewBox="0 0 220 220">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+<!-- CAT 2 -->
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+<svg
+    class="cat small"
+    viewBox="0 0 220 220">
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
-<path class="cat-body" d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
+
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
+
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
+
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 210L45 210Z"/>
 
 </svg>
 
-<svg class="cat small" viewBox="0 0 220 220">
 
-<path class="cat-body" d="M48 70L38 18L82 50Z"/>
-<path class="cat-body" d="M172 70L182 18L138 50Z"/>
-<circle class="cat-body" cx="110" cy="92" r="65"/>
+<!-- CAT 3 -->
 
-<ellipse class="cat-eye" cx="86" cy="91" rx="8" ry="12"/>
-<ellipse class="cat-eye" cx="134" cy="91" rx="8" ry="12"/>
+<svg
+    class="cat small"
+    viewBox="0 0 220 220">
 
-<path class="cat-nose" d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
-<path class="cat-body" d="M65 145Q110 125 155 145L175 210L45 210Z"/>
+    <path class="cat-body"
+          d="M48 70L38 18L82 50Z"/>
+
+    <path class="cat-body"
+          d="M172 70L182 18L138 50Z"/>
+
+    <circle class="cat-body"
+            cx="110"
+            cy="92"
+            r="65"/>
+
+    <ellipse class="cat-eye"
+             cx="86"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <ellipse class="cat-eye"
+             cx="134"
+             cy="91"
+             rx="8"
+             ry="12"/>
+
+    <path class="cat-nose"
+          d="M104 103Q110 98 116 103Q110 111 104 103Z"/>
+
+    <path class="cat-body"
+          d="M65 145Q110 125 155 145L175 210L45 210Z"/>
 
 </svg>
 
 </div>
+
+
+<!-- BOX -->
 
 <div class="box">
+
 <div class="box-v"></div>
 <div class="box-h"></div>
-</div>
 
 </div>
 
+</div>
 
-<!-- FIRST REVEAL -->
 
-<div class="note" id="note">
+<!-- FIRST REVEAL NOTE -->
 
-A little something from me to you. ♡<br>
-I hope this made you smile, even just a little.
+<div
+    class="note"
+    id="note">
 
-<br><br>
+    A little something from me to you. ♡<br>
 
-<span style="font-size:20px">
-💐 this one is for you, Allie.
-</span>
+    I hope this made you smile, even just a little.
+
+    <br><br>
+
+    💐 this one is for you, Allie.
 
 </div>
 
@@ -1498,330 +2467,477 @@ I hope this made you smile, even just a little.
 <!-- SECOND CLICK -->
 
 <button
-class="btn second-click"
-id="secondClick"
-onclick="finalSurprise()">
+    class="btn second-click"
+    id="secondClick"
+    onclick="finalSurprise()">
 
 CLICK THE LAST ONE ♡
 
 </button>
 
 
-<!-- FINAL REVEAL -->
+<!-- FINAL SURPRISE -->
 
-<div class="final-surprise" id="finalSurprise">
+<div
+    class="final-surprise"
+    id="finalSurprise">
 
-<div class="flowers">💐 🌹 💐</div>
+    <div class="flowers">
+        💐 🌹 💐
+    </div>
 
-<h2>You found the last surprise ♡</h2>
 
-<p>
-All of these little things were made just for you, Allie.
-</p>
+    <h2>
+        labu ♡
+    </h2>
 
-<p>
-Thank you for being you.
-</p>
 
-<p>
-I hope today gives you plenty of reasons to smile.
-</p>
-
-<div class="flowers">🌹 💐 🌹</div>
-
-<p style="font-size:29px">
-Happy Birthday, Allie ♡
-</p>
-
-<p style="font-size:20px">
-— shen
-</p>
+    <div class="flowers">
+        🌹 💐 🌹
+    </div>
 
 </div>
 
 
-<button class="btn back" onclick="showScreen('mainScreen')">
+<!-- BACK -->
+
+<button
+    class="btn back"
+    onclick="showScreen('mainScreen')">
+
 ← Back to Choices
+
 </button>
 
 </div>
+
 </section>
 
 
 <script>
 
-/* SCREEN NAVIGATION */
+/* =====================================================
+   SCREEN NAVIGATION
+===================================================== */
 
-function showScreen(id){
+function showScreen(id) {
 
- document.querySelectorAll('.screen')
- .forEach(s=>s.classList.remove('active'));
+    document
+        .querySelectorAll('.screen')
+        .forEach(screen => {
+            screen.classList.remove('active');
+        });
 
- document.getElementById(id)
- .classList.add('active');
+    document
+        .getElementById(id)
+        .classList.add('active');
 
- window.scrollTo({
-  top:0,
-  behavior:'smooth'
- });
-
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 
-/* PASSWORD */
+/* =====================================================
+   PASSWORD
+===================================================== */
 
-function checkPassword(){
+function checkPassword() {
 
- const input=document.getElementById('passwordInput');
- const error=document.getElementById('error');
+    const input =
+        document.getElementById('passwordInput');
 
- if(input.value==="122510"){
-
-  error.textContent="";
-  showScreen('entranceScreen');
-
- }else{
-
-  error.textContent="Wrong password... try again ♡";
-
-  input.value="";
-
-  input.animate(
-   [
-    {transform:'translateX(-7px)'},
-    {transform:'translateX(7px)'},
-    {transform:'translateX(-5px)'},
-    {transform:'translateX(5px)'},
-    {transform:'translateX(0)'}
-   ],
-   {duration:350}
-  );
-
- }
-
-}
-
-document.getElementById('passwordInput')
-.addEventListener('keydown',function(e){
-
- if(e.key==="Enter"){
-  checkPassword();
- }
-
-});
+    const error =
+        document.getElementById('error');
 
 
-/* SONG LYRIC REVEAL */
+    if (input.value === "122510") {
 
-function showLyrics(){
+        error.textContent = "";
 
- const lyrics=document.getElementById('lyrics');
- const record=document.querySelector('.record');
+        showScreen('entranceScreen');
 
- lyrics.classList.remove('show');
-
- void lyrics.offsetWidth;
-
- lyrics.classList.add('show');
-
- record.animate(
-  [
-   {transform:'rotate(0deg)'},
-   {transform:'rotate(360deg)'}
-  ],
-  {
-   duration:1200
-  }
- );
-
-}
-
-
-/* GIFT — FIRST CLICK */
-
-let giftOpened=false;
-
-function openGift(){
-
- if(giftOpened)return;
-
- giftOpened=true;
-
- document.getElementById('gift')
- .classList.add('open');
-
- setTimeout(()=>{
-
-  document.getElementById('note')
-  .classList.add('show');
-
-  document.getElementById('secondClick')
-  .classList.add('show');
-
- },800);
-
-}
-
-
-/* SECOND CLICK — FINAL SURPRISE */
-
-let finalShown=false;
-
-function finalSurprise(){
-
- if(finalShown)return;
-
- finalShown=true;
-
- const surprise=document.getElementById('finalSurprise');
-
- surprise.classList.add('show');
-
- document.getElementById('secondClick')
- .style.display='none';
-
- createConfettiBurst();
-
- setTimeout(()=>{
-  surprise.scrollIntoView({
-   behavior:'smooth',
-   block:'center'
-  });
- },300);
-
-}
-
-
-/* CONFETTI BURST */
-
-function createConfettiBurst(){
-
- for(let i=0;i<35;i++){
-
-  const piece=document.createElement('div');
-
-  piece.style.position='fixed';
-  piece.style.left='50%';
-  piece.style.top='50%';
-  piece.style.width='8px';
-  piece.style.height='14px';
-  piece.style.borderRadius='3px';
-  piece.style.background=[
-   '#ff7188',
-   '#ffd0d8',
-   '#ffffff',
-   '#d51d42',
-   '#ff9bad'
-  ][Math.floor(Math.random()*5)];
-
-  piece.style.zIndex='100';
-
-  document.body.appendChild(piece);
-
-  const x=(Math.random()-.5)*window.innerWidth*1.4;
-  const y=(Math.random()-.5)*window.innerHeight*1.2;
-
-  piece.animate(
-   [
-    {
-     transform:'translate(-50%,-50%) scale(1) rotate(0)',
-     opacity:1
-    },
-    {
-     transform:
-      `translate(calc(-50% + ${x}px),calc(-50% + ${y}px))
-       scale(.5) rotate(720deg)`,
-     opacity:0
     }
-   ],
-   {
-    duration:1400+Math.random()*1000,
-    easing:'cubic-bezier(.2,.8,.2,1)'
-   }
-  ).onfinish=()=>{
-   piece.remove();
-  };
 
- }
+    else {
 
+        error.textContent =
+            "Wrong password... try again ♡";
+
+        input.value = "";
+
+        input.animate(
+            [
+                {
+                    transform: 'translateX(-7px)'
+                },
+
+                {
+                    transform: 'translateX(7px)'
+                },
+
+                {
+                    transform: 'translateX(-5px)'
+                },
+
+                {
+                    transform: 'translateX(5px)'
+                },
+
+                {
+                    transform: 'translateX(0)'
+                }
+            ],
+            {
+                duration: 350
+            }
+        );
+    }
 }
 
 
-/* CELEBRATION CONFETTI */
+document
+    .getElementById('passwordInput')
+    .addEventListener('keydown', function(event) {
 
-const celebration=
- document.getElementById('celebration');
+        if (event.key === "Enter") {
+            checkPassword();
+        }
 
-for(let i=0;i<25;i++){
+    });
 
- const c=document.createElement('div');
 
- c.className='confetti';
+/* =====================================================
+   SONG PLAY BUTTON
+===================================================== */
 
- c.style.left=Math.random()*100+'%';
+function showLyrics() {
 
- c.style.animationDelay=
-  Math.random()*2+'s';
+    const lyrics =
+        document.getElementById('lyrics');
 
- c.style.animationDuration=
-  2.5+Math.random()*2+'s';
+    const record =
+        document.querySelector('.record');
 
- celebration.appendChild(c);
 
+    lyrics.classList.remove('show');
+
+    void lyrics.offsetWidth;
+
+    lyrics.classList.add('show');
+
+
+    record.animate(
+        [
+            {
+                transform: 'rotate(0deg)'
+            },
+
+            {
+                transform: 'rotate(360deg)'
+            }
+        ],
+        {
+            duration: 1200
+        }
+    );
 }
 
 
-/* FLOATING HEARTS */
+/* =====================================================
+   ONE LAST THING — FIRST CLICK
+===================================================== */
 
-function floatingHeart(){
+let giftOpened = false;
 
- const h=document.createElement('div');
 
- h.textContent='♥';
+function openGift() {
 
- h.style.position='fixed';
- h.style.left=Math.random()*100+'vw';
- h.style.bottom='-25px';
- h.style.zIndex='1';
- h.style.pointerEvents='none';
- h.style.color=[
-  '#ff7188',
-  '#ff9aaa',
-  '#d51d42',
-  '#ffd0d8'
- ][Math.floor(Math.random()*4)];
+    if (giftOpened) {
+        return;
+    }
 
- h.style.fontSize=
-  12+Math.random()*16+'px';
+    giftOpened = true;
 
- document.body.appendChild(h);
 
- h.animate(
-  [
-   {
-    transform:'translateY(0) rotate(0)',
-    opacity:0
-   },
-   {
-    transform:'translateY(-45vh) rotate(25deg)',
-    opacity:.8
-   },
-   {
-    transform:'translateY(-105vh) rotate(-25deg)',
-    opacity:0
-   }
-  ],
-  {
-   duration:5000+Math.random()*3000,
-   easing:'ease-out'
-  }
- ).onfinish=()=>{
-  h.remove();
- };
+    const gift =
+        document.getElementById('gift');
 
+    const note =
+        document.getElementById('note');
+
+    const secondButton =
+        document.getElementById('secondClick');
+
+
+    gift.classList.add('open');
+
+
+    setTimeout(function() {
+
+        note.classList.add('show');
+
+        secondButton.classList.add('show');
+
+    }, 800);
 }
 
-setInterval(floatingHeart,1300);
+
+/* =====================================================
+   ONE LAST THING — SECOND CLICK
+===================================================== */
+
+let finalShown = false;
+
+
+function finalSurprise() {
+
+    if (finalShown) {
+        return;
+    }
+
+    finalShown = true;
+
+
+    const surprise =
+        document.getElementById('finalSurprise');
+
+    const secondButton =
+        document.getElementById('secondClick');
+
+
+    surprise.classList.add('show');
+
+    secondButton.style.display = 'none';
+
+
+    createConfettiBurst();
+
+
+    setTimeout(function() {
+
+        surprise.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+
+    }, 300);
+}
+
+
+/* =====================================================
+   FINAL CONFETTI
+===================================================== */
+
+function createConfettiBurst() {
+
+    for (let i = 0; i < 35; i++) {
+
+        const piece =
+            document.createElement('div');
+
+
+        piece.style.position = 'fixed';
+
+        piece.style.left = '50%';
+
+        piece.style.top = '50%';
+
+        piece.style.width = '8px';
+
+        piece.style.height = '14px';
+
+        piece.style.borderRadius = '3px';
+
+
+        piece.style.background = [
+            '#ff7188',
+            '#ffd0d8',
+            '#ffffff',
+            '#d51d42',
+            '#ff9bad'
+        ][
+            Math.floor(
+                Math.random() * 5
+            )
+        ];
+
+
+        piece.style.zIndex = '100';
+
+        document.body.appendChild(piece);
+
+
+        const x =
+            (Math.random() - .5)
+            * window.innerWidth
+            * 1.4;
+
+
+        const y =
+            (Math.random() - .5)
+            * window.innerHeight
+            * 1.2;
+
+
+        piece.animate(
+            [
+                {
+                    transform:
+                        'translate(-50%,-50%) scale(1) rotate(0)',
+                    opacity: 1
+                },
+
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        )
+                        scale(.5)
+                        rotate(720deg)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration:
+                    1400 + Math.random() * 1000,
+
+                easing:
+                    'cubic-bezier(.2,.8,.2,1)'
+            }
+        ).onfinish = function() {
+
+            piece.remove();
+
+        };
+    }
+}
+
+
+/* =====================================================
+   CELEBRATION CONFETTI
+===================================================== */
+
+const celebration =
+    document.getElementById('celebration');
+
+
+for (let i = 0; i < 25; i++) {
+
+    const confetti =
+        document.createElement('div');
+
+
+    confetti.className =
+        'confetti';
+
+
+    confetti.style.left =
+        Math.random() * 100 + '%';
+
+
+    confetti.style.animationDelay =
+        Math.random() * 2 + 's';
+
+
+    confetti.style.animationDuration =
+        2.5 + Math.random() * 2 + 's';
+
+
+    celebration.appendChild(confetti);
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+function floatingHeart() {
+
+    const heart =
+        document.createElement('div');
+
+
+    heart.textContent = '♥';
+
+
+    heart.style.position =
+        'fixed';
+
+
+    heart.style.left =
+        Math.random() * 100 + 'vw';
+
+
+    heart.style.bottom =
+        '-25px';
+
+
+    heart.style.zIndex =
+        '1';
+
+
+    heart.style.pointerEvents =
+        'none';
+
+
+    heart.style.color = [
+        '#ff7188',
+        '#ff9aaa',
+        '#d51d42',
+        '#ffd0d8'
+    ][
+        Math.floor(
+            Math.random() * 4
+        )
+    ];
+
+
+    heart.style.fontSize =
+        12 + Math.random() * 16 + 'px';
+
+
+    document.body.appendChild(heart);
+
+
+    heart.animate(
+        [
+            {
+                transform:
+                    'translateY(0) rotate(0)',
+                opacity: 0
+            },
+
+            {
+                transform:
+                    'translateY(-45vh) rotate(25deg)',
+                opacity: .8
+            },
+
+            {
+                transform:
+                    'translateY(-105vh) rotate(-25deg)',
+                opacity: 0
+            }
+        ],
+        {
+            duration:
+                5000 + Math.random() * 3000,
+
+            easing:
+                'ease-out'
+        }
+    ).onfinish = function() {
+
+        heart.remove();
+
+    };
+}
+
+
+setInterval(floatingHeart, 1300);
 
 </script>
 
