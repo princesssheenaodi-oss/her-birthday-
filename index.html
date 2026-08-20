@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Allie ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --red-dark: #5b0010;
+    --red-deep: #760018;
+    --red: #a40025;
+    --red-bright: #c9183d;
+    --red-light: #ed6680;
+    --red-soft: #ffd5dc;
+    --cream: #fff5f5;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.12) 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.1) 0 2px, transparent 3px),
+        linear-gradient(135deg, #650012, #a40025, #720018);
+    background-size: 70px 70px, 90px 90px, 100% 100%;
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.screen {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+    animation: fadeIn .6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.container {
+    width: min(900px, 100%);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    background: rgba(255,255,255,.94);
+    color: var(--red-dark);
+    border-radius: 28px;
+    padding: 35px 25px;
+    box-shadow:
+        0 20px 50px rgba(60,0,10,.35),
+        0 0 0 3px rgba(255,255,255,.18);
+}
+
+h1, h2, h3 {
+    font-family: "Patrick Hand", cursive;
+}
+
+h1 {
+    font-size: clamp(42px, 9vw, 76px);
+    line-height: 1;
+}
+
+h2 {
+    font-size: clamp(34px, 7vw, 55px);
+}
+
+p {
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #8b001b, #d52a50);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(100,0,20,.25);
+    transition: .25s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.primary-btn:active {
+    transform: scale(.97);
+}
+
+.back-btn {
+    margin-top: 25px;
+    background: transparent;
+    color: var(--red);
+    border: 2px solid var(--red);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.back-btn:hover {
+    background: var(--red);
+    color: white;
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.decor {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    opacity: .75;
+}
+
+.decor.one {
+    top: 8%;
+    left: 7%;
+    font-size: 35px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.decor.two {
+    top: 20%;
+    right: 8%;
+    font-size: 28px;
+    animation: float 5s ease-in-out infinite reverse;
+}
+
+.decor.three {
+    bottom: 12%;
+    left: 10%;
+    font-size: 30px;
+    animation: float 4.5s ease-in-out infinite;
+}
+
+.decor.four {
+    bottom: 10%;
+    right: 10%;
+    font-size: 35px;
+    animation: float 5s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* =========================
+   CAT
+========================= */
+
+.cat {
+    width: 145px;
+    height: 125px;
+    margin: 0 auto 20px;
+    position: relative;
+    animation: catFloat 3s ease-in-out infinite;
+}
+
+@keyframes catFloat {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.cat-head {
+    width: 115px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    left: 15px;
+    top: 18px;
+    border: 4px solid var(--red-dark);
+    z-index: 2;
+}
+
+.cat-ear-left,
+.cat-ear-right {
+    width: 43px;
+    height: 50px;
+    background: #fff;
+    position: absolute;
+    top: -20px;
+    border: 4px solid var(--red-dark);
+    z-index: -1;
+}
+
+.cat-ear-left {
+    left: 3px;
+    transform: rotate(-25deg);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.cat-ear-right {
+    right: 3px;
+    transform: rotate(25deg);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.cat-ear-left::after,
+.cat-ear-right::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 25px;
+    background: var(--red-soft);
+    left: 9px;
+    top: 11px;
+}
+
+.cat-eye {
+    position: absolute;
+    width: 11px;
+    height: 16px;
+    background: var(--red-dark);
+    border-radius: 50%;
+    top: 42px;
+}
+
+.cat-eye.left {
+    left: 29px;
+}
+
+.cat-eye.right {
+    right: 29px;
+}
+
+.cat-nose {
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 9px;
+    background: #e75a75;
+    border-radius: 50%;
+}
+
+.cat-mouth {
+    position: absolute;
+    top: 66px;
+    left: 50%;
+    width: 20px;
+    height: 10px;
+    transform: translateX(-50%);
+    border-bottom: 3px solid var(--red-dark);
+    border-radius: 50%;
+}
+
+.whisker {
+    position: absolute;
+    width: 35px;
+    height: 2px;
+    background: var(--red-dark);
+    top: 64px;
+}
+
+.whisker.left1 {
+    left: -18px;
+    transform: rotate(8deg);
+}
+
+.whisker.left2 {
+    left: -18px;
+    top: 72px;
+    transform: rotate(-8deg);
+}
+
+.whisker.right1 {
+    right: -18px;
+    transform: rotate(-8deg);
+}
+
+.whisker.right2 {
+    right: -18px;
+    top: 72px;
+    transform: rotate(8deg);
+}
+
+.cat-body {
+    position: absolute;
+    width: 72px;
+    height: 55px;
+    background: #fff;
+    border: 4px solid var(--red-dark);
+    border-radius: 45% 45% 35% 35%;
+    bottom: -4px;
+    left: 37px;
+}
+
+/* =========================
+   PASSWORD
+========================= */
+
+#passwordScreen .card {
+    max-width: 480px;
+}
+
+.sticker {
+    display: inline-block;
+    background: var(--red-soft);
+    color: var(--red-dark);
+    padding: 7px 15px;
+    border-radius: 999px;
+    font-family: "Patrick Hand", cursive;
+    font-size: 20px;
+    transform: rotate(-3deg);
+    margin-bottom: 18px;
+}
+
+.password-box {
+    margin-top: 25px;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 15px;
+    border: 3px solid #e9a0ad;
+    border-radius: 15px;
+    outline: none;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 5px;
+    color: var(--red-dark);
+}
+
+.password-box input:focus {
+    border-color: var(--red);
+}
+
+.password-box button {
+    margin-top: 13px;
+    width: 100%;
+}
+
+.hint {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #8d4250;
+}
+
+.error {
+    color: #b00020;
+    margin-top: 10px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+/* =========================
+   ENTRANCE
+========================= */
+
+.package {
+    width: 120px;
+    height: 90px;
+    background: #fff;
+    border: 5px solid var(--red-dark);
+    border-radius: 12px;
+    margin: 10px auto 25px;
+    position: relative;
+    transform: rotate(-3deg);
+}
+
+.package::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: var(--red-light);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.package::after {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 50px;
+    background: var(--red-light);
+    top: -12px;
+    left: 30px;
+    border-radius: 50%;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main-title {
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 17px;
+    opacity: .95;
+    margin-bottom: 30px;
+}
+
+.flower {
+    font-size: 45px;
+    margin: 8px;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.choice {
+    background: rgba(255,255,255,.95);
+    color: var(--red-dark);
+    border-radius: 22px;
+    padding: 23px 15px;
+    border: 3px solid rgba(255,255,255,.5);
+    box-shadow: 0 12px 30px rgba(50,0,10,.2);
+    transition: .25s;
+}
+
+.choice:hover {
+    transform: translateY(-6px) rotate(-1deg);
+}
+
+.choice-icon {
+    font-size: 38px;
+    margin-bottom: 7px;
+}
+
+.choice h3 {
+    font-size: 27px;
+}
+
+.choice p {
+    font-size: 13px;
+    color: #833244;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.content-page {
+    align-items: flex-start;
+    padding-top: 45px;
+    padding-bottom: 50px;
+}
+
+.letter {
+    text-align: left;
+    max-width: 760px;
+    margin: auto;
+    background:
+        linear-gradient(rgba(255,255,255,.96), rgba(255,247,248,.96));
+    border-radius: 20px;
+    padding: 38px 28px;
+    color: #5c1020;
+    border: 5px solid #e98b9d;
+    box-shadow: 0 20px 45px rgba(50,0,10,.35);
+    position: relative;
+}
+
+.letter::before {
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 35px;
+    color: var(--red);
+}
+
+.letter-title {
+    text-align: center;
+    font-size: 38px;
+    color: var(--red);
+    margin-bottom: 25px;
+}
+
+.letter p {
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+.signature {
+    text-align: right;
+    font-family: "Patrick Hand", cursive;
+    font-size: 25px;
+    color: var(--red);
+    margin-top: 25px;
+}
+
+.letter-cat {
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   SONG
+========================= */
+
+.song-card {
+    max-width: 600px;
+    margin: auto;
+}
+
+.music-disc {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    margin: 20px auto;
+    background:
+        radial-gradient(circle, #fff 0 8%, #a40025 9% 14%, transparent 15%),
+        repeating-radial-gradient(circle, #8b001b 0 4px, #c9183d 5px 8px);
+    border: 8px solid #fff;
+    box-shadow: 0 15px 30px rgba(70,0,15,.3);
+    animation: spin 5s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-disc.playing {
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.song-title {
+    font-family: "Patrick Hand", cursive;
+    font-size: 38px;
+    color: var(--red);
+}
+
+.song-note {
+    margin: 15px auto;
+    max-width: 450px;
+    color: #6c2433;
+}
+
+.lyric-box {
+    margin: 25px auto;
+    background: #fff0f3;
+    border-radius: 18px;
+    padding: 22px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red-dark);
+    font-family: "Patrick Hand", cursive;
+    font-size: 23px;
+}
+
+.lyric-box.show {
+    animation: lyricAppear .8s ease;
+}
+
+@keyframes lyricAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RANDOM THOUGHT
+========================= */
+
+.thought {
+    max-width: 650px;
+    margin: auto;
+    transform: rotate(-1deg);
+}
+
+.thought-paper {
+    background: #fff;
+    color: var(--red-dark);
+    border-radius: 18px;
+    padding: 35px 25px;
+    border: 4px dashed #d94d6c;
+    box-shadow: 0 15px 35px rgba(50,0,10,.3);
+}
+
+.thought-number {
+    font-family: "Patrick Hand", cursive;
+    font-size: 25px;
+    color: var(--red);
+    margin-bottom: 15px;
+}
+
+.thought-text {
+    font-family: "Patrick Hand", cursive;
+    font-size: 26px;
+    line-height: 1.5;
+}
+
+.thought-decor {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.party-area {
+    max-width: 750px;
+    margin: auto;
+}
+
+.party-stage {
+    min-height: 400px;
+    background:
+        radial-gradient(circle at 20% 30%, #ff9daf 0 5px, transparent 6px),
+        radial-gradient(circle at 80% 20%, #ffd5dc 0 5px, transparent 6px),
+        linear-gradient(135deg, #760018, #c9183d);
+    background-size: 80px 80px, 100px 100px, 100% 100%;
+    border: 5px solid rgba(255,255,255,.8);
+    border-radius: 30px;
+    position: relative;
+    padding: 45px 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(50,0,10,.35);
+}
+
+.party-title {
+    font-family: "Patrick Hand", cursive;
+    font-size: clamp(32px, 7vw, 55px);
+    margin-bottom: 30px;
+}
+
+.party-cats {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.party-cat {
+    font-size: 70px;
+    display: inline-block;
+    animation: bounceCat 1s ease-in-out infinite;
+}
+
+.party-cat:nth-child(2) {
+    animation-delay: .15s;
+}
+
+.party-cat:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.party-cat:nth-child(4) {
+    animation-delay: .45s;
+}
+
+@keyframes bounceCat {
+    0%,100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-25px) rotate(-5deg); }
+}
+
+.confetti {
+    position: absolute;
+    font-size: 25px;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px) rotate(0);
+    }
+    to {
+        transform: translateY(500px) rotate(360deg);
+    }
+}
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+.final-card {
+    max-width: 650px;
+    margin: auto;
+}
+
+.gift-box {
+    width: 230px;
+    height: 180px;
+    margin: 35px auto;
+    position: relative;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.gift-base {
+    position: absolute;
+    width: 200px;
+    height: 140px;
+    bottom: 0;
+    left: 15px;
+    background: linear-gradient(135deg, #8b001b, #d52a50);
+    border: 5px solid #fff;
+    border-radius: 10px;
+}
+
+.gift-base::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 28px;
+    background: #ff9daf;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gift-lid {
+    position: absolute;
+    width: 225px;
+    height: 45px;
+    left: 2px;
+    top: 25px;
+    background: #c9183d;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.gift-ribbon {
+    position: absolute;
+    height: 185px;
+    width: 28px;
+    background: #ff9daf;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.gift-box.opened .gift-lid {
+    transform: translateY(-65px) rotate(-5deg);
+    transition: .7s ease;
+}
+
+.gift-box.opened .gift-base {
+    animation: giftPulse .6s ease;
+}
+
+@keyframes giftPulse {
+    50% { transform: scale(1.05); }
+}
+
+.final-message {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: .6s;
+}
+
+.final-message.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.final-message h2 {
+    color: var(--red);
+}
+
+.final-message p {
+    color: #6c2433;
+    margin-top: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+    .screen {
+        padding: 22px 13px;
+    }
+
+    .card {
+        padding: 28px 18px;
+    }
+
+    .choices {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 30px 19px;
+    }
+
+    .letter p {
+        font-size: 14px;
+    }
+
+    .party-stage {
+        min-height: 430px;
+    }
+
+    .party-cat {
+        font-size: 55px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORATIONS -->
+<div class="decor one">♡</div>
+<div class="decor two">🌹</div>
+<div class="decor three">✦</div>
+<div class="decor four">🐾</div>
+
+
+<!-- =========================================
+     PASSWORD SCREEN
+========================================= -->
+
+<section id="passwordScreen" class="screen active">
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="sticker">🐾 special delivery ♡</div>
+
+            <div class="cat">
+                <div class="cat-head">
+                    <div class="cat-ear-left"></div>
+                    <div class="cat-ear-right"></div>
+
+                    <div class="cat-eye left"></div>
+                    <div class="cat-eye right"></div>
+
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth"></div>
+
+                    <div class="whisker left1"></div>
+                    <div class="whisker left2"></div>
+                    <div class="whisker right1"></div>
+                    <div class="whisker right2"></div>
+                </div>
+
+                <div class="cat-body"></div>
+            </div>
+
+            <h2>A Little Surprise ♡</h2>
+
+            <p style="margin-top:10px;">
+                Someone left a special birthday package here...
+            </p>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="passwordInput"
+                    placeholder="Enter password"
+                    maxlength="6"
+                >
+
+                <button class="primary-btn" onclick="checkPassword()">
+                    OPEN THE GIFT ♡
+                </button>
+
+                <p class="hint">
+                    Hint: “It's your special day.”
+                </p>
+
+                <p id="passwordError" class="error"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ENTRANCE
+========================================= -->
+
+<section id="entranceScreen" class="screen">
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="package"></div>
+
+            <div style="font-size:65px; margin-top:-80px; margin-bottom:15px;">
+                🐱
+            </div>
+
+            <h1 style="font-size:clamp(38px,8vw,65px);">
+                Hey you.<br>
+                Yeah, you.
+            </h1>
+
+            <h2 style="color:#c9183d; margin-top:10px;">
+                Happy Birthday, Allie! ♡
+            </h2>
+
+            <p style="margin:20px 0 25px; color:#6c2433;">
+                Your very important birthday delivery has arrived.
+            </p>
+
+            <button class="primary-btn" onclick="showScreen('mainScreen')">
+                COME IN ♡
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     MAIN CHOICES
+========================================= -->
+
+<section id="mainScreen" class="screen">
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="flower">🌹 🐱 🌹</div>
+
+            <h1 class="main-title">
+                HAPPY BIRTHDAY, ALLIE ♡
+            </h1>
+
+            <p class="subtitle">
+                I couldn't send you an actual gift through the screen,
+                so I made this instead.
+            </p>
+
+            <div class="choices">
+
+                <button class="choice" onclick="showScreen('letterScreen')">
+                    <div class="choice-icon">💌</div>
+                    <h3>Letter</h3>
+                    <p>A little something I wanted to tell you.</p>
+                </button>
+
+                <button class="choice" onclick="showScreen('songScreen')">
+                    <div class="choice-icon">🎧</div>
+                    <h3>Song</h3>
+                    <p>For today's song ♡</p>
+                </button>
+
+                <button class="choice" onclick="showScreen('thoughtScreen')">
+                    <div class="choice-icon">💭</div>
+                    <h3>Random Thoughts</h3>
+                    <p>Just some thoughts I wanted to leave here.</p>
+                </button>
+
+                <button class="choice" onclick="showScreen('animationScreen')">
+                    <div class="choice-icon">🐱</div>
+                    <h3>Animation</h3>
+                    <p>The cats have something planned.</p>
+                </button>
+
+                <button class="choice" onclick="showScreen('finalScreen')">
+                    <div class="choice-icon">🎁</div>
+                    <h3>One Last Thing ♡</h3>
+                    <p>There's one more little surprise.</p>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     LETTER
+========================================= -->
+
+<section id="letterScreen" class="screen content-page">
+
+    <div class="container">
+
+        <div class="letter">
+
+            <div class="letter-cat">
+                🐱💐
+            </div>
+
+            <h2 class="letter-title">
+                FOR ALLIE ♡
+            </h2>
+
+            <p>Hello there, Allie.</p>
+
+            <p>
+                I just wanted to greet you a happy birthday. You know,
+                I'm genuinely really happy that I met you, even if it was
+                only online and through a screen. I'm really glad that I
+                have <strong>YOU</strong>. You're honestly one of my favorite
+                people I've met online, and I'm really grateful that you
+                became such a great friend to me.
+            </p>
+
+            <p>
+                Our conversations, especially the random and funny things
+                we talk about, always manage to make me smile. I'm really
+                happy whenever I'm talking to you. I feel like I can be
+                myself whenever I'm talking to you, and I really appreciate
+                that because I don't feel like I have to pretend or act
+                differently around you.
+            </p>
+
+            <p>
+                It's your birthday now, so I really hope you have a happy
+                day. Smile, eat well, enjoy yourself, and do the things
+                that make you happy. And if you ever feel sad or things
+                get difficult, please remember that I'm always here.
+                You can always talk to me whenever you need someone.
+            </p>
+
+            <p>
+                Do you know I still remember the day you first talked to me
+                on Instagram? I still remember it, even though I completely
+                forgot what our conversation was about. I just remember
+                that you said goodbye pretty quickly because you were going
+                to sleep. And I still remember that you saw how down I was
+                back then. Honestly, I thought we probably wouldn't talk
+                again after that. But then I opened your story and replied
+                to it, and somehow, that's where our frequent conversations
+                started. I'm really glad I replied because I ended up
+                meeting someone I genuinely enjoy talking to.
+            </p>
+
+            <p>
+                And I was really happy that you never ghosted me. Please
+                keep being yourself, Allie. Keep being silly, keep being
+                you, and keep sending me those random reels. I actually
+                watch all the reels you send me because I want to know
+                what's in them. Maybe somewhere in those random reels,
+                I can also see a little bit of you. The things that make
+                you laugh, the things you like, the things you're interested
+                in, and the little things that make you happy. That's why
+                I watch them all.
+            </p>
+
+            <p>
+                I hope we stay friends for a really long time. I hope there
+                will never be a time when we leave each other behind. I hope
+                we can keep talking, laughing, sending each other random
+                things, and just being ourselves around each other for a
+                long time. And even if you ever get mad at me someday,
+                I hope we can still work things out and remain friends.
+            </p>
+
+            <p>
+                I hope you can do that because, honestly, I can't imagine
+                just losing you and never talking to you again. This
+                probably sounds dramatic, but yeah, I really don't want
+                to lose you, Allie. You've become someone I genuinely care
+                about, and I'm really grateful that I got to meet you.
+            </p>
+
+            <p>
+                That's it.
+            </p>
+
+            <p>
+                Happy birthday, Allie. I hope you have a really good day,
+                and I hope you continue to find more things that make you
+                happy. Keep being yourself, keep being silly, and please
+                don't ever feel like you have to change who you are.
+            </p>
+
+            <div class="signature">
+                — shen ♡
+            </div>
+
+            <div style="text-align:center;">
+                <button class="back-btn" onclick="showScreen('mainScreen')">
+                    ← Back to Choices
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SONG
+========================================= -->
+
+<section id="songScreen" class="screen">
+
+    <div class="container">
+
+        <div class="card song-card">
+
+            <div style="font-size:50px;">
+                🎧♡
+            </div>
+
+            <h2 style="color:#c9183d;">
+                For Today's Song ♡
+            </h2>
+
+            <p class="song-note">
+                I wanted this song to be part of this little birthday
+                thing too.
+            </p>
+
+            <div class="music-disc" id="musicDisc"></div>
+
+            <div class="song-title">
+                Heart to Heart
+            </div>
+
+            <p style="color:#7c3443; margin-top:5px;">
+                Mac DeMarco
+            </p>
+
+            <button class="primary-btn"
+                    id="playButton"
+                    onclick="toggleMusic()"
+                    style="margin-top:20px;">
+                PLAY ♡
+            </button>
+
+            <!--
+                If you have a legally obtained copy of the song,
+                put it in the same folder as this index.html and name it:
+
+                heart-to-heart.mp3
+            -->
+
+            <audio id="birthdaySong" preload="metadata">
+                <source src="heart-to-heart.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="lyric-box" id="lyricBox">
+                ♡ A song for today's little birthday surprise ♡
+            </div>
+
+            <p style="font-size:13px; color:#8c4a58;">
+                Press play to listen to the song.
+            </p>
+
+            <button class="back-btn" onclick="stopMusic(); showScreen('mainScreen')">
+                ← Back to Choices
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     RANDOM THOUGHT
+========================================= -->
+
+<section id="thoughtScreen" class="screen">
+
+    <div class="container">
+
+        <div class="thought">
+
+            <div class="thought-paper">
+
+                <div class="thought-decor">
+                    🌹 ✦ 🐾 ✦ 🌹
+                </div>
+
+                <div class="thought-number">
+                    Random thought #01
+                </div>
+
+                <div class="thought-text">
+                    I still think it's kinda crazy how two people can
+                    randomly meet online and somehow become such an
+                    important part of each other's days. Life really has
+                    a funny way of introducing people to us.
+                </div>
+
+                <div class="thought-decor">
+                    ♡ 🐱 ♡
+                </div>
+
+                <button class="primary-btn"
+                        onclick="showScreen('animationScreen')">
+                    SEE THE ANIMATION ♡
+                </button>
+
+            </div>
+
+            <button class="back-btn" onclick="showScreen('mainScreen')">
+                ← Back to Choices
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ANIMATION
+========================================= -->
+
+<section id="animationScreen" class="screen">
+
+    <div class="container party-area">
+
+        <div class="party-stage">
+
+            <div class="confetti" style="left:8%; animation-delay:0s;">✦</div>
+            <div class="confetti" style="left:25%; animation-delay:1s;">♡</div>
+            <div class="confetti" style="left:50%; animation-delay:.5s;">✦</div>
+            <div class="confetti" style="left:72%; animation-delay:1.4s;">♡</div>
+            <div class="confetti" style="left:90%; animation-delay:.8s;">✦</div>
+
+            <div class="party-title">
+                The cats want to celebrate your birthday! ♡
+            </div>
+
+            <div style="font-size:100px; animation:catFloat 2s infinite;">
+                🐱🎂
+            </div>
+
+            <div class="party-cats">
+                <span class="party-cat">🐱</span>
+                <span class="party-cat">🐈</span>
+                <span class="party-cat">😺</span>
+                <span class="party-cat">🐱</span>
+            </div>
+
+            <div style="margin-top:20px; font-size:25px;">
+                🎈 🌹 🎉 🌹 🎈
+            </div>
+
+        </div>
+
+        <button class="back-btn" onclick="showScreen('mainScreen')">
+            ← Back to Choices
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FINAL SURPRISE
+========================================= -->
+
+<section id="finalScreen" class="screen">
+
+    <div class="container">
+
+        <div class="card final-card">
+
+            <div style="font-size:60px;">
+                🌹 🐱 🌹
+            </div>
+
+            <h2 style="color:#c9183d;">
+                One Last Thing ♡
+            </h2>
+
+            <p style="color:#6c2433; margin-top:10px;">
+                Before you go... there's one more little surprise.
+            </p>
+
+            <div class="gift-box" id="giftBox" onclick="openGift()">
+
+                <div class="gift-ribbon"></div>
+
+                <div class="gift-base"></div>
+
+                <div class="gift-lid"></div>
+
+            </div>
+
+            <button class="primary-btn" onclick="openGift()">
+                CLICK THE LAST ONE ♡
+            </button>
+
+            <div class="final-message" id="finalMessage">
+
+                <div style="font-size:75px; margin-top:30px;">
+                    🐱 🐱 🐱
+                </div>
+
+                <h2>
+                    A little something from me to you. ♡
+                </h2>
+
+                <p>
+                    I hope this made you smile, even just a little.
+                </p>
+
+                <div style="font-size:35px; margin-top:20px;">
+                    🌹 🌹 🌹
+                </div>
+
+            </div>
+
+            <button class="back-btn" onclick="showScreen('mainScreen')">
+                ← Back to Choices
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================================
+   SCREEN NAVIGATION
+========================================= */
+
+function showScreen(screenId) {
+
+    const screens = document.querySelectorAll(".screen");
+
+    screens.forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    const target = document.getElementById(screenId);
+
+    if (target) {
+        target.classList.add("active");
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+}
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+function checkPassword() {
+
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("passwordError");
+
+    if (input.value === "122510") {
+
+        error.textContent = "";
+
+        showScreen("entranceScreen");
+
+    } else {
+
+        error.textContent =
+            "Hmm... that's not the password. Try again ♡";
+
+        input.value = "";
+
+        input.animate(
+            [
+                { transform: "translateX(0)" },
+                { transform: "translateX(-8px)" },
+                { transform: "translateX(8px)" },
+                { transform: "translateX(0)" }
+            ],
+            {
+                duration: 300
+            }
+        );
+    }
+}
+
+
+/* Press Enter on password */
+
+document.getElementById("passwordInput").addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+            checkPassword();
+        }
+
+    }
+);
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const song = document.getElementById("birthdaySong");
+const playButton = document.getElementById("playButton");
+const musicDisc = document.getElementById("musicDisc");
+const lyricBox = document.getElementById("lyricBox");
+
+function toggleMusic() {
+
+    if (song.paused) {
+
+        song.play()
+            .then(() => {
+
+                playButton.textContent = "PAUSE ♡";
+                musicDisc.classList.add("playing");
+
+                lyricBox.innerHTML =
+                    "♡ The song is playing... enjoy this little moment ♡";
+
+                lyricBox.classList.remove("show");
+
+                setTimeout(() => {
+                    lyricBox.classList.add("show");
+                }, 20);
+
+            })
+            .catch(() => {
+
+                lyricBox.innerHTML =
+                    "Put your legally obtained audio file here as <strong>heart-to-heart.mp3</strong> to play it on the website ♡";
+
+                lyricBox.classList.add("show");
+
+            });
+
+    } else {
+
+        song.pause();
+
+        playButton.textContent = "PLAY ♡";
+
+        musicDisc.classList.remove("playing");
+
+    }
+}
+
+
+function stopMusic() {
+
+    song.pause();
+    song.currentTime = 0;
+
+    playButton.textContent = "PLAY ♡";
+
+    musicDisc.classList.remove("playing");
+
+}
+
+
+song.addEventListener("ended", function() {
+
+    playButton.textContent = "PLAY ♡";
+
+    musicDisc.classList.remove("playing");
+
+});
+
+
+/* =========================================
+   FINAL GIFT
+========================================= */
+
+let giftOpened = false;
+
+function openGift() {
+
+    const gift = document.getElementById("giftBox");
+    const message = document.getElementById("finalMessage");
+
+    if (!giftOpened) {
+
+        giftOpened = true;
+
+        gift.classList.add("opened");
+
+        setTimeout(() => {
+            message.classList.add("visible");
+        }, 500);
+
+    }
+
+}
+
+
+/* =========================================
+   CREATE EXTRA FLOATING HEARTS
+========================================= */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.innerHTML = Math.random() > .5 ? "♡" : "✦";
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-30px";
+    heart.style.fontSize = (12 + Math.random() * 18) + "px";
+    heart.style.color = "rgba(255,255,255,.55)";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "1";
+
+    document.body.appendChild(heart);
+
+    const duration = 5000 + Math.random() * 4000;
+
+    heart.animate(
+        [
+            {
+                transform: "translateY(0) rotate(0deg)",
+                opacity: 0
+            },
+            {
+                transform: "translateY(-30vh) rotate(80deg)",
+                opacity: 1
+            },
+            {
+                transform: "translateY(-110vh) rotate(180deg)",
+                opacity: 0
+            }
+        ],
+        {
+            duration: duration,
+            easing: "linear"
+        }
+    );
+
+    setTimeout(() => {
+        heart.remove();
+    }, duration);
+}
+
+
+/* Keep subtle hearts floating */
+
+setInterval(createHeart, 1800);
+
+</script>
+
+</body>
+</html>
