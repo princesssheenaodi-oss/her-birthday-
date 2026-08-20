@@ -15,15 +15,16 @@
 }
 
 :root{
-    --deep:#430716;
-    --wine:#650a20;
-    --burgundy:#7d1029;
+    --deep:#390511;
+    --dark:#500719;
+    --wine:#680a21;
+    --burgundy:#7f102b;
     --red:#a7193d;
-    --cherry:#c52b50;
-    --pink:#e75d7d;
-    --light:#ffb1c0;
-    --blush:#ffdce2;
-    --cream:#fff8f6;
+    --cherry:#c52d51;
+    --pink:#e45c7a;
+    --light:#ffacbd;
+    --blush:#ffd9e0;
+    --cream:#fff8f7;
     --ink:#481522;
 }
 
@@ -35,11 +36,12 @@ body{
     min-height:100vh;
     overflow-x:hidden;
     font-family:"DM Sans",sans-serif;
+    background:var(--dark);
     color:var(--ink);
-    background:#650a20;
 }
 
-button,input{
+button,
+input{
     font-family:inherit;
 }
 
@@ -47,21 +49,26 @@ button{
     cursor:pointer;
 }
 
-/* ================= BACKGROUND ================= */
-
 .screen{
     position:fixed;
     inset:0;
     min-height:100vh;
     overflow-y:auto;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:25px;
+
     opacity:0;
     visibility:hidden;
     transform:translateY(25px);
-    transition:opacity .5s ease,transform .5s ease;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease,
+        visibility .5s ease;
 }
 
 .screen.active{
@@ -73,16 +80,17 @@ button{
 
 #passwordScreen{
     background:
-    radial-gradient(circle at 15% 15%,rgba(255,255,255,.08) 0 3px,transparent 4px),
-    radial-gradient(circle at 85% 25%,rgba(255,180,195,.15) 0 4px,transparent 5px),
-    radial-gradient(circle at 30% 85%,rgba(255,255,255,.07) 0 3px,transparent 4px),
-    linear-gradient(145deg,#3e0614,#710b25 48%,#b52246);
+        radial-gradient(circle at 15% 15%,rgba(255,255,255,.09) 0 3px,transparent 4px),
+        radial-gradient(circle at 85% 25%,rgba(255,180,195,.16) 0 5px,transparent 6px),
+        radial-gradient(circle at 30% 85%,rgba(255,255,255,.08) 0 3px,transparent 4px),
+        linear-gradient(145deg,#390511,#710a25 50%,#b92549);
 }
 
 #entranceScreen{
     background:
-    radial-gradient(circle at 20% 15%,rgba(255,200,210,.2),transparent 22%),
-    linear-gradient(145deg,#510719,#92122f,#c93255);
+        radial-gradient(circle at 15% 15%,rgba(255,210,220,.18),transparent 23%),
+        radial-gradient(circle at 85% 80%,rgba(255,255,255,.08),transparent 22%),
+        linear-gradient(145deg,#4a0618,#8f1231,#c73557);
 }
 
 #mainScreen,
@@ -92,77 +100,46 @@ button{
 #animationScreen,
 #finalScreen{
     background:
-    radial-gradient(circle at 8% 15%,rgba(255,188,203,.22),transparent 22%),
-    radial-gradient(circle at 90% 85%,rgba(255,255,255,.09),transparent 20%),
-    linear-gradient(145deg,#59091d,#8c1230 48%,#c8395b);
+        radial-gradient(circle at 8% 15%,rgba(255,188,203,.20),transparent 22%),
+        radial-gradient(circle at 90% 85%,rgba(255,255,255,.08),transparent 20%),
+        linear-gradient(145deg,#54081c,#88122f 48%,#c8395c);
 }
 
-/* ================= DECOR ================= */
+/* =========================
+   DECORATIONS
+========================= */
 
 .floating-heart{
     position:fixed;
-    color:#ffb5c5;
-    font-size:25px;
+    color:#ffb6c6;
+    font-size:27px;
     z-index:1;
     pointer-events:none;
     animation:floatHeart 4s ease-in-out infinite;
 }
 
-.fh1{left:8%;top:25%}
-.fh2{right:9%;top:43%;animation-delay:1s}
-.fh3{left:15%;bottom:15%;animation-delay:2s}
-.fh4{right:18%;bottom:20%;animation-delay:1.5s}
+.fh1{left:7%;top:23%}
+.fh2{right:8%;top:40%;animation-delay:1s}
+.fh3{left:14%;bottom:14%;animation-delay:2s}
+.fh4{right:17%;bottom:18%;animation-delay:1.5s}
 
 @keyframes floatHeart{
-    0%,100%{transform:translateY(0) rotate(-8deg)}
-    50%{transform:translateY(-15px) rotate(8deg)}
+    0%,100%{
+        transform:translateY(0) rotate(-8deg);
+    }
+    50%{
+        transform:translateY(-15px) rotate(8deg);
+    }
 }
 
-/* ================= FLOWER ================= */
-
-.flower{
-    width:70px;
-    height:70px;
-    position:relative;
-    display:inline-block;
-}
-
-.flower .petal{
-    position:absolute;
-    width:28px;
-    height:39px;
-    left:21px;
-    top:5px;
-    border-radius:70% 30% 70% 30%;
-    background:linear-gradient(145deg,#ff9bad,#bd2147);
-    border:2px solid #761126;
-    transform-origin:bottom center;
-}
-
-.flower .petal:nth-child(1){transform:rotate(0)}
-.flower .petal:nth-child(2){transform:rotate(72deg)}
-.flower .petal:nth-child(3){transform:rotate(144deg)}
-.flower .petal:nth-child(4){transform:rotate(216deg)}
-.flower .petal:nth-child(5){transform:rotate(288deg)}
-
-.flower .center{
-    position:absolute;
-    width:17px;
-    height:17px;
-    border-radius:50%;
-    background:#ffd06a;
-    border:2px solid #76202d;
-    left:26px;
-    top:27px;
-    z-index:3;
-}
-
-/* ================= CARD ================= */
+/* =========================
+   GENERAL CARD
+========================= */
 
 .card{
     width:min(520px,95vw);
     padding:38px 28px;
-    background:rgba(255,248,246,.96);
+    background:rgba(255,248,246,.97);
     border-radius:32px;
     box-shadow:0 25px 70px rgba(35,0,10,.42);
     position:relative;
@@ -185,7 +162,39 @@ button{
     color:#9c2945;
 }
 
-/* ================= CAT ================= */
+/* =========================
+   BUTTONS
+========================= */
+
+.primary{
+    border:0;
+    padding:14px 28px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#741029,#ce3b5d);
+    color:white;
+    font-weight:800;
+    box-shadow:0 9px 24px rgba(82,5,25,.3);
+    transition:.25s;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+}
+
+.back{
+    margin-top:22px;
+}
+
+.error{
+    height:23px;
+    color:#c01e42;
+    font-size:14px;
+    margin-top:7px;
+}
+
+/* =========================
+   ANIME CAT
+========================= */
 
 .cat{
     width:180px;
@@ -200,9 +209,11 @@ button{
     height:100px;
     left:44px;
     bottom:5px;
+
     background:#fff6f1;
     border:4px solid #521522;
     border-radius:48% 48% 35% 35%;
+
     z-index:1;
 }
 
@@ -212,9 +223,11 @@ button{
     height:101px;
     left:32px;
     top:25px;
+
     background:#fffaf7;
     border:4px solid #521522;
     border-radius:50%;
+
     z-index:3;
 }
 
@@ -223,6 +236,7 @@ button{
     width:47px;
     height:55px;
     top:0;
+
     background:#fffaf7;
     border:4px solid #521522;
     z-index:2;
@@ -245,13 +259,18 @@ button{
     position:absolute;
     width:23px;
     height:28px;
-    background:#ec91a5;
+    background:#ed91a6;
     border-radius:50%;
     top:12px;
 }
 
-.cat .ear.left:after{left:9px}
-.cat .ear.right:after{right:9px}
+.cat .ear.left:after{
+    left:9px;
+}
+
+.cat .ear.right:after{
+    right:9px;
+}
 
 .cat .eye{
     position:absolute;
@@ -262,8 +281,13 @@ button{
     top:57px;
 }
 
-.cat .eye.left{left:30px}
-.cat .eye.right{right:30px}
+.cat .eye.left{
+    left:30px;
+}
+
+.cat .eye.right{
+    right:30px;
+}
 
 .cat .eye:after{
     content:"";
@@ -304,8 +328,15 @@ button{
     top:77px;
 }
 
-.cat .w1{left:3px;transform:rotate(8deg)}
-.cat .w2{right:3px;transform:rotate(-8deg)}
+.cat .w1{
+    left:3px;
+    transform:rotate(8deg);
+}
+
+.cat .w2{
+    right:3px;
+    transform:rotate(-8deg);
+}
 
 .cat .paw{
     position:absolute;
@@ -334,43 +365,19 @@ button{
     height:84px;
     right:-1px;
     bottom:17px;
+
     border:10px solid #fff6f1;
     border-left-color:transparent;
     border-bottom-color:transparent;
     border-radius:50%;
+
     transform:rotate(35deg);
     z-index:0;
 }
 
-/* ================= BUTTON ================= */
-
-.primary{
-    border:0;
-    padding:14px 28px;
-    border-radius:999px;
-    background:linear-gradient(135deg,#771029,#ce3a5b);
-    color:white;
-    font-weight:800;
-    box-shadow:0 9px 24px rgba(82,5,25,.3);
-    transition:.25s;
-}
-
-.primary:hover{
-    transform:translateY(-3px);
-}
-
-.back{
-    margin-top:22px;
-}
-
-.error{
-    height:23px;
-    color:#c01e42;
-    font-size:14px;
-    margin-top:7px;
-}
-
-/* ================= PASSWORD ================= */
+/* =========================
+   PASSWORD
+========================= */
 
 .password-cat{
     margin-bottom:5px;
@@ -385,17 +392,22 @@ button{
     width:100%;
     margin-top:18px;
     padding:15px;
+
     border:2px solid #d45c78;
     border-radius:16px;
+
     background:white;
     text-align:center;
     outline:none;
+
     font-size:21px;
     letter-spacing:6px;
     color:#681025;
 }
 
-/* ================= ENTRANCE ================= */
+/* =========================
+   ENTRANCE
+========================= */
 
 .entrance{
     width:min(650px,95vw);
@@ -425,9 +437,11 @@ button{
     height:68px;
     left:70px;
     bottom:12px;
+
     background:#c73958;
     border:4px solid #551422;
     border-radius:8px;
+
     z-index:8;
 }
 
@@ -459,7 +473,9 @@ button{
     font-weight:800;
 }
 
-/* ================= MAIN ================= */
+/* =========================
+   MAIN
+========================= */
 
 .main{
     width:min(1050px,95vw);
@@ -483,6 +499,10 @@ button{
     font-size:25px;
     margin-top:8px;
 }
+
+/* =========================
+   BOUQUET
+========================= */
 
 .bouquet-wrap{
     width:220px;
@@ -511,25 +531,62 @@ button{
     transform-origin:bottom;
 }
 
-.stem:nth-child(1){transform:rotate(-30deg)}
-.stem:nth-child(2){transform:rotate(-12deg)}
-.stem:nth-child(3){transform:rotate(12deg)}
-.stem:nth-child(4){transform:rotate(30deg)}
+.stem:nth-child(1){
+    transform:rotate(-30deg);
+}
+
+.stem:nth-child(2){
+    transform:rotate(-12deg);
+}
+
+.stem:nth-child(3){
+    transform:rotate(12deg);
+}
+
+.stem:nth-child(4){
+    transform:rotate(30deg);
+}
 
 .rose{
     position:absolute;
     width:34px;
     height:34px;
     border-radius:50%;
-    background:radial-gradient(circle at 30% 30%,#ff8fa4,#bf1f46 70%);
+
+    background:
+        radial-gradient(circle at 30% 30%,#ff8fa4,#bf1f46 70%);
+
     border:2px solid #741026;
 }
 
-.rose:nth-child(5){left:5px;top:12px}
-.rose:nth-child(6){left:34px;top:0}
-.rose:nth-child(7){left:66px;top:10px}
-.rose:nth-child(8){left:23px;top:32px}
-.rose:nth-child(9){left:57px;top:35px}
+.rose:nth-child(5){
+    left:5px;
+    top:12px;
+}
+
+.rose:nth-child(6){
+    left:34px;
+    top:0;
+}
+
+.rose:nth-child(7){
+    left:66px;
+    top:10px;
+}
+
+.rose:nth-child(8){
+    left:23px;
+    top:32px;
+}
+
+.rose:nth-child(9){
+    left:57px;
+    top:35px;
+}
+
+/* =========================
+   CHOICES
+========================= */
 
 .choices{
     margin-top:28px;
@@ -542,10 +599,14 @@ button{
     border:1px solid rgba(255,255,255,.3);
     border-radius:24px;
     padding:25px;
+
     text-align:left;
+
     background:rgba(255,247,246,.96);
     color:#681025;
+
     box-shadow:0 12px 30px rgba(45,0,12,.22);
+
     transition:.3s;
 }
 
@@ -571,7 +632,9 @@ button{
     }
 }
 
-/* ================= SUBPAGE ================= */
+/* =========================
+   SUBPAGES
+========================= */
 
 .subpage{
     width:min(880px,95vw);
@@ -595,12 +658,75 @@ button{
     margin-bottom:20px;
 }
 
-/* ================= LETTER ================= */
+/* =========================
+   FLOWERS
+========================= */
+
+.flower{
+    width:70px;
+    height:70px;
+    position:relative;
+    display:inline-block;
+}
+
+.flower .petal{
+    position:absolute;
+    width:28px;
+    height:39px;
+    left:21px;
+    top:5px;
+
+    border-radius:70% 30% 70% 30%;
+
+    background:linear-gradient(145deg,#ff9bad,#bd2147);
+
+    border:2px solid #761126;
+
+    transform-origin:bottom center;
+}
+
+.flower .petal:nth-child(1){
+    transform:rotate(0);
+}
+
+.flower .petal:nth-child(2){
+    transform:rotate(72deg);
+}
+
+.flower .petal:nth-child(3){
+    transform:rotate(144deg);
+}
+
+.flower .petal:nth-child(4){
+    transform:rotate(216deg);
+}
+
+.flower .petal:nth-child(5){
+    transform:rotate(288deg);
+}
+
+.flower .center{
+    position:absolute;
+    width:17px;
+    height:17px;
+    border-radius:50%;
+    background:#ffd06a;
+    border:2px solid #76202d;
+    left:26px;
+    top:27px;
+    z-index:3;
+}
+
+/* =========================
+   LETTER
+========================= */
 
 .letter{
     position:relative;
     overflow:hidden;
+
     border:5px solid #e5a0ad;
+
     background:
         repeating-linear-gradient(
             0deg,
@@ -630,7 +756,9 @@ button{
     font-size:27px!important;
 }
 
-/* ================= SONG ================= */
+/* =========================
+   SONG
+========================= */
 
 .song{
     text-align:center;
@@ -640,9 +768,13 @@ button{
     max-width:520px;
     margin:30px auto;
     padding:32px;
+
     border-radius:28px;
+
     background:linear-gradient(145deg,#6b0b23,#c12e51);
+
     color:white;
+
     box-shadow:0 20px 50px rgba(60,0,15,.35);
 }
 
@@ -650,12 +782,17 @@ button{
     width:120px;
     height:120px;
     margin:auto;
+
     border-radius:24px;
+
     background:linear-gradient(135deg,#f17891,#6c0a25);
+
     border:4px solid #ffd2da;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     position:relative;
 }
 
@@ -696,19 +833,26 @@ button{
     max-height:0;
     overflow:hidden;
     opacity:0;
-    transition:1s ease;
+
+    transition:
+        max-height 1s ease,
+        opacity 1s ease;
+
     margin-top:22px;
+
     font-family:"Caveat",cursive;
-    font-size:28px;
+    font-size:25px;
     line-height:1.35;
 }
 
 .lyrics.show{
-    max-height:220px;
+    max-height:250px;
     opacity:1;
 }
 
-/* ================= THOUGHTS ================= */
+/* =========================
+   RANDOM THOUGHTS
+========================= */
 
 .thoughts{
     display:grid;
@@ -717,18 +861,30 @@ button{
 
 .thought{
     padding:24px;
+
     background:#fff0f3;
+
     border:2px dashed #d15b76;
     border-radius:22px;
+
     font-family:"Caveat",cursive;
     font-size:26px;
     line-height:1.25;
+
     box-shadow:4px 6px 0 #edb4c0;
 }
 
-.thought:nth-child(1){transform:rotate(-1deg)}
-.thought:nth-child(2){transform:rotate(1deg)}
-.thought:nth-child(3){transform:rotate(-.5deg)}
+.thought:nth-child(1){
+    transform:rotate(-1deg);
+}
+
+.thought:nth-child(2){
+    transform:rotate(1deg);
+}
+
+.thought:nth-child(3){
+    transform:rotate(-.5deg);
+}
 
 .number{
     font-family:"DM Sans",sans-serif;
@@ -737,149 +893,253 @@ button{
     font-weight:bold;
 }
 
-/* ================= ANIMATION ================= */
+/* =========================
+   PARTY ANIMATION
+========================= */
 
 .party{
-    min-height:570px;
+    min-height:600px;
     border-radius:30px;
     overflow:hidden;
     position:relative;
+
     background:
-    radial-gradient(circle at 12% 20%,#ffb0bf 0 4px,transparent 5px),
-    radial-gradient(circle at 88% 18%,#ffd0d8 0 4px,transparent 5px),
-    linear-gradient(180deg,#710b25,#bd3152);
+        radial-gradient(circle at 12% 20%,#ffb0bf 0 4px,transparent 5px),
+        radial-gradient(circle at 88% 18%,#ffd0d8 0 4px,transparent 5px),
+        linear-gradient(180deg,#710b25,#bd3152);
 }
 
 .party-title{
     position:relative;
-    z-index:20;
+    z-index:30;
+
     text-align:center;
     color:white;
+
     padding:28px 15px;
+
     font-family:"Caveat",cursive;
     font-size:33px;
 }
 
-.party-cat{
-    position:absolute;
-    width:180px;
-    z-index:10;
-    animation:catBounce 1.5s ease-in-out infinite;
-}
-
-.party-cat:nth-of-type(1){
-    left:0;
-    bottom:5px;
-}
-
-.party-cat:nth-of-type(2){
-    right:-5px;
-    bottom:0;
-    animation-delay:.3s;
-}
-
-.party-cat:nth-of-type(3){
-    left:32%;
-    bottom:-5px;
-    animation-delay:.7s;
-}
-
-.party-cat:nth-of-type(4){
-    right:25%;
-    top:125px;
-    transform:scale(.75);
-    animation-delay:.5s;
-}
-
-@keyframes catBounce{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-24px)}
-}
-
-.party-cat:nth-of-type(4){
-    animation-name:smallBounce;
-}
-
-@keyframes smallBounce{
-    0%,100%{transform:scale(.75) translateY(0)}
-    50%{transform:scale(.75) translateY(-18px)}
-}
-
-/* CAKE */
+/* =========================
+   CAKE
+========================= */
 
 .cake{
     position:absolute;
-    width:165px;
-    height:90px;
+
+    width:180px;
+    height:100px;
+
     left:50%;
-    top:245px;
+    top:250px;
+
     transform:translateX(-50%);
-    background:linear-gradient(#ffb5c2 0 65%,#df4e70 65%);
+
+    background:
+        linear-gradient(
+            #ffb5c2 0 65%,
+            #df4e70 65%
+        );
+
     border:5px solid #551323;
     border-radius:18px;
-    z-index:8;
+
+    z-index:12;
+
     box-shadow:0 10px 0 rgba(70,0,15,.15);
 }
 
 .cake:before{
     content:"";
+
     position:absolute;
-    width:145px;
-    height:30px;
+
+    width:160px;
+    height:35px;
+
     left:5px;
-    top:-25px;
+    top:-28px;
+
     background:#fff2f0;
+
     border:5px solid #551323;
     border-radius:50%;
 }
 
-.candle{
+.cake:after{
+    content:"";
+
     position:absolute;
-    width:10px;
-    height:35px;
-    top:-60px;
-    background:#ffd6dd;
-    border:2px solid #551323;
-    border-radius:5px;
+
+    width:100%;
+    height:13px;
+
+    left:0;
+    bottom:20px;
+
+    background:#ffcfda;
 }
 
-.candle:nth-child(1){left:35px}
-.candle:nth-child(2){left:75px}
-.candle:nth-child(3){right:35px}
+.candle{
+    position:absolute;
+
+    width:11px;
+    height:37px;
+
+    top:-62px;
+
+    background:#ffd6dd;
+
+    border:2px solid #551323;
+    border-radius:5px;
+
+    z-index:5;
+}
+
+.candle:nth-child(1){
+    left:38px;
+}
+
+.candle:nth-child(2){
+    left:84px;
+}
+
+.candle:nth-child(3){
+    right:38px;
+}
 
 .flame{
     position:absolute;
-    width:14px;
-    height:20px;
-    top:-20px;
+
+    width:15px;
+    height:21px;
+
+    top:-21px;
     left:-4px;
+
     border-radius:70% 30% 70% 30%;
+
     background:#ffd65c;
+
     animation:flicker .5s infinite alternate;
 }
 
 @keyframes flicker{
-    from{transform:scale(.8) rotate(-5deg)}
-    to{transform:scale(1.1) rotate(5deg)}
+    from{
+        transform:scale(.8) rotate(-5deg);
+    }
+    to{
+        transform:scale(1.1) rotate(5deg);
+    }
 }
 
-/* CONFETTI */
+/* =========================
+   PARTY CATS
+========================= */
+
+.party-cat{
+    position:absolute;
+    width:180px;
+    z-index:15;
+
+    animation:catBounce 1.5s ease-in-out infinite;
+}
+
+.party-cat.one{
+    left:-10px;
+    bottom:0;
+}
+
+.party-cat.two{
+    right:-10px;
+    bottom:0;
+    animation-delay:.3s;
+}
+
+.party-cat.three{
+    left:31%;
+    bottom:-3px;
+    animation-delay:.7s;
+}
+
+.party-cat.four{
+    right:25%;
+    top:135px;
+    transform:scale(.72);
+    animation-name:smallBounce;
+    animation-delay:.5s;
+}
+
+@keyframes catBounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-24px);
+    }
+}
+
+@keyframes smallBounce{
+    0%,100%{
+        transform:scale(.72) translateY(0);
+    }
+
+    50%{
+        transform:scale(.72) translateY(-18px);
+    }
+}
+
+/* =========================
+   CONFETTI
+========================= */
 
 .confetti{
     position:absolute;
+
     top:-20px;
+
     width:8px;
     height:20px;
+
     background:#ffb5c5;
+
     animation:fall 3s linear infinite;
+
+    z-index:25;
 }
 
-.confetti:nth-child(1){left:10%;animation-delay:.2s}
-.confetti:nth-child(2){left:25%;animation-delay:1s}
-.confetti:nth-child(3){left:43%;animation-delay:.5s}
-.confetti:nth-child(4){left:61%;animation-delay:1.4s}
-.confetti:nth-child(5){left:78%;animation-delay:.7s}
-.confetti:nth-child(6){left:91%;animation-delay:1.8s}
+.confetti:nth-child(1){
+    left:10%;
+    animation-delay:.2s;
+}
+
+.confetti:nth-child(2){
+    left:25%;
+    animation-delay:1s;
+}
+
+.confetti:nth-child(3){
+    left:43%;
+    animation-delay:.5s;
+}
+
+.confetti:nth-child(4){
+    left:61%;
+    animation-delay:1.4s;
+}
+
+.confetti:nth-child(5){
+    left:78%;
+    animation-delay:.7s;
+}
+
+.confetti:nth-child(6){
+    left:91%;
+    animation-delay:1.8s;
+}
 
 @keyframes fall{
     to{
@@ -888,7 +1148,28 @@ button{
     }
 }
 
-/* ================= FINAL GIFT ================= */
+/* =========================
+   FLOWER DECOR
+========================= */
+
+.party-flower{
+    position:absolute;
+    z-index:20;
+}
+
+.party-flower.left{
+    left:22%;
+    top:225px;
+}
+
+.party-flower.right{
+    right:18%;
+    top:230px;
+}
+
+/* =========================
+   FINAL GIFT
+========================= */
 
 .final{
     text-align:center;
@@ -896,72 +1177,171 @@ button{
 
 .gift{
     width:270px;
-    height:210px;
+    height:240px;
+
     position:relative;
+
     margin:35px auto;
 }
 
 .gift-body{
     position:absolute;
+
     width:230px;
     height:155px;
+
     bottom:0;
     left:20px;
+
     border:5px solid #541324;
     border-radius:10px;
+
     background:
-    linear-gradient(90deg,transparent 44%,#f39aac 44% 56%,transparent 56%),
-    #b72245;
+        linear-gradient(
+            90deg,
+            transparent 44%,
+            #f39aac 44% 56%,
+            transparent 56%
+        ),
+        #b72245;
+
+    z-index:2;
 }
 
 .gift-lid{
     position:absolute;
+
     width:270px;
     height:50px;
-    top:18px;
+
+    top:35px;
     left:0;
+
     border:5px solid #541324;
     border-radius:10px;
+
     background:
-    linear-gradient(90deg,transparent 44%,#f39aac 44% 56%,transparent 56%),
-    #d33d5d;
-    transform-origin:bottom;
+        linear-gradient(
+            90deg,
+            transparent 44%,
+            #f39aac 44% 56%,
+            transparent 56%
+        ),
+        #d33d5d;
+
+    transform-origin:center bottom;
+
     transition:.9s ease;
-    z-index:5;
+
+    z-index:8;
 }
 
 .gift.open .gift-lid{
-    transform:rotateX(-110deg) translateY(-30px);
+    transform:
+        rotateX(-110deg)
+        translateY(-30px);
 }
+
+/* Ribbon bow */
+
+.bow-left,
+.bow-right{
+    position:absolute;
+
+    width:65px;
+    height:42px;
+
+    top:-30px;
+
+    background:#f39aac;
+
+    border:4px solid #541324;
+
+    z-index:10;
+}
+
+.bow-left{
+    left:70px;
+    border-radius:70% 20% 70% 30%;
+    transform:rotate(-25deg);
+}
+
+.bow-right{
+    right:70px;
+    border-radius:20% 70% 30% 70%;
+    transform:rotate(25deg);
+}
+
+.bow-center{
+    position:absolute;
+
+    width:28px;
+    height:28px;
+
+    top:-18px;
+    left:121px;
+
+    border-radius:50%;
+
+    background:#ffd1d9;
+
+    border:4px solid #541324;
+
+    z-index:12;
+}
+
+/* Tiny cats inside gift */
 
 .gift-cats{
     position:absolute;
-    z-index:4;
+
+    z-index:5;
+
     left:50%;
-    top:50px;
+    top:55px;
+
     opacity:0;
-    transform:translateX(-50%) scale(.55);
+
+    transform:
+        translateX(-50%)
+        scale(.55);
+
     transition:.8s ease;
 }
 
 .gift.open .gift-cats{
     opacity:1;
-    transform:translateX(-50%) scale(.65);
+
+    transform:
+        translateX(-50%)
+        scale(.65)
+        translateY(-35px);
 }
+
+/* =========================
+   FINAL MESSAGE
+========================= */
 
 .final-message{
     display:none;
+
     padding:25px;
+
     border-radius:23px;
+
     background:#fff0f3;
+
     border:2px dashed #d55b76;
+
     font-family:"Caveat",cursive;
+
     font-size:25px;
     line-height:1.35;
 }
 
 .final-message.show{
     display:block;
+
     animation:pop .7s ease;
 }
 
@@ -970,6 +1350,7 @@ button{
         opacity:0;
         transform:translateY(20px) scale(.95);
     }
+
     to{
         opacity:1;
         transform:translateY(0) scale(1);
@@ -978,12 +1359,17 @@ button{
 
 .labu-btn{
     display:none;
+
     margin:20px auto 0;
+
     border:0;
     border-radius:999px;
+
     padding:13px 25px;
+
     background:#761029;
     color:white;
+
     font-weight:800;
 }
 
@@ -993,15 +1379,20 @@ button{
 
 .labu{
     display:none;
+
     font-family:"Caveat",cursive;
-    font-size:70px;
+
+    font-size:75px;
     font-weight:700;
+
     color:#a7193d;
+
     margin-top:15px;
 }
 
 .labu.show{
     display:block;
+
     animation:labu .8s cubic-bezier(.2,1.5,.5,1);
 }
 
@@ -1010,13 +1401,16 @@ button{
         opacity:0;
         transform:scale(.1) rotate(-20deg);
     }
+
     to{
         opacity:1;
         transform:scale(1) rotate(0);
     }
 }
 
-/* ================= MOBILE ================= */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -1037,40 +1431,54 @@ button{
     }
 
     .party{
-        min-height:560px;
+        min-height:580px;
     }
 
     .party-cat{
-        transform:scale(.72);
+        transform:scale(.68);
     }
 
-    .party-cat:nth-of-type(2){
-        transform:scale(.72);
+    .party-cat.two{
+        transform:scale(.68);
     }
 
-    .party-cat:nth-of-type(3){
-        left:28%;
-        transform:scale(.72);
+    .party-cat.three{
+        left:25%;
+        transform:scale(.68);
     }
 
-    .party-cat:nth-of-type(4){
-        right:17%;
+    .party-cat.four{
+        right:15%;
+    }
+
+    .cake{
+        top:265px;
+    }
+
+    .party-flower.left{
+        left:12%;
+    }
+
+    .party-flower.right{
+        right:10%;
     }
 }
 </style>
 </head>
 
+
 <body>
 
+<!-- Floating decorations -->
 <div class="floating-heart fh1">♡</div>
 <div class="floating-heart fh2">♡</div>
 <div class="floating-heart fh3">♡</div>
 <div class="floating-heart fh4">♡</div>
 
 
-<!-- ======================================================
-     PASSWORD
-====================================================== -->
+<!-- =====================================================
+     1. PASSWORD SCREEN
+===================================================== -->
 
 <section id="passwordScreen" class="screen active">
 
@@ -1093,8 +1501,10 @@ button{
                 </div>
 
                 <div class="body"></div>
+
                 <div class="paw left"></div>
                 <div class="paw right"></div>
+
                 <div class="tail"></div>
 
             </div>
@@ -1117,6 +1527,8 @@ button{
             placeholder="••••••"
         >
 
+        <br><br>
+
         <button class="primary" onclick="checkPassword()">
             OPEN THE GIFT
         </button>
@@ -1132,9 +1544,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     ENTRANCE
-====================================================== -->
+<!-- =====================================================
+     2. ENTRANCE
+===================================================== -->
 
 <section id="entranceScreen" class="screen">
 
@@ -1157,8 +1569,10 @@ button{
                 </div>
 
                 <div class="body"></div>
+
                 <div class="paw left"></div>
                 <div class="paw right"></div>
+
                 <div class="tail"></div>
 
                 <div class="package"></div>
@@ -1182,9 +1596,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     MAIN
-====================================================== -->
+<!-- =====================================================
+     3. MAIN PAGE
+===================================================== -->
 
 <section id="mainScreen" class="screen">
 
@@ -1209,8 +1623,10 @@ button{
                     </div>
 
                     <div class="body"></div>
+
                     <div class="paw left"></div>
                     <div class="paw right"></div>
+
                     <div class="tail"></div>
 
                     <div class="bouquet">
@@ -1232,7 +1648,9 @@ button{
 
             </div>
 
-            <h1>HAPPY BIRTHDAY, ALLIE ♡</h1>
+            <h1>
+                HAPPY BIRTHDAY, ALLIE ♡
+            </h1>
 
             <p>
                 I couldn't send you an actual gift through the screen,
@@ -1244,29 +1662,78 @@ button{
 
         <div class="choices">
 
-            <button class="choice" onclick="showScreen('letterScreen')">
-                <h2>FOR ALLIE ♡</h2>
-                <p>A little letter I wanted you to have.</p>
+            <button
+                class="choice"
+                onclick="showScreen('letterScreen')">
+
+                <h2>
+                    FOR ALLIE ♡
+                </h2>
+
+                <p>
+                    A little letter I wanted you to have.
+                </p>
+
             </button>
 
-            <button class="choice" onclick="showScreen('songScreen')">
-                <h2>SONG ♡</h2>
-                <p>A little song for today's special day.</p>
+
+            <button
+                class="choice"
+                onclick="showScreen('songScreen')">
+
+                <h2>
+                    SONG ♡
+                </h2>
+
+                <p>
+                    A little song for today's special day.
+                </p>
+
             </button>
 
-            <button class="choice" onclick="showScreen('thoughtScreen')">
-                <h2>RANDOM THOUGHTS</h2>
-                <p>A few thoughts that crossed my mind.</p>
+
+            <button
+                class="choice"
+                onclick="showScreen('thoughtScreen')">
+
+                <h2>
+                    RANDOM THOUGHTS
+                </h2>
+
+                <p>
+                    A few thoughts that crossed my mind.
+                </p>
+
             </button>
 
-            <button class="choice" onclick="showScreen('animationScreen')">
-                <h2>ANIMATION ♡</h2>
-                <p>The cats have prepared something.</p>
+
+            <button
+                class="choice"
+                onclick="showScreen('animationScreen')">
+
+                <h2>
+                    ANIMATION ♡
+                </h2>
+
+                <p>
+                    The cats have prepared something.
+                </p>
+
             </button>
 
-            <button class="choice" onclick="showScreen('finalScreen')">
-                <h2>ONE LAST THING ♡</h2>
-                <p>Before you go... there's one more little surprise.</p>
+
+            <button
+                class="choice"
+                onclick="showScreen('finalScreen')">
+
+                <h2>
+                    ONE LAST THING ♡
+                </h2>
+
+                <p>
+                    Before you go... there's one more little surprise.
+                </p>
+
             </button>
 
         </div>
@@ -1276,9 +1743,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     LETTER
-====================================================== -->
+<!-- =====================================================
+     4. LETTER
+===================================================== -->
 
 <section id="letterScreen" class="screen">
 
@@ -1287,19 +1754,31 @@ button{
         <div class="subcard letter">
 
             <div style="text-align:right">
+
                 <div class="flower">
+
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
+
                     <div class="center"></div>
+
                 </div>
+
             </div>
 
-            <h2>FOR ALLIE ♡</h2>
 
-            <p>Hello there, Allie.</p>
+            <h2>
+                FOR ALLIE ♡
+            </h2>
+
+
+            <p>
+                Hello there, Allie.
+            </p>
+
 
             <p>
                 I just wanted to greet you a happy birthday. You know,
@@ -1310,6 +1789,7 @@ button{
                 a great friend to me.
             </p>
 
+
             <p>
                 Our conversations, especially the random and funny things
                 we talk about, always manage to make me smile. I'm really
@@ -1319,6 +1799,7 @@ button{
                 differently around you.
             </p>
 
+
             <p>
                 It's your birthday now, so I really hope you have a happy
                 day. Smile, eat well, enjoy yourself, and do the things
@@ -1326,6 +1807,7 @@ button{
                 get difficult, please remember that I'm always here.
                 You can always talk to me whenever you need someone.
             </p>
+
 
             <p>
                 Do you know I still remember the day you first talked to
@@ -1341,6 +1823,7 @@ button{
                 talking to.
             </p>
 
+
             <p>
                 And I was really happy that you never ghosted me. Please
                 keep being yourself, Allie. Keep being silly, keep being
@@ -1353,6 +1836,7 @@ button{
                 That's why I watch them all.
             </p>
 
+
             <p>
                 I hope we stay friends for a really long time. I hope
                 there will never be a time when we leave each other
@@ -1363,6 +1847,7 @@ button{
                 remain friends.
             </p>
 
+
             <p>
                 I hope you can do that because, honestly, I can't imagine
                 just losing you and never talking to you again. This
@@ -1371,7 +1856,11 @@ button{
                 about, and I'm really grateful that I got to meet you.
             </p>
 
-            <p>That's it.</p>
+
+            <p>
+                That's it.
+            </p>
+
 
             <p>
                 Happy birthday, Allie. I hope you have a really good day,
@@ -1380,12 +1869,20 @@ button{
                 don't ever feel like you have to change who you are.
             </p>
 
-            <p class="signature">— shen</p>
+
+            <p class="signature">
+                — shen
+            </p>
 
         </div>
 
-        <button class="primary back" onclick="showScreen('mainScreen')">
+
+        <button
+            class="primary back"
+            onclick="showScreen('mainScreen')">
+
             ← Back to Choices
+
         </button>
 
     </div>
@@ -1393,9 +1890,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     SONG
-====================================================== -->
+<!-- =====================================================
+     5. SONG
+===================================================== -->
 
 <section id="songScreen" class="screen">
 
@@ -1407,36 +1904,60 @@ button{
                 For Today's Song ♡
             </h1>
 
+
             <p class="note">
-                I wanted this song to be part of this little birthday thing too.
+                I wanted this song to be part of this little birthday
+                thing too.
             </p>
+
 
             <div class="player">
 
                 <div class="album"></div>
 
+
                 <div class="song-name">
                     Heart to Heart
                 </div>
+
 
                 <div>
                     Mac DeMarco
                 </div>
 
-                <button class="play" onclick="playSong()">
+
+                <button
+                    class="play"
+                    onclick="playSong()">
+
                     PLAY ♡
+
                 </button>
 
+
                 <div id="lyrics" class="lyrics">
+    <p>
+        To all the days we were together<br>
+        To all the time we were apart<br>
+        Heart to heart
+    </p>
+</div>
+
                     <em>
-                        Your lyric excerpt will appear here.
+                        ♡ A little song for a very special day ♡
                     </em>
+
                 </div>
 
             </div>
 
-            <button class="primary back" onclick="showScreen('mainScreen')">
+
+            <button
+                class="primary back"
+                onclick="showScreen('mainScreen')">
+
                 ← Back to Choices
+
             </button>
 
         </div>
@@ -1446,9 +1967,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     RANDOM THOUGHTS
-====================================================== -->
+<!-- =====================================================
+     6. RANDOM THOUGHTS
+===================================================== -->
 
 <section id="thoughtScreen" class="screen">
 
@@ -1460,28 +1981,47 @@ button{
                 Random Thoughts ♡
             </h1>
 
+
             <div class="thoughts">
 
                 <div class="thought">
-                    <div class="number">01</div>
-                    Imagine if we never met online… your birthday would just
-                    be another random date on my calendar.
+
+                    <div class="number">
+                        01
+                    </div>
+
+                    Imagine if we never met online… your birthday would
+                    just be another random date on my calendar.
+
                 </div>
 
+
                 <div class="thought">
-                    <div class="number">02</div>
+
+                    <div class="number">
+                        02
+                    </div>
+
                     I wonder how different this year would’ve been if we
                     never randomly crossed paths online.
+
                 </div>
 
+
                 <div class="thought">
-                    <div class="number">03</div>
+
+                    <div class="number">
+                        03
+                    </div>
+
                     It’s kinda crazy that today is just another day for the
                     whole world, but for me, it’s the day someone really
                     special was born.
+
                 </div>
 
             </div>
+
 
             <div style="text-align:center;margin-top:25px">
 
@@ -1492,6 +2032,7 @@ button{
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
+
                     <div class="center"></div>
 
                 </div>
@@ -1500,8 +2041,13 @@ button{
 
         </div>
 
-        <button class="primary back" onclick="showScreen('mainScreen')">
+
+        <button
+            class="primary back"
+            onclick="showScreen('mainScreen')">
+
             ← Back to Choices
+
         </button>
 
     </div>
@@ -1509,9 +2055,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     ANIMATION
-====================================================== -->
+<!-- =====================================================
+     7. ANIMATION
+===================================================== -->
 
 <section id="animationScreen" class="screen">
 
@@ -1522,6 +2068,9 @@ button{
             <div class="party-title">
                 The cats want to celebrate your birthday! ♡
             </div>
+
+
+            <!-- CAKE -->
 
             <div class="cake">
 
@@ -1540,9 +2089,47 @@ button{
             </div>
 
 
-            <!-- CAT ONE -->
+            <!-- FLOWER 1 -->
 
-            <div class="party-cat">
+            <div class="party-flower left">
+
+                <div class="flower">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="center"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FLOWER 2 -->
+
+            <div class="party-flower right">
+
+                <div class="flower">
+
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+
+                    <div class="center"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CAT 1 -->
+
+            <div class="party-cat one">
 
                 <div class="cat">
 
@@ -1559,8 +2146,10 @@ button{
                     </div>
 
                     <div class="body"></div>
+
                     <div class="paw left"></div>
                     <div class="paw right"></div>
+
                     <div class="tail"></div>
 
                 </div>
@@ -1568,9 +2157,9 @@ button{
             </div>
 
 
-            <!-- CAT TWO -->
+            <!-- CAT 2 -->
 
-            <div class="party-cat">
+            <div class="party-cat two">
 
                 <div class="cat">
 
@@ -1587,8 +2176,10 @@ button{
                     </div>
 
                     <div class="body"></div>
+
                     <div class="paw left"></div>
                     <div class="paw right"></div>
+
                     <div class="tail"></div>
 
                 </div>
@@ -1596,9 +2187,9 @@ button{
             </div>
 
 
-            <!-- CAT THREE -->
+            <!-- CAT 3 -->
 
-            <div class="party-cat">
+            <div class="party-cat three">
 
                 <div class="cat">
 
@@ -1615,8 +2206,10 @@ button{
                     </div>
 
                     <div class="body"></div>
+
                     <div class="paw left"></div>
                     <div class="paw right"></div>
+
                     <div class="tail"></div>
 
                 </div>
@@ -1624,9 +2217,9 @@ button{
             </div>
 
 
-            <!-- CAT FOUR -->
+            <!-- CAT 4 -->
 
-            <div class="party-cat">
+            <div class="party-cat four">
 
                 <div class="cat">
 
@@ -1643,14 +2236,18 @@ button{
                     </div>
 
                     <div class="body"></div>
+
                     <div class="paw left"></div>
                     <div class="paw right"></div>
+
                     <div class="tail"></div>
 
                 </div>
 
             </div>
 
+
+            <!-- CONFETTI -->
 
             <div class="confetti"></div>
             <div class="confetti"></div>
@@ -1661,8 +2258,13 @@ button{
 
         </div>
 
-        <button class="primary back" onclick="showScreen('mainScreen')">
+
+        <button
+            class="primary back"
+            onclick="showScreen('mainScreen')">
+
             ← Back to Choices
+
         </button>
 
     </div>
@@ -1670,9 +2272,9 @@ button{
 </section>
 
 
-<!-- ======================================================
-     ONE LAST THING
-====================================================== -->
+<!-- =====================================================
+     8. ONE LAST THING
+===================================================== -->
 
 <section id="finalScreen" class="screen">
 
@@ -1684,22 +2286,41 @@ button{
                 One Last Thing ♡
             </h1>
 
+
             <p class="note">
                 Before you go... there's one more little surprise.
             </p>
 
-            <button id="lastButton"
-                    class="primary"
-                    onclick="openGift()">
+
+            <br>
+
+
+            <button
+                id="lastButton"
+                class="primary"
+                onclick="openGift()">
+
                 CLICK THE LAST ONE ♡
+
             </button>
 
 
-            <div id="gift" class="gift">
+            <!-- GIFT BOX -->
+
+            <div
+                id="gift"
+                class="gift">
 
                 <div class="gift-lid"></div>
 
+                <div class="bow-left"></div>
+                <div class="bow-right"></div>
+                <div class="bow-center"></div>
+
                 <div class="gift-body"></div>
+
+
+                <!-- CAT INSIDE BOX -->
 
                 <div class="gift-cats">
 
@@ -1718,8 +2339,10 @@ button{
                         </div>
 
                         <div class="body"></div>
+
                         <div class="paw left"></div>
                         <div class="paw right"></div>
+
                         <div class="tail"></div>
 
                     </div>
@@ -1729,40 +2352,64 @@ button{
             </div>
 
 
-            <div id="finalMessage" class="final-message">
+            <!-- FINAL MESSAGE -->
 
-                <div class="flower" style="margin:auto auto 15px">
+            <div
+                id="finalMessage"
+                class="final-message">
+
+                <div class="flower"
+                     style="margin:auto auto 15px">
 
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
                     <div class="petal"></div>
+
                     <div class="center"></div>
 
                 </div>
+
 
                 Happy birthdayyy, Allie! I hope you have such a wonderful
                 day today and that you get to spend it doing things that
                 make you happy. Please always remember to take care of
                 yourself and get enough rest. Enjoy your dayyy! ♡
 
-                <button id="labuButton"
-                        class="labu-btn"
-                        onclick="showLabu()">
+
+                <br><br>
+
+
+                <button
+                    id="labuButton"
+                    class="labu-btn"
+                    onclick="showLabu()">
+
                     CLICK ONE MORE TIME
+
                 </button>
 
-                <div id="labu" class="labu">
+
+                <div
+                    id="labu"
+                    class="labu">
+
                     LABU
+
                 </div>
 
             </div>
 
         </div>
 
-        <button class="primary back" onclick="showScreen('mainScreen')">
+
+        <button
+            class="primary back"
+            onclick="showScreen('mainScreen')">
+
             ← Back to Choices
+
         </button>
 
     </div>
@@ -1772,46 +2419,60 @@ button{
 
 <script>
 
-/* ================= SCREEN NAVIGATION ================= */
+/* =====================================================
+   SCREEN NAVIGATION
+===================================================== */
 
 function showScreen(id){
 
-    document.querySelectorAll(".screen").forEach(screen=>{
+    document.querySelectorAll(".screen").forEach(screen => {
         screen.classList.remove("active");
     });
 
-    setTimeout(()=>{
-        const target=document.getElementById(id);
+    setTimeout(() => {
+
+        const target = document.getElementById(id);
 
         if(target){
+
             target.classList.add("active");
+
             window.scrollTo({
                 top:0,
                 behavior:"smooth"
             });
+
         }
+
     },80);
 }
 
 
-/* ================= PASSWORD ================= */
+/* =====================================================
+   PASSWORD
+===================================================== */
 
 function checkPassword(){
 
-    const input=document.getElementById("password");
-    const error=document.getElementById("error");
+    const input =
+        document.getElementById("password");
 
-    if(input.value==="122510"){
+    const error =
+        document.getElementById("error");
 
-        error.textContent="";
+
+    if(input.value === "122510"){
+
+        error.textContent = "";
 
         showScreen("entranceScreen");
 
     }else{
 
-        error.textContent="Wrong password... try again ♡";
+        error.textContent =
+            "Wrong password... try again ♡";
 
-        input.value="";
+        input.value = "";
 
         input.animate(
             [
@@ -1831,39 +2492,53 @@ function checkPassword(){
 }
 
 
-/* ENTER PASSWORD WITH ENTER */
+/* =====================================================
+   ENTER PASSWORD WITH ENTER
+===================================================== */
 
-document.getElementById("password").addEventListener(
-    "keydown",
-    function(event){
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event){
 
-        if(event.key==="Enter"){
-            checkPassword();
+            if(event.key === "Enter"){
+                checkPassword();
+            }
+
         }
-
-    }
-);
+    );
 
 
-/* ================= SONG ================= */
+/* =====================================================
+   SONG
+===================================================== */
 
-let songOpened=false;
+let songOpened = false;
 
 function playSong(){
 
-    const lyrics=document.getElementById("lyrics");
-    const button=document.querySelector(".play");
+    const lyrics =
+        document.getElementById("lyrics");
+
+    const button =
+        document.querySelector(".play");
+
 
     lyrics.classList.add("show");
 
+
     if(!songOpened){
 
-        button.textContent="PLAYING ♡";
-        songOpened=true;
+        button.textContent =
+            "PLAYING ♡";
+
+        songOpened = true;
 
     }else{
 
-        button.textContent="PLAY AGAIN ♡";
+        button.textContent =
+            "PLAY AGAIN ♡";
 
         lyrics.animate(
             [
@@ -1880,22 +2555,35 @@ function playSong(){
 }
 
 
-/* ================= GIFT ================= */
+/* =====================================================
+   OPEN GIFT
+===================================================== */
 
 function openGift(){
 
-    const gift=document.getElementById("gift");
-    const message=document.getElementById("finalMessage");
-    const labuButton=document.getElementById("labuButton");
-    const lastButton=document.getElementById("lastButton");
+    const gift =
+        document.getElementById("gift");
+
+    const message =
+        document.getElementById("finalMessage");
+
+    const labuButton =
+        document.getElementById("labuButton");
+
+    const lastButton =
+        document.getElementById("lastButton");
+
 
     gift.classList.add("open");
 
-    lastButton.textContent="OPENED ♡";
+    lastButton.textContent =
+        "OPENED ♡";
 
-    setTimeout(()=>{
+
+    setTimeout(() => {
 
         message.classList.add("show");
+
         labuButton.classList.add("show");
 
     },850);
@@ -1903,45 +2591,62 @@ function openGift(){
 }
 
 
-/* ================= LABU ================= */
+/* =====================================================
+   LABU
+===================================================== */
 
 function showLabu(){
 
-    const labu=document.getElementById("labu");
+    const labu =
+        document.getElementById("labu");
+
+    const button =
+        document.getElementById("labuButton");
+
 
     labu.classList.add("show");
 
-    document.getElementById("labuButton").textContent="♡";
+    button.textContent = "♡";
 
 }
 
 
-/* ================= LITTLE FLOWER INTERACTION ================= */
+/* =====================================================
+   FLOWER CLICK ANIMATION
+===================================================== */
 
-document.querySelectorAll(".flower").forEach(flower=>{
+document
+    .querySelectorAll(".flower")
+    .forEach(flower => {
 
-    flower.addEventListener("click",function(){
+        flower.addEventListener(
+            "click",
+            function(){
 
-        this.animate(
-            [
-                {
-                    transform:"scale(1) rotate(0)"
-                },
-                {
-                    transform:"scale(1.15) rotate(8deg)"
-                },
-                {
-                    transform:"scale(1) rotate(0)"
-                }
-            ],
-            {
-                duration:500
+                this.animate(
+                    [
+                        {
+                            transform:
+                                "scale(1) rotate(0)"
+                        },
+                        {
+                            transform:
+                                "scale(1.15) rotate(8deg)"
+                        },
+                        {
+                            transform:
+                                "scale(1) rotate(0)"
+                        }
+                    ],
+                    {
+                        duration:500
+                    }
+                );
+
             }
         );
 
     });
-
-});
 
 </script>
 
